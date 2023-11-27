@@ -1,0 +1,38 @@
+.side_menu {
+    width: 15%;
+    background-color: #F9F9F9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5% 0;
+    max-width: 200px;
+    min-width: 100px;
+}
+
+.logo_bg {
+    width: 65%;
+    background-color: rgba(0, 0, 0, 0.685);
+    border-radius: 20%;
+    overflow: hidden;
+}
+
+.logo {
+    width: 100%;
+}
+
+.categories {
+    margin-top: 30%;
+   
+}
+
+.categories p {
+    color: #595959;
+    display: flex;
+    align-items: flex-end;
+}
+
+.icon {
+    color: #977CCF;
+    margin-right: 2%;
+}

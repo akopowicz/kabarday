@@ -1,0 +1,17 @@
+.table {
+    background-color: #fff;
+    width: 100%;
+    padding: 5%;
+    border-radius: 10px;
+}
+
+.thead {
+    color: #595959;
+   font-size: 16px;
+   
+}
+
+.tbody {
+    text-align: center;
+    color: #6C6C6C;
+}

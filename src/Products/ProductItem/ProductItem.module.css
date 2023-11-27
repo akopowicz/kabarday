@@ -1,0 +1,49 @@
+.itemWrapper {
+    position: relative;
+    width: 85%;
+    margin: 5% 0;
+    background-color: rgb(255, 255, 255);
+    /* max-height: ; */
+}
+
+.mainImage {
+    position: relative;
+    width: 100%;
+}
+
+.hoverImage {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: .2s;
+}
+
+.hoverImage:hover {
+    opacity: 1;
+}
+
+.productName {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.productPrice {
+    font-size: 1rem;
+    margin: 2% 0;
+}
+
+@media (min-width: 768px) {
+    .itemWrapper {
+        width: 40%;
+        flex-shrink: 0;
+    }
+}
+
+@media (min-width: 1000px) {
+    .itemWrapper {
+        width: 22%;
+        flex-shrink: 0;
+    }
+}

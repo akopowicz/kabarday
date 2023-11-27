@@ -1,0 +1,24 @@
+.productsMainWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.productsWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* overflow: hidden; */
+    align-items: center;
+    max-width: 1400px;
+
+}
+
+@media (min-width: 768px) {
+    .productsWrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}

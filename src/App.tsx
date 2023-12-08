@@ -14,9 +14,10 @@ import {
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { RemoveProduct } from './Panel/RemoveProduct/RemoveProduct';
 import { EditProduct } from './Panel/EditProduct/EditProduct';
-import {ProtectedWrapper} from './ProtectedWrapper/ProtectedWrapper';
+import { ProtectedWrapper } from './ProtectedWrapper/ProtectedWrapper';
 import { Products } from './Products/Products';
 import { ProductCard } from './Products/ProductCard/ProductCard';
+import { Footer } from './Footer/Footer';
 
 const queryClient = new QueryClient({
   queryCache: new QueryCache(),
@@ -44,7 +45,7 @@ function App() {
             <Route path="/panel">
               <Route element={<ProtectedWrapper role={"admin"} ><AdminPanel /></ProtectedWrapper>} index />
               <Route path="/panel/addProuct" element={<AddNewProduct />} />
-             
+
             </Route>
             <Route path="/product">
               <Route path="/product/:id/remove" element={<RemoveProduct />} />
@@ -54,10 +55,11 @@ function App() {
               <Route index element={<Products />} />
               <Route path="/products/:id" element={<ProductCard />} />
             </Route>
-        
+
             <Route element={<RegisterComponent />} path="/register" />
             <Route element={<div>404</div>} path="*" />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </QueryClientProvider>
       

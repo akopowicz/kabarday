@@ -58,7 +58,7 @@ export const getProducts = async (search?: string, id?: string) => {
   let query = supabase.from('products').select(`
   *, 
   product_type ( type_name, id ),
-  photos (product_id, id, photo_link, photo_type)
+  photos (product_id, id, photo_link)
 `)
 
   console.log(id)
@@ -116,7 +116,7 @@ export const getProduct = async (id: string) => {
   const { data: product, error } = await supabase.from('products').select(`
   *, 
   product_type ( type_name, id ),
-  photos (product_id, id, photo_link, photo_type)
+  photos (product_id, id, photo_link)
 `)
  .eq('id', id)
 
@@ -130,7 +130,7 @@ export const getSimilarProducts = async (id: string) => {
   const { data: product, error } = await supabase.from('products').select(`
   *, 
   product_type ( type_name, id ),
-  photos (product_id, id, photo_link, photo_type)
+  photos (product_id, id, photo_link)
 `)
  .neq('id', id)
  .range(0, 4)

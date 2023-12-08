@@ -64,10 +64,19 @@
 
 @media (min-width: 768px) {
     
+    .footer {
+        text-align: left;
+    }
+
     .footerWrapper {
         display: flex;
         width: 95%;
         justify-content: space-between;
+    }
+
+    .line {
+        left: 0;
+        transform: unset;
     }
 
     .footerNavigationWrapper {

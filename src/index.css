@@ -77,6 +77,10 @@ button:focus-visible {
   color: #1A1A1A;
 }
 
+#root {
+  overflow-y: hidden;
+}
+
 img {
   display: block;
 }

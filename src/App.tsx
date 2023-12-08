@@ -18,6 +18,7 @@ import { ProtectedWrapper } from './ProtectedWrapper/ProtectedWrapper';
 import { Products } from './Products/Products';
 import { ProductCard } from './Products/ProductCard/ProductCard';
 import { Footer } from './Footer/Footer';
+import {Navigation} from './Navigation/Navigation';
 
 const queryClient = new QueryClient({
   queryCache: new QueryCache(),
@@ -39,7 +40,7 @@ function App() {
           <ReactQueryDevtools position="top-right" initialIsOpen={false} />
         )}
         <BrowserRouter>
-
+          <Navigation />
           <Routes>
             <Route index element={<LogIn />} />
             <Route path="/panel">

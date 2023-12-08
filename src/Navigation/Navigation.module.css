@@ -1,0 +1,21 @@
+.navigation {
+    position: relative;
+    width: 100%;
+    background-color: pink;
+    overflow: hidden;
+    /* display: flex;
+    justify-content: center; */
+}
+
+.navigationWrapper {
+    display: flex;
+    background-color: antiquewhite;
+    justify-content: space-around;
+}
+
+
+
+.logo {
+    background-color: rgba(0, 0, 0, 0.743);
+    width: 20%;
+}

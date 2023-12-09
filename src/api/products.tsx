@@ -139,3 +139,16 @@ export const getSimilarProducts = async (id: string) => {
   console.log(product)
   return product
 }
+
+export const getHomeProducts = async () => {
+
+  const { data: product, error } = await supabase.from('products').select(`
+  *, 
+  photos (product_id, id, photo_link)
+`)
+ .range(0, 6)
+
+  console.log(error)
+  console.log(product)
+  return product
+}

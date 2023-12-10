@@ -75,18 +75,18 @@ export const getProducts = async (search?: string, id?: string) => {
   return products
 }
 
-export const getProductsWithType = async (type?: string) => {
+export const getProductsWithType = async (type: string) => {
 
   let query = supabase.from('products').select(`
   *, 
   product_type ( type_name, id ),
   photos (product_id, id, photo_link)
-`)
+`).eq('type_id', type)
   
-  if (type) {
-    // query = query.ilike("type_id", id)
-    query = query.eq('type_id', type)
-  }
+  // if (type) {
+  //   // query = query.ilike("type_id", id)
+  //   query = query.
+  // }
   const { data: products, error } = await query;
   console.log(error)
   console.log(products)

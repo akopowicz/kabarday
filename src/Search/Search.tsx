@@ -1,14 +1,64 @@
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import style from './Search.module.css';
+import { useUserProductsContext } from '../Context/UserProductsContextProvider';
+import { getSearchProducts } from '../api/products';
+import { useQuery } from '@tanstack/react-query';
+import { SearchItem } from './SearchItem/SearchItem';
 
-export const Search = ({showSearch}) => {
+export const Search = ({ showSearch }) => {
+    const { userSearchProducts, setUserSearchProducts } = useUserProductsContext();
+
+    console.log(userSearchProducts.length)
+
+   
+
+    const { isLoading, error, data: products } = useQuery({
+        queryKey: ['searchProducts', userSearchProducts],
+        queryFn: () => getSearchProducts(userSearchProducts, 4)
+    })
+
+  
+    const filterProductFunction = (search: string) => {
+        setUserSearchProducts(search.toLowerCase())
+    }
+
+    const cleanSerach = () => {
+        setUserSearchProducts('')
+    }
+
+    console.log(userSearchProducts)
+console.log(products)
+
+    if (error) {
+        // return <p>Cannot get products</p>
+    }
+    // if (isLoading) {
+    //     return <p>Loading...</p>;
+    // }
+
+    if (products === undefined) {
+        // return <p>Spróbuj ponownie</p>
+    }
+
     return (
         <div>
-            <input type="text" placeholder="Wyszukaj produkt" className={style.serachInput} />
-            <SearchIcon className={style.searchIcon} />
+            <div className={style.inputWrapper}>
+                <input type="text" placeholder="Wyszukaj produkt" className={style.serachInput}  onChange={(e) => { filterProductFunction(e.target.value) }} value={userSearchProducts}/>
+                {userSearchProducts.length > 1 ? <CloseIcon className={style.closeSearch} onClick={cleanSerach} />: <SearchIcon className={style.searchIcon} />}
+                
+            </div>
+
             <CloseIcon className={style.closeSearchMobile} onClick={showSearch} />
-            <div className={style.searchOutput}></div>
+            {userSearchProducts.length> 1 ? <div className={style.searchOutput} onClick={showSearch}>
+           
+
+                {products?.map(product=>(
+                     <SearchItem key={product.id} {...product}/>
+                ))}
+               
+            </div> : ""}
+            
         </div>
     )
 }

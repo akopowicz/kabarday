@@ -75,6 +75,24 @@ export const getProducts = async (search?: string, id?: string) => {
   return products
 }
 
+export const getProductsWithType = async (type?: string) => {
+
+  let query = supabase.from('products').select(`
+  *, 
+  product_type ( type_name, id ),
+  photos (product_id, id, photo_link)
+`)
+  
+  if (type) {
+    // query = query.ilike("type_id", id)
+    query = query.eq('type_id', type)
+  }
+  const { data: products, error } = await query;
+  console.log(error)
+  console.log(products)
+  return products
+}
+
 
 
 export const removeProduct = async (id: string) => {
@@ -118,7 +136,7 @@ export const getProduct = async (id: string) => {
   product_type ( type_name, id ),
   photos (product_id, id, photo_link)
 `)
- .eq('id', id)
+    .eq('id', id)
 
   console.log(error)
   console.log(product)
@@ -132,8 +150,8 @@ export const getSimilarProducts = async (id: string) => {
   product_type ( type_name, id ),
   photos (product_id, id, photo_link)
 `)
- .neq('id', id)
- .range(0, 3)
+    .neq('id', id)
+    .range(0, 3)
 
   console.log(error)
   console.log(product)
@@ -147,9 +165,31 @@ export const getProductsForHomePage = async () => {
   product_type ( type_name, id ),
   photos (product_id, id, photo_link)
 `)
- .range(0, 5)
+    .range(0, 5)
 
   console.log(error)
   console.log(product)
   return product
+}
+
+
+export const getSearchProducts = async (search: string, quantity?: number) => {
+
+  let query = supabase.from('products').select(`
+  *, 
+  product_type ( type_name, id ),
+  photos (product_id, id, photo_link)
+`)
+
+console.log(search)
+
+  query = query.ilike("name", `%${search}%`)
+  if (quantity) {
+    // query = query.ilike("type_id", id)
+    query = query.range(0, quantity)
+  }
+  const { data: products, error } = await query;
+  console.log(error)
+  console.log(products)
+  return products
 }

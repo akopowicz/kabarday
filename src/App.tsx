@@ -20,6 +20,7 @@ import { ProductCard } from './Products/ProductCard/ProductCard';
 import { Footer } from './Footer/Footer';
 import {Navigation} from './Navigation/Navigation';
 import { HomePage } from './HomePage/HomePage';
+import { UserProductsContextProvider } from './Context/UserProductsContextProvider';
 
 const queryClient = new QueryClient({
   queryCache: new QueryCache(),
@@ -40,6 +41,7 @@ function App() {
         {process.env.NODE_ENV === "development" && (
           <ReactQueryDevtools position="top-right" initialIsOpen={false} />
         )}
+        <UserProductsContextProvider>
         <BrowserRouter>
           <Navigation />
           <Routes>
@@ -63,6 +65,7 @@ function App() {
           </Routes>
           <Footer />
         </BrowserRouter>
+        </UserProductsContextProvider>
       </QueryClientProvider>
       
     </>

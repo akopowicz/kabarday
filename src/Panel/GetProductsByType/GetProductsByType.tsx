@@ -23,7 +23,7 @@ export const GetProductsByType = () => {
         // dispatch(setProductType(event.target.value as string))
         console.log(event.target.value)
         console.log(productType)
-      }
+    }
 
     if (typeError) {
         return <p>Cannot get products</p>
@@ -36,7 +36,7 @@ export const GetProductsByType = () => {
         return <p>Spróbuj ponownaie</p>
     }
 
-  
+
 
     return (
         <FormControl >

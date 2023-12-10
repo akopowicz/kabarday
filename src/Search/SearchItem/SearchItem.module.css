@@ -1,0 +1,59 @@
+.searchItem {
+    position: relative;
+    width: 100%;
+    /* background-color: aqua; */
+    margin: 1rem 0;
+    display: block;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid #d9d9d9;
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchPhotoWrapper {
+    width: 50%;
+    position: relative;
+}
+
+.productPhoto {
+    position: relative;
+    width: 100%;
+}
+
+.informationWrapper {
+    width: 47%;
+}
+
+.name {
+    font-size: 1rem;
+}
+
+.price {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .searchPhotoWrapper {
+        width: 30%;
+        margin-right: 1rem;
+    }
+
+    .searchItem {
+        justify-content: unset;
+    }
+}
+
+@media (min-width: 1024px) {
+    .searchPhotoWrapper {
+        width: 20%;
+    }
+    /* .searchPhotoWrapper {
+        width: 50%;
+        margin-right: unset;
+    }
+
+    .searchItem {
+        justify-content: space-between;
+    } */
+}

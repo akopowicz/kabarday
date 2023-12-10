@@ -5,11 +5,14 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import style from './ProductCard.module.css'
 import { useEffect, useState } from "react";
 import { SimilarProducts } from "../SimilarProducts/SimilarProducts";
-import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
 
 export const ProductCard = () => {
     const location = useLocation();
     const id = location.state
+
+
+    // const queryParameters = new URLSearchParams(location.search)
+
 
     console.log("bla")
 
@@ -67,16 +70,16 @@ export const ProductCard = () => {
     return (
         <div className={style.productCard}>
             <div className={style.productWrapper}>
-                <div className={style.pathWrapper}><Link to="/Products">Produkty</Link><KeyboardArrowRightIcon className={style.arrow} /><Link to="/products/sweaters">{product.product_type?.type_name}</Link><KeyboardArrowRightIcon className={style.arrow}  /><span>{product.name}</span></div>
+                <div className={style.pathWrapper}><Link to="/Products">Produkty</Link><KeyboardArrowRightIcon className={style.arrow} /><Link to="/products/sweaters">{product.product_type?.type_name}</Link><KeyboardArrowRightIcon className={style.arrow} /><span>{product.name}</span></div>
                 <div className={style.topWrapper}>
                     <div className={style.topWrapperWrapper}>
                         <div className={style.photosWrapper}>
                             <div className={style.mainPhotoWrapper}>
-                                
-                            <img src={mainPhoto
-                            } alt="" className={style.mainPhoto} />
+
+                                <img src={mainPhoto
+                                } alt="" className={style.mainPhoto} />
                             </div>
-                            
+
                             <div className={style.smallPhotosWrapper}>
                                 <div className={style.smallPhotos}>
                                     {product.photos.filter(photo => photo.photo_link !== mainPhoto).map(filterPhoto => (
@@ -120,11 +123,11 @@ export const ProductCard = () => {
 
                 <div className={style.more}>
                     <h2 className={style.h2}>Może Ci się spodobać:</h2>
-                        <div className={style.moreWrapper}>
-                            {similarProducts?.map(similar=>(
-                                <SimilarProducts {...similar}/>
-                            ))}
-                        </div>
+                    <div className={style.moreWrapper}>
+                        {similarProducts?.map(similar => (
+                            <SimilarProducts {...similar} />
+                        ))}
+                    </div>
                 </div>
             </div>
 

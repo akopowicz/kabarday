@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import CloseIcon from '@mui/icons-material/Close';
 import style from './Navigation.module.css';
 import { Search } from "../Search/Search";
 
@@ -43,13 +42,13 @@ export const Navigation = () => {
 
                 <ul className={`${style.navigationItemsWrapper} ${isHamburgerShown ? style.show : ''}`}>
                     <li>
-                        <Link className={style.navigationItem} to="">swetry</Link>
+                        <Link className={style.navigationItem} to="/products" onClick={showHamburger} state={'481755e5-a680-4102-85f1-509a35f95404'}>swetry</Link>
 
                     </li>
                     <li className={`${style.productsItem} ${style.productsItemPraducts}`}>
                         <div className={style.productsWrapper} onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}>
-                            <Link className={`${style.navigationItem} ${style.navigationProducts}`} to="">produkty</Link>
+                            <Link className={`${style.navigationItem} ${style.navigationProducts}`} to="/products" onClick={handleMouseLeave}>produkty</Link>
                             <KeyboardArrowDownIcon />
                         </div>
                         <ul className={`${style.productsCategory} ${isProductsCategoriesShown ? style.show : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

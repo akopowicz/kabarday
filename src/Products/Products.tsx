@@ -1,13 +1,16 @@
 import { useQuery } from "@tanstack/react-query"
-import { getProducts } from "../api/products"
+import { getProducts, getProductsWithType } from "../api/products"
 import style from "./Products.module.css";
 import { ProductItem } from "./ProductItem/ProductItem";
+import { useLocation } from "react-router-dom";
 
 export const Products = () => {
-
+    const location = useLocation();
+    const typeId = location.state;
+    console.log(typeId)
     const { isLoading, error, data: allProducts } = useQuery({
         queryKey: ['products'],
-        queryFn: () => getProducts()
+        queryFn: () => getProductsWithType()
     })
 
     if (isLoading) {

@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CloseIcon from '@mui/icons-material/Close';
 import style from './Navigation.module.css';
+import { Search } from "../Search/Search";
 
 
 export const Navigation = () => {
@@ -48,7 +49,7 @@ export const Navigation = () => {
                     <li className={`${style.productsItem} ${style.productsItemPraducts}`}>
                         <div className={style.productsWrapper} onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}>
-                            <Link className={style.navigationItem} to="">produkty</Link>
+                            <Link className={`${style.navigationItem} ${style.navigationProducts}`} to="">produkty</Link>
                             <KeyboardArrowDownIcon />
                         </div>
                         <ul className={`${style.productsCategory} ${isProductsCategoriesShown ? style.show : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -67,10 +68,11 @@ export const Navigation = () => {
                     <li><Link className={style.navigationItem} to="">jak zamówić</Link></li>
                 </ul>
                 <div className={`${style.searchWrapper} ${isSearchBarShown ? style.show : ''}`}>
-                    <input type="text" placeholder="Wyszukaj produkt" className={style.serachInput} />
+                    {/* <input type="text" placeholder="Wyszukaj produkt" className={style.serachInput} />
                     <SearchIcon className={style.searchIcon} />
                     <CloseIcon className={style.closeSearchMobile} onClick={showSearch} />
-                    <div className={style.searchOutput}></div>
+                    <div className={style.searchOutput}></div> */}
+                    <Search showSearch={showSearch}/>
                 </div>
                 <div className={style.mobileNavigationIcons}>
                     <SearchIcon className={style.mobileSearchIcon} onClick={showSearch} />

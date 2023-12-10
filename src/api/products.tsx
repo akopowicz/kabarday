@@ -133,20 +133,21 @@ export const getSimilarProducts = async (id: string) => {
   photos (product_id, id, photo_link)
 `)
  .neq('id', id)
- .range(0, 4)
+ .range(0, 3)
 
   console.log(error)
   console.log(product)
   return product
 }
 
-export const getHomeProducts = async () => {
+export const getProductsForHomePage = async () => {
 
   const { data: product, error } = await supabase.from('products').select(`
   *, 
+  product_type ( type_name, id ),
   photos (product_id, id, photo_link)
 `)
- .range(0, 6)
+ .range(0, 5)
 
   console.log(error)
   console.log(product)

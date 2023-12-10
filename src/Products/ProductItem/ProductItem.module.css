@@ -1,7 +1,8 @@
 .itemWrapper {
     position: relative;
-    width: 85%;
-    margin: 5% 0;
+    width: 90%;
+    /* margin: 5% 0; */
+    margin: 1rem 0;
     background-color: rgb(255, 255, 255);
     /* max-height: ; */
 }
@@ -25,13 +26,14 @@
 }
 
 .productName {
-    font-weight: 700;
-    font-size: 1.2rem;
+    font-weight: 400;
+    font-size: 1rem;
 }
 
 .productPrice {
     font-size: 1rem;
     margin: 2% 0;
+    font-weight: 700;
 }
 
 @media (min-width: 768px) {
@@ -43,7 +45,8 @@
 
 @media (min-width: 1000px) {
     .itemWrapper {
-        width: 22%;
+        width: 29%;
         flex-shrink: 0;
+        margin: 1.5rem 0;
     }
 }

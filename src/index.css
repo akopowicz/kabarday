@@ -14,6 +14,8 @@
   -webkit-text-size-adjust: 100%;
 }
 
+
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -78,8 +80,34 @@ button:focus-visible {
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #727272;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* html {
+
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+} */
+
 #root {
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 img {

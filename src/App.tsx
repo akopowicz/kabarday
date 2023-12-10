@@ -43,7 +43,7 @@ function App() {
         <BrowserRouter>
           <Navigation />
           <Routes>
-            <Route index element={<LogIn />} />
+            <Route index element={<HomePage />} />
              <Route path="/panel">
               <Route element={<ProtectedWrapper role={"admin"} ><AdminPanel /></ProtectedWrapper>} index />
               <Route path="/panel/addProuct" element={<AddNewProduct />} />

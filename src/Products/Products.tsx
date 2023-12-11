@@ -3,15 +3,20 @@ import { getProducts } from "../api/products"
 import style from "./Products.module.css";
 import { ProductItem } from "./ProductItem/ProductItem";
 import { Link } from "react-router-dom";
+import { Sorting } from "../Sorting/Sorting";
+import { useUserProductsContext } from "../Context/UserProductsContextProvider";
 // import { useLocation } from "react-router-dom";
 
 export const Products = () => {
+    const { sortType } = useUserProductsContext();
+
+    console.log(sortType)
     // const location = useLocation();
     // const typeId = location.state;
     // console.log(typeId)
     const { isLoading, error, data: allProducts } = useQuery({
-        queryKey: ['products'],
-        queryFn: () => getProducts()
+        queryKey: ['products', sortType.column, sortType.ascendic],
+        queryFn: () => getProducts("", "", sortType.column, sortType.ascendic),
     })
 
     if (isLoading) {
@@ -30,13 +35,17 @@ export const Products = () => {
 
 
     return (
-        <div className={style.productsMainWrapper}>
-             {/* <div className={style.pathWrapper}><Link to="/products">Produkty</Link></div> */}
-            <div className={style.productsWrapper}>
-                {allProducts.map(product => {
-                    return <ProductItem key={product.id} {...product} />
-                })}
+        <div className={`mainWrapper ${style.mainWrapper}`}>
+            <Sorting />
+            <div className={style.productsMainWrapper}>
+                {/* <div className={style.pathWrapper}><Link to="/products">Produkty</Link></div> */}
+                <div className={style.productsWrapper}>
+                    {allProducts.map(product => {
+                        return <ProductItem key={product.id} {...product} />
+                    })}
+                </div>
             </div>
         </div>
+
     )
 }

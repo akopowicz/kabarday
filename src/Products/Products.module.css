@@ -1,3 +1,9 @@
+.mainWrapper {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    padding-top: 5rem;
+}
 .productsMainWrapper {
     position: relative;
     width: 100%;

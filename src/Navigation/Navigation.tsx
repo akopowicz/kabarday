@@ -33,6 +33,12 @@ export const Navigation = () => {
         setIsProductsCategoriesShown(false);
     };
 
+    const handleProductsHide = () => {
+        setIsProductsCategoriesShown(false);
+        setIsHamburgerShown(false);
+    };
+    
+
     console.log(isHamburgerShown)
 
     return (
@@ -48,7 +54,7 @@ export const Navigation = () => {
                     <li className={`${style.productsItem} ${style.productsItemPraducts}`}>
                         <div className={style.productsWrapper} onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}>
-                            <Link className={`${style.navigationItem} ${style.navigationProducts}`} to="/products" onClick={handleMouseLeave}>produkty</Link>
+                            <Link className={`${style.navigationItem} ${style.navigationProducts}`} to="/products" onClick={handleProductsHide}>produkty</Link>
                             <KeyboardArrowDownIcon />
                         </div>
                         <ul className={`${style.productsCategory} ${isProductsCategoriesShown ? style.show : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -60,11 +66,11 @@ export const Navigation = () => {
                             <li><Link to="/products/szaliki" onClick={showHamburger} state={'f6d8a314-868c-4584-adb2-82b27f59f62d'}>Szaliki</Link></li>
                         </ul>
                     </li>
-                    <li> <Link className={style.navigationItem} to="">o nas</Link>
+                    <li> <Link className={style.navigationItem} to="" onClick={showHamburger}>o nas</Link>
                     </li>
-                    <li> <Link className={style.navigationItem} to="">kontakt</Link>
+                    <li> <Link className={style.navigationItem} to="" onClick={showHamburger}>kontakt</Link>
                     </li>
-                    <li><Link className={style.navigationItem} to="">jak zamówić</Link></li>
+                    <li><Link className={style.navigationItem} to="" onClick={showHamburger}>jak zamówić</Link></li>
                 </ul>
                 <div className={`${style.searchWrapper} ${isSearchBarShown ? style.show : ''}`}>
                     {/* <input type="text" placeholder="Wyszukaj produkt" className={style.serachInput} />

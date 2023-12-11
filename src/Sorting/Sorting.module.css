@@ -1,0 +1,70 @@
+.select {
+    position: relative;
+    /* background-color: pink; */
+    min-width: fit-content;
+    width: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    /* padding: 1rem; */
+}
+
+.selected {
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    justify-content: space-between;
+    border: 2px solid #d9d9d9;
+}
+
+.options {
+    border: 2px solid rgb(186, 186, 186);
+    border-radius: .2rem;
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    width: 100%;
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.selectOption {
+    /* background-color: antiquewhite; */
+    padding: .5rem;
+    transition: .2s;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    
+    /* border-bottom: 1px solid #d9d9d9; */
+}
+
+.selectOption:hover {
+    background-color: #d9d9d9;
+}
+
+.selectedIcon {
+    font-size: 1.3rem !important;
+}
+
+.optionIcon {
+    font-size: 1.1rem !important;
+    margin-left: .2rem;
+}
+
+@media (min-width: 768px) {
+    .select {
+        width: 30%;
+    }
+}
+
+@media screen {
+    .select {
+        width: 15%;
+    } 
+}

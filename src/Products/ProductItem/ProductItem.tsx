@@ -24,7 +24,7 @@ export const ProductItem = ({id, name, price, photos, product_type}: SmallProduc
     console.log(photos)
     console.log(product_type)
     return (
-        <Link to={`/products/${product_type.type_name}/${name}`} state={id} className={style.itemWrapper}>
+        <Link to={`/products/${product_type.type_name}/${name}?id=${id}`} className={style.itemWrapper}>
             <div className="photo_wrapper">
                 <img className={style.mainImage} src={photos[0]?.photo_link} alt="zdjęcie produkty" />
                 <img className={style.hoverImage} src={photos[1]?.photo_link} alt="zdjęcie produktu" />

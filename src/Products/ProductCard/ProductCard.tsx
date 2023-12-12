@@ -8,13 +8,13 @@ import { SimilarProducts } from "../SimilarProducts/SimilarProducts";
 
 export const ProductCard = () => {
     const location = useLocation();
-    const id = location.state
+    const id = location.search.split("=")[1]
 
 
     // const queryParameters = new URLSearchParams(location.search)
 
 
-    console.log("bla")
+    console.log("bla",location)
 
     const [mainPhoto, setMainPhoto] = useState('')
 

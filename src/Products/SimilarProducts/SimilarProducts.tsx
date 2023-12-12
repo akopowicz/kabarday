@@ -22,8 +22,9 @@ type SmallProductCard = {
 export const SimilarProducts = ({ id, name, price, photos, product_type }: SmallProductCard) => {
     // console.log(})
     console.log(photos)
+
     return (
-        <Link to={`/products/${product_type.type_name}/${name}`} state={id} className={style.itemWrapper}>
+        <Link to={`/products/${product_type.type_name}/${name}?id=${id}`} className={style.itemWrapper} onClick={()=>window.scrollTo(0, 0)}>
             <div className={style.photo_wrapper}>
                 <img className={style.mainImage} src={photos[0]?.photo_link} alt="zdjęcie produkty" />
                 <img className={style.hoverImage} src={photos[1]?.photo_link} alt="zdjęcie produktu" />

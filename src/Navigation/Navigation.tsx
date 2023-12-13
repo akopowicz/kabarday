@@ -70,7 +70,7 @@ export const Navigation = () => {
                     </li>
                     <li> <Link className={style.navigationItem} to="" onClick={showHamburger}>kontakt</Link>
                     </li>
-                    <li><Link className={style.navigationItem} to="" onClick={showHamburger}>jak zamówić</Link></li>
+                    <li><Link className={style.navigationItem} to="/jak-zamowic" onClick={showHamburger}>jak zamówić</Link></li>
                 </ul>
                 <div className={`${style.searchWrapper} ${isSearchBarShown ? style.show : ''}`}>
                     {/* <input type="text" placeholder="Wyszukaj produkt" className={style.serachInput} />

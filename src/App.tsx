@@ -22,6 +22,7 @@ import { Navigation } from './Navigation/Navigation';
 import { HomePage } from './HomePage/HomePage';
 import { UserProductsContextProvider } from './Context/UserProductsContextProvider';
 import { ProductType } from './Products/ProductType/ProductType';
+import { About } from './About/About';
 
 const queryClient = new QueryClient({
   queryCache: new QueryCache(),
@@ -61,6 +62,7 @@ function App() {
                 <Route path="/products/:id" element={<ProductType />} />
                 <Route path="/products/:id/:id" element={<ProductCard />} />
               </Route>
+              <Route element={<About />} path="/o-nas" />
 
               <Route element={<RegisterComponent />} path="/register" />
               <Route element={<div>404</div>} path="*" />

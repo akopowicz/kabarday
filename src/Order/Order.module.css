@@ -1,0 +1,39 @@
+.orderWrapper {
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-height: fit-content;
+}
+
+.title {
+    margin-bottom: 5rem;
+    font-size: 2rem;
+}
+
+.content {
+    width: 90%;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    max-width: 800px;
+}
+
+.instruction {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.link {
+    font-size: 1.2rem;
+    text-align: center;
+    display: block;
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+.link:hover {
+    color: #6d6d6d;
+}

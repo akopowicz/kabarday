@@ -7,7 +7,7 @@ import { Sorting } from "../Sorting/Sorting";
 import { useUserProductsContext } from "../Context/UserProductsContextProvider";
 // import { useLocation } from "react-router-dom";
 
-export const Products = () => {
+export default function Products() {
     const { sortType } = useUserProductsContext();
 
     console.log(sortType)

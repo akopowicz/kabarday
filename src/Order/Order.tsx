@@ -1,6 +1,6 @@
 import style from './Order.module.css';
 
-export const Order = () => {
+export default function Order() {
     return (
         <div className={`mainWrapper ${style.orderWrapper}`}>
             <h1 className={style.title}>Jak zamówić?</h1>

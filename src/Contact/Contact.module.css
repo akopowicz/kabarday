@@ -1,0 +1,33 @@
+.contactWrapper {
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactWrapper h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contact {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    align-items: center;
+}
+
+.contact h3 {
+    font-size: 1.2rem;
+    margin: .5rem 0;
+}
+
+.contact a {
+    margin-bottom: .2rem;
+    font-weight: bold;
+}
+
+.contact a span {
+    font-weight: 400;
+}

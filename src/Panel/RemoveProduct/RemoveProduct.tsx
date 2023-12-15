@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 import { removeProduct } from "../../api/products"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
-export const RemoveProduct = () => {
+export default function RemoveProduct() {
     const location = useLocation()
     const productId = location.state
     const queryClient = useQueryClient();

@@ -6,7 +6,7 @@ import style from './ProductCard.module.css'
 import { useEffect, useState } from "react";
 import { SimilarProducts } from "../SimilarProducts/SimilarProducts";
 
-export const ProductCard = () => {
+export default function ProductCard() {
     const location = useLocation();
     const id = location.search.split("=")[1]
 

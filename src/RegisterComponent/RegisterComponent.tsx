@@ -53,7 +53,7 @@ const FormInput = ({
     );
 };
 
-export const RegisterComponent = () => {
+export default function RegisterComponent() {
     // const { showPassword, setShowPassword } = useState("password")
     const [showPassword, setShowPassword] = useState(false);
     const [showRepeatPassword, setShowRepeatPassword] = useState(false)

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import style from './About.module.css';
 
-export const About = () => {
+export default function About() {
     return (
         <div className={`${style.aboutWrapper} mainWrapper`}>
             <h1>O nas</h1>

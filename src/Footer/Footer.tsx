@@ -13,6 +13,7 @@ export const Footer = () => {
                     <ul>
                         <li className={style.footerNavigationItem}><Link className={style.footerLink} to=''>Jak złożyć zamówienie?</Link></li>
                         <li className={style.footerNavigationItem}><Link className={style.footerLink} to=''>Forma płatności</Link></li>
+                        <li className={style.footerNavigationItem}><Link className={style.footerLink} to=''>Realizacja zmaówienia</Link></li>
                         <li className={style.footerNavigationItem}><Link className={style.footerLink} to=''>Koszt dostawy</Link></li>
                     </ul>
                 </div>
@@ -29,6 +30,9 @@ export const Footer = () => {
                     <div className={style.line}></div>
                     <ul>
                         <li className={style.footerNavigationItem}><Link className={style.footerLink} to=''>O nas</Link></li>
+                        <li className={style.footerNavigationItem}><Link className={style.footerLink} to=''>Regulamin</Link></li>
+                        <li className={style.footerNavigationItem}><Link className={style.footerLink} to=''>Polityka prywatności</Link></li>
+
                     </ul>
                 </div>
                 <div className={style.navigationGroup}>

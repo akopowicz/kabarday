@@ -29,7 +29,7 @@ const FormInput = ({ accessor, formik, type, label }: {
   )
 }
 
-export const AddNewProduct = () => {
+export default function AddNewProduct() {
   const role = useSelector((state: RootState) => state.user.role)
   const queryClient = useQueryClient();
 

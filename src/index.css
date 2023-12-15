@@ -124,4 +124,5 @@ li {
 
 .mainWrapper {
   max-width: 1400px;
+  flex-grow: 1;
 }

@@ -22,7 +22,7 @@ const FormInput = ({ accessor, formik }: {
     )
 }
 
-export const EditProduct = () => {
+export default function EditProduct() {
     
 
     const location = useLocation();

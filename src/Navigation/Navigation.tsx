@@ -68,7 +68,7 @@ export const Navigation = () => {
                     </li>
                     <li> <Link className={style.navigationItem} to="/o-nas" onClick={showHamburger}>o nas</Link>
                     </li>
-                    <li> <Link className={style.navigationItem} to="" onClick={showHamburger}>kontakt</Link>
+                    <li> <Link className={style.navigationItem} to="/kontakt" onClick={showHamburger}>kontakt</Link>
                     </li>
                     <li><Link className={style.navigationItem} to="/jak-zamowic" onClick={showHamburger}>jak zamówić</Link></li>
                 </ul>

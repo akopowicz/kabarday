@@ -120,7 +120,7 @@ import { ProductsContextProvider } from "../Context/ProductsContextProvider";
 import { ProductsTable } from "./ProductTable/ProductsTable";
 import { SideMenu } from "./SideMenu/SideMenu";
 
-export const AdminPanel = () => {
+export default function AdminPanel() {
   // const [type, setType] = useState("all")
   // const [search,setSearch]=useState("")
   // const role = useSelector((state: RootState) => state.user.role)

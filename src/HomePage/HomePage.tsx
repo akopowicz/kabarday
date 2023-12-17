@@ -46,7 +46,7 @@ export const HomePage = () => {
                     })}
                 </div>
 
-                <Link to="/products" className={style.seeAllProducts}>ZOBACZ WSZYSTKIE PRODUKTY</Link>
+                <Link to="/products" className={style.seeAllProducts} onClick={()=>window.scrollTo(0, 0)}>ZOBACZ WSZYSTKIE PRODUKTY</Link>
             </div>
         </div>
 

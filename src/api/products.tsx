@@ -75,13 +75,48 @@ export const addNewProduct = async (addProductData: AddProductSchema) => {
 //   return products
 // }
 
-export const getProducts = async (search?: string, id?: string, column?:string, ascendic?:boolean) => {
+// export const getProducts = async (search?: string, id?: string, column?:string, ascendic?:boolean) => {
+
+//   let query = supabase.from('products').select(`
+//   *, 
+//   product_type ( type_name, id ),
+//   photos (product_id, id, photo_link)
+// `)
+
+// if (column) {
+//   console.log("bla")
+//   if(ascendic) {
+//     query = query.order(column, {ascending: true})
+//   } else {
+//     query = query.order(column, {ascending: false})
+//   }
+// }
+
+//   console.log(id)
+//   if (search) {
+//     query = query.ilike("name", `%${search}%`)
+//   }
+//   if (id && id !== "all") {
+//     // query = query.ilike("type_id", id)
+//     query = query.eq('type_id', id)
+//   }
+//   const { data: products, error } = await query;
+//   console.log(error)
+//   console.log(products)
+//   return products
+// }
+
+export const getProducts = async (search?: string, id?: string, column?:string, ascendic?:boolean, type:string) => {
 
   let query = supabase.from('products').select(`
   *, 
   product_type ( type_name, id ),
   photos (product_id, id, photo_link)
 `)
+
+if(type!=="all") {
+query = query.eq('type_id', type)
+}
 
 if (column) {
   console.log("bla")
@@ -196,7 +231,7 @@ export const getProductsForHomePage = async () => {
   product_type ( type_name, id ),
   photos (product_id, id, photo_link)
 `)
-    .range(0, 5)
+    .range(0, 7)
 
   console.log(error)
   console.log(product)

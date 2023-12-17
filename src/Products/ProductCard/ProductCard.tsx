@@ -70,7 +70,7 @@ export default function ProductCard() {
     return (
         <div className={style.productCard}>
             <div className={style.productWrapper}>
-                <div className={style.pathWrapper}><Link to="/Products">Produkty</Link><KeyboardArrowRightIcon className={style.arrow} /><Link to={`/products/${product.product_type?.type_name}`} state={product.product_type?.id}>{product.product_type?.type_name}</Link><KeyboardArrowRightIcon className={style.arrow} /><span>{product.name}</span></div>
+                <div className={style.pathWrapper}><Link to="/" className={style.pathLink}>Strona Główna</Link><KeyboardArrowRightIcon className={style.arrow} /><Link to="/Products">Produkty</Link><KeyboardArrowRightIcon className={style.arrow} /><Link to={`/products/${product.product_type?.type_name}`} state={product.product_type?.id} className={style.pathLink}>{product.product_type?.type_name}</Link><KeyboardArrowRightIcon className={style.arrow} /><span className={style.pathLink}>{product.name}</span></div>
                 <div className={style.topWrapper}>
                     <div className={style.topWrapperWrapper}>
                         <div className={style.photosWrapper}>

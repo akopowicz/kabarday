@@ -3,6 +3,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 3rem 0;
 }
 
 .productWrapper {
@@ -21,8 +22,12 @@
     align-items: center;
     /* font-weight: 700; */
     text-transform: uppercase;
-    font-size: .7rem;
-    color: #555555;   
+    font-size: .6rem;
+    color: #1A1A1A;   
+}
+
+.pathLink {
+    white-space: nowrap;
 }
 
 .arrow {

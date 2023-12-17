@@ -44,14 +44,14 @@
     .productsWrapper {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        /* justify-content: space-around; */
     }
 
 }
 
 @media (min-width: 1024px) {
     .productsWrapper {
-        justify-content: space-between;
+        /* justify-content: space-between; */
     }
 
 }

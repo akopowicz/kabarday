@@ -29,6 +29,7 @@ import { Navigation } from './Navigation/Navigation';
 import { HomePage } from './HomePage/HomePage';
 import { UserProductsContextProvider } from './Context/UserProductsContextProvider';
 import { ProductType } from './Products/ProductType/ProductType';
+import AllProducts from './Products/AllProducts/AllProducts';
 const About = React.lazy(() => import('./About/About'));
 const Order = React.lazy(() => import("./Order/Order"));
 
@@ -79,6 +80,7 @@ function App() {
                 <Route element={<Order />} path="/jak-zamowic" />
                 <Route element={<Contact />} path="/kontakt" />
                 <Route element={<RegisterComponent />} path="/register" />
+                <Route element={<AllProducts />} path="/allProducts" />
                 <Route element={<div>404</div>} path="*" />
               </Routes>
               <Footer />

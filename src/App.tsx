@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css'
 
 const RegisterComponent = React.lazy(() => import("./RegisterComponent/RegisterComponent"));
-import { LogIn } from './LogIn/LogIn';
+// import { LogIn } from './LogIn/LogIn';
 // import { AdminPanel } from './Panel/AdminPanel';
 const AdminPanel= React.lazy(() => import("./Panel/AdminPanel"));
 // import { AddNewProduct } from './Panel/AddNewProduct/AddNewProduct';
@@ -54,7 +54,7 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
         {process.env.NODE_ENV === "development" && (
-          <ReactQueryDevtools position="top-right" initialIsOpen={false} />
+          <ReactQueryDevtools initialIsOpen={false} />
         )}
         <UserProductsContextProvider>
           <Suspense fallback={<div>Loading...</div>}>

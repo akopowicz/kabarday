@@ -6,14 +6,14 @@ import { getSearchProducts } from '../api/products';
 import { useQuery } from '@tanstack/react-query';
 import { SearchItem } from './SearchItem/SearchItem';
 
-export const Search = ({ showSearch }) => {
+export const Search = ({ showSearch }:{showSearch:()=>void}) => {
     const { userSearchProducts, setUserSearchProducts } = useUserProductsContext();
 
     console.log(userSearchProducts.length)
 
    
 
-    const { isLoading, error, data: products } = useQuery({
+    const { error, data: products } = useQuery({
         queryKey: ['searchProducts', userSearchProducts],
         queryFn: () => getSearchProducts(userSearchProducts, 4)
     })
@@ -53,9 +53,11 @@ console.log(products)
             {userSearchProducts.length> 1 ? <div className={style.searchOutput} onClick={showSearch}>
            
 
-                {products?.map(product=>(
-                     <SearchItem key={product.id} {...product}/>
-                ))}
+                {products?.map(product=>{
+                    // eslint-disable-next-line
+                    //@ts-ignore
+                    return <SearchItem key={product.id} {...product}/>
+})}
                
             </div> : ""}
             

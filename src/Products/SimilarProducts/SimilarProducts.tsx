@@ -7,14 +7,12 @@ type Photos = {
     photo_link: string,
 }
 
-type ProductType = {
-    type_name: string,
-}
+type ProductType = { type_name: string; id: string; } | null
 
 type SmallProductCard = {
     id: string,
     name: string,
-    price: number,
+    price: number | null,
     photos: Photos[],
     product_type: ProductType
 }
@@ -22,6 +20,10 @@ type SmallProductCard = {
 export const SimilarProducts = ({ id, name, price, photos, product_type }: SmallProductCard) => {
     // console.log(})
     console.log(photos)
+
+    if(!product_type){
+        return null;
+    }
 
     return (
         <Link to={`/products/${product_type.type_name}/${name}?id=${id}`} className={style.itemWrapper} onClick={()=>window.scrollTo(0, 0)}>

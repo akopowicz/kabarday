@@ -106,7 +106,8 @@ export const addNewProduct = async (addProductData: AddProductSchema) => {
 //   return products
 // }
 
-export const getProducts = async (search?: string, id?: string, column?:string, ascendic?:boolean, type:string) => {
+//TODO: type na start i reszta opcjonalna
+export const getProducts = async (search?: string, id?: string, column?:string, ascendic?:boolean, type?:string) => {
 
   let query = supabase.from('products').select(`
   *, 
@@ -114,7 +115,7 @@ export const getProducts = async (search?: string, id?: string, column?:string, 
   photos (product_id, id, photo_link)
 `)
 
-if(type!=="all") {
+if(type && type!=="all") {
 query = query.eq('type_id', type)
 }
 
@@ -143,7 +144,7 @@ if (column) {
 
 export const getProductsWithType = async (type: string) => {
 
-  let query = supabase.from('products').select(`
+  const query = supabase.from('products').select(`
   *, 
   product_type ( type_name, id ),
   photos (product_id, id, photo_link)

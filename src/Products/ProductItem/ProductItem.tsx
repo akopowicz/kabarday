@@ -14,7 +14,7 @@ type ProductType = {
 type SmallProductCard = {
     id: string,
     name: string,
-    price: number,
+    price: number | null,
     photos: Photos[],
     product_type: ProductType
 }

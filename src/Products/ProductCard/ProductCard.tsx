@@ -5,6 +5,8 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import style from './ProductCard.module.css'
 import { useEffect, useState } from "react";
 import { SimilarProducts } from "../SimilarProducts/SimilarProducts";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
 export default function ProductCard() {
     const location = useLocation();
@@ -14,7 +16,8 @@ export default function ProductCard() {
     // const queryParameters = new URLSearchParams(location.search)
 
 
-    console.log("bla",location)
+
+    console.log("bla", location)
 
     const [mainPhoto, setMainPhoto] = useState('')
 
@@ -36,7 +39,7 @@ export default function ProductCard() {
             setMainPhoto(productDetails[0].photos[0].photo_link)
         }
 
-    }, productDetails)
+    }, [productDetails])
 
     if (isLoading || loadingSimilar) {
         return <p>Loading...</p>;
@@ -79,8 +82,27 @@ export default function ProductCard() {
                                 <img src={mainPhoto
                                 } alt="" className={style.mainPhoto} />
                             </div>
+                            <CarouselProvider 
+                             visibleSlides={3}
+                                 naturalSlideWidth={100}
+                                 naturalSlideHeight={125}
+                                totalSlides={(productDetails[0].photos.length-1)} className={style.carousel}
+                            >
+                                <Slider className={style.slider}>
+                                    {product.photos.filter(photo => photo.photo_link !== mainPhoto).map((filterPhoto, index) => (
+                                        <Slide index={index} className={style.smallImageWrapper} key={filterPhoto.id}>
+                                            <img className={style.smallImage} onClick={() => { changeMainPhoto(filterPhoto.photo_link) }} src={filterPhoto.photo_link} alt="" />
+                                        </Slide>
 
-                            <div className={style.smallPhotosWrapper}>
+                                    ))}
+
+
+
+                                </Slider>
+                                <ButtonBack>Back</ButtonBack>
+                                <ButtonNext>Next</ButtonNext>
+                            </CarouselProvider>
+                            {/* <div className={style.smallPhotosWrapper}>
                                 <div className={style.smallPhotos}>
                                     {product.photos.filter(photo => photo.photo_link !== mainPhoto).map(filterPhoto => (
                                         <div className={style.smallImageWrapper} key={filterPhoto.id}>
@@ -90,7 +112,7 @@ export default function ProductCard() {
                                     ))}
                                 </div>
 
-                            </div>
+                            </div> */}
                             {/* <div>
                             {product.photos.filter(photo=>photo.photo_type.includes("detail")).map(filterPhoto=>(
                                 <img key={filterPhoto.id} src={filterPhoto.photo_link} />

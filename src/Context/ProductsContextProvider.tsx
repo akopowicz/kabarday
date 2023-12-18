@@ -1,5 +1,5 @@
 import { useState, useContext, createContext, Dispatch, SetStateAction } from 'react';
-import { AddProductSchema } from '../api/products';
+// import { AddProductSchema } from '../api/products';
 // import { User } from '../FakeRegisterComponent/FakeRegisterComponent';
 
 type ProductType = {

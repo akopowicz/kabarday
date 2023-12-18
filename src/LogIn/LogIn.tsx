@@ -2,12 +2,12 @@ import { useFormik, FormikProps } from 'formik';
 import { InferType, string, object } from 'yup';
 import TextField from '@mui/material/TextField';
 import supabase from '../supabase/supabase';
-import { useDispatch, useSelector } from "react-redux";
-import { LoggedPerson } from '../Panel/LoggedPerson/LoggedPerson';
-import { RootState } from '../Redux/store';
+import { useDispatch } from "react-redux";
+// import { LoggedPerson } from '../Panel/LoggedPerson/LoggedPerson';
+// import { RootState } from '../Redux/store';
 import { useState } from 'react';
 import { loginStatus } from '../Redux/sessionSlice';
-import { userRole } from "../Redux/userSlice";
+import { UserRole, userRole } from "../Redux/userSlice";
 import { useNavigate } from 'react-router-dom';
 
 type LoginFormValuesType = { login: string, password: string };
@@ -67,7 +67,7 @@ export const LogIn = () => {
 
     if (!error && user) {
       console.log(user[0].role)
-      dispatch(userRole(user[0].role))
+      dispatch(userRole(user[0].role as UserRole))
 
       dispatch(loginStatus(true))
 

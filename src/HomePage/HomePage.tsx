@@ -42,6 +42,8 @@ export const HomePage = () => {
                 <h1 className={style.title}>RĘCZNIE ROBIONE SWETRY Z NATURALNYCH WŁÓCZEK</h1>
                 <div className={style.productsWrapper}>
                     {allProducts.map(product => {
+                        // eslint-disable-next-line
+                        //@ts-ignore
                         return <ProductItem key={product.id} {...product} />
                     })}
                 </div>

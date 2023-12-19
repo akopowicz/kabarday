@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query"
-import { getProducts } from "../../api/products"
+// import { useQuery } from "@tanstack/react-query"
+// import { getProducts } from "../../api/products"
 import style from "./AllProducts.module.css";
 import { ProductItem } from "../ProductItem/ProductItem";
 import { Link } from "react-router-dom";
@@ -7,12 +7,40 @@ import { Sorting } from "../../Sorting/Sorting";
 import { useUserProductsContext } from "../../Context/UserProductsContextProvider";
 // import { useLocation } from "react-router-dom";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+// import { ProductType } from "../../Context/ProductsContextProvider";
 
-export default function AllProducts(props) {
+type Photos = {
+    product_id: string,
+    id: string,
+    photo_link: string,
+}
+type ProductType = { type_name: string; id: string; }
+
+// type SmallProductCard = {
+//     id: string,
+//     name: string,
+//     price: number | null,
+//     photos: Photos[],
+//     product_type: ProductType
+// }
+
+
+type ProductCard = {
+    id: string;
+    name: string;
+    price: number | null;
+    photos: Photos[],
+    product_type: ProductType | null
+}
+
+
+export default function AllProducts(props: { allProducts: ProductCard[], productType: string|undefined }) {
     const { sortType } = useUserProductsContext();
 
     console.log(sortType)
-   
+
+    console.log(props.productType)
+
     console.log(props.allProducts)
     // const { isLoading, error, data: allProducts } = useQuery({
     //     queryKey: ['products', sortType.column, sortType.ascendic],
@@ -35,7 +63,7 @@ export default function AllProducts(props) {
 
     // console.log(allProducts)
 
-    console.log(props.productType)
+    // console.log(props.productType)
 
     return (
         <div className={`mainWrapper ${style.mainWrapper}`}>
@@ -44,9 +72,9 @@ export default function AllProducts(props) {
                     <Link to='/'>Strona Główna</Link>
                     <KeyboardArrowRightIcon className={style.arrow} />
                     <Link to="/products">Produkty</Link>
-                    {props.productType !==undefined ?  <div className={style.productType}><KeyboardArrowRightIcon className={style.arrow} /><p>{props.productType}</p></div>    : null}
+                    {props.productType !== undefined ? <div className={style.productType}><KeyboardArrowRightIcon className={style.arrow} /><p>{props.productType}</p></div> : null}
                 </div>
-            <Sorting />
+                <Sorting />
             </div>
             <div className={style.productsMainWrapper}>
                 {/* <div className={style.pathWrapper}><Link to="/products">Produkty</Link></div> */}

@@ -1,17 +1,17 @@
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material"
+import { TextField } from "@mui/material"
 // import { useSelector } from "react-redux"
 // import { RootState } from "../../Redux/store"
 import { useQuery } from "@tanstack/react-query"
 import { getProducts } from "../../api/products"
 import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../../Redux/store"
-import { setProducts } from "../../Redux/productsSlice"
+// import { useDispatch, useSelector } from "react-redux"
+// import { RootState } from "../../Redux/store"
+// import { setProducts } from "../../Redux/productsSlice"
 import { useProductsContext } from "../../Context/ProductsContextProvider"
 
 export const SearchForProduct = () => {
     // const dispatch = useDispatch()
-    const { productType, filteredProducts, setFilteredProducts } = useProductsContext()
+    const { productType, setFilteredProducts } = useProductsContext()
     const [search,setSearch]=useState("")
     // const productsSlice = useSelector((state: RootState) => state.products)
     // const productType = useSelector((state: RootState) => state.product.productType)

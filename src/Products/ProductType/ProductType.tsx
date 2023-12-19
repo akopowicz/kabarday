@@ -42,10 +42,10 @@
 // }
 
 import { useLocation } from "react-router-dom";
-import style from './ProductType.module.css';
-import { getProducts, getProductsWithType } from "../../api/products";
+// import style from './ProductType.module.css';
+import { getProducts } from "../../api/products";
 import { useQuery } from "@tanstack/react-query";
-import { ProductItem } from "../ProductItem/ProductItem";
+// import { ProductItem } from "../ProductItem/ProductItem";
 import AllProducts from "../AllProducts/AllProducts";
 import { useUserProductsContext } from "../../Context/UserProductsContextProvider";
 
@@ -72,6 +72,10 @@ export const ProductType = () => {
 
     if (products === undefined || products === null) {
         return <p>Spróbuj ponownie</p>
+    }
+
+    if (products[0]===undefined) {
+        return <p>Brak produktów</p>
     }
     
     console.log(products)

@@ -1,15 +1,19 @@
 import { useState, useContext, createContext, Dispatch, SetStateAction } from 'react';
 // import { AddProductSchema } from '../api/products';
 // import { User } from '../FakeRegisterComponent/FakeRegisterComponent';
-
-type ProductType = {
+export type productTypeType = {
+    type_name: string,
+    // product_type_id: string,
+    // id: string,
+}
+export type ProductType = {
     name: string;
-    description: string;
-    price: number;
-    composition: string;
-    stock: number;
-    sex: string;
-    type: string;
+    description: string | null;
+    price: number | null;
+    composition: string | null;
+    stock: number | null;
+    sex: string | null;
+    product_type: productTypeType | null;
     id: string;
 
 }
@@ -31,16 +35,16 @@ export const ProductsContextProvider = ({ children }: { children: React.ReactNod
     // const [loggedPerson, setLoggedPerson] = useState<AddProductSchema|null>(null);
 
     return (
-        <ProductsContext.Provider value={{ productType, setProductType, filteredProducts, setFilteredProducts}}> 
-          {children}
+        <ProductsContext.Provider value={{ productType, setProductType, filteredProducts, setFilteredProducts }}>
+            {children}
         </ProductsContext.Provider>
-      );
+    );
 }
 
-export const useProductsContext=()=>{
-    const ctx=useContext(ProductsContext)
+export const useProductsContext = () => {
+    const ctx = useContext(ProductsContext)
 
-    if(!ctx){ // poza komponentem dziecka providera zwróci nulla
+    if (!ctx) { // poza komponentem dziecka providera zwróci nulla
         throw new Error("Missing clientContext, it's not wrapped in ClientProvider")
     }
     return ctx

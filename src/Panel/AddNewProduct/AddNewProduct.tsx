@@ -17,7 +17,7 @@ const FormInput = ({ accessor, formik, type, label }: {
   return (
     <TextField
       error={Boolean(formik.touched[accessor] && formik.errors[accessor])} //oznacza pole na czerwono
-      helperText={formik.touched[accessor] && formik.errors[accessor] ? formik.errors[accessor] : null} // wyswietla text pomocniczy pod spodem
+      // helperText={formik.touched[accessor] && formik.errors[accessor] ? formik.errors[accessor] : null} // wyswietla text pomocniczy pod spodem
       id={accessor}
       name={accessor}
       onChange={formik.handleChange}
@@ -101,9 +101,9 @@ export default function AddNewProduct() {
     return <p>Spróbuj ponownaie</p>
   }
 
-  const handlePhotoChange=(e)=>{
-    console.log("e",e)
-  }
+  // const handlePhotoChange=(e)=>{
+  //   console.log("e",e)
+  // }
 
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -112,14 +112,14 @@ export default function AddNewProduct() {
 
   };
 
-  return (
+    return (
     <div>
       {role === "admin" ?
 
         <form onSubmit={formik.handleSubmit}>
           <select
             name="productType"
-            onChange={handleChange}
+            onChange={()=>handleChange}
             onBlur={formik.handleBlur}
             style={{ display: "block" }}
           >
@@ -141,7 +141,7 @@ export default function AddNewProduct() {
           <FormInput accessor="composition" formik={formik} label="Skład"></FormInput>
           <FormInput accessor="stock" label='Dostępne sztuki' formik={formik}></FormInput>
           <FormInput accessor="sex" label="Płeć" formik={formik}></FormInput>
-          <input type="file" onChange={handlePhotoChange} />
+          {/* <input type="file" onChange={handlePhotoChange} /> */}
 
           <button type='submit'>Dodaj Produkt</button>
 

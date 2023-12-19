@@ -80,7 +80,7 @@ function App() {
                 <Route element={<Order />} path="/jak-zamowic" />
                 <Route element={<Contact />} path="/kontakt" />
                 <Route element={<RegisterComponent />} path="/register" />
-                <Route element={<AllProducts />} path="/allProducts" />
+                <Route element={<AllProducts allProducts={[]} productType={''} />} path="/allProducts" />
                 <Route element={<div>404</div>} path="*" />
               </Routes>
               <Footer />

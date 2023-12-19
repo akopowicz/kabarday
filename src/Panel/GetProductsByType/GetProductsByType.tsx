@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query"
 import { getProductsType } from "../../api/products"
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material"
-import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../../Redux/store"
-import { setProductType } from "../../Redux/productSlice"
+// import { useState } from "react"
+// import { useDispatch, useSelector } from "react-redux"
+// import { RootState } from "../../Redux/store"
+// import { setProductType } from "../../Redux/productSlice"
 import { useProductsContext } from "../../Context/ProductsContextProvider"
 
 export const GetProductsByType = () => {

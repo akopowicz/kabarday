@@ -5,18 +5,19 @@ import style from './ProductDetail.module.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
-type productTypeType = {
-    type_name: string
+export type productTypeType = {
+    type_name: string,
+    // product_type_id: string
 }
 
-type ProductType = {
-    composition: string,
-    description: string,
-    name:string,
-    price: number,
-    product_type:productTypeType,
-    sex: string,
-    stock: number,
+export type ProductType = {
+    composition: string | null,
+    description: string | null,
+    name:string | null,
+    price: number | null,
+    product_type:productTypeType | null,
+    sex: string | null,
+    stock: number | null,
     id: string,
 }
 
@@ -48,7 +49,7 @@ export const ProductDetail = ({product}:{product:ProductType}) => {
             <td>{product.composition}</td>
             <td>{product.stock}</td>
             <td>{product.sex}</td>
-            <td>{product.product_type.type_name}</td>
+            <td>{product.product_type?.type_name}</td>
             <td><Link to={`/product/${product.name}/edit`} state={product}><ModeEditIcon/></Link></td>
             <td onClick={handleClickOpen}><DeleteIcon/></td>
             

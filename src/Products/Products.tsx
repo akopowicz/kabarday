@@ -52,10 +52,10 @@
 
 import { useQuery } from "@tanstack/react-query"
 import { getProducts } from "../api/products"
-import style from "./Products.module.css";
-import { ProductItem } from "./ProductItem/ProductItem";
-import { Link } from "react-router-dom";
-import { Sorting } from "../Sorting/Sorting";
+// import style from "./Products.module.css";
+// import { ProductItem } from "./ProductItem/ProductItem";
+// import { Link } from "react-router-dom";
+// import { Sorting } from "../Sorting/Sorting";
 import { useUserProductsContext } from "../Context/UserProductsContextProvider";
 import AllProducts from "./AllProducts/AllProducts";
 // import { useLocation } from "react-router-dom";
@@ -88,7 +88,7 @@ export default function Products() {
 
 
     return (
-        <AllProducts allProducts={allProducts} />
+        <AllProducts allProducts={allProducts} productType={""} />
 
     )
 }

@@ -103,16 +103,16 @@
 // }
 
 
-import { useQuery } from "@tanstack/react-query";
-import { getProducts, AddProductSchema, getProductsType } from "../api/products";
-import { ProductDetail } from '../Panel/ProductDetail/ProductDetail'
+// import { useQuery } from "@tanstack/react-query";
+// import { getProducts, AddProductSchema, getProductsType } from "../api/products";
+// import { ProductDetail } from '../Panel/ProductDetail/ProductDetail'
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../Redux/store";
-import { ErrorPage } from "../ErrorPage/ErrorPage";
-import { useEffect, useState } from "react";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { ProtectedWrapper } from "../ProtectedWrapper/ProtectedWrapper";
+// import { useSelector } from "react-redux";
+// import { RootState } from "../Redux/store";
+// import { ErrorPage } from "../ErrorPage/ErrorPage";
+// import { useEffect, useState } from "react";
+// import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+// import { ProtectedWrapper } from "../ProtectedWrapper/ProtectedWrapper";
 import style from './AdminPanel/AdminPanel.module.css'
 import { SearchForProduct } from "./SearchForProduct/SearchForProduct";
 import { GetProductsByType } from "./GetProductsByType/GetProductsByType";

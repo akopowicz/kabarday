@@ -1,14 +1,14 @@
-import React from 'react';
+// import React from 'react';
 import { Suspense } from 'react'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter} from "react-router-dom";
 import './App.css'
 
-const RegisterComponent = React.lazy(() => import("./RegisterComponent/RegisterComponent"));
+// const RegisterComponent = React.lazy(() => import("./RegisterComponent/RegisterComponent"));
 // import { LogIn } from './LogIn/LogIn';
 // import { AdminPanel } from './Panel/AdminPanel';
-const AdminPanel= React.lazy(() => import("./Panel/AdminPanel"));
+// const AdminPanel= React.lazy(() => import("./Panel/AdminPanel"));
 // import { AddNewProduct } from './Panel/AddNewProduct/AddNewProduct';
-const AddNewProduct = React.lazy(() => import("./Panel/AddNewProduct/AddNewProduct"));
+// const AddNewProduct = React.lazy(() => import("./Panel/AddNewProduct/AddNewProduct"));
 import {
   QueryClient,
   QueryClientProvider,
@@ -16,26 +16,30 @@ import {
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 // import { RemoveProduct } from './Panel/RemoveProduct/RemoveProduct';
-const RemoveProduct = React.lazy(() => import("./Panel/RemoveProduct/RemoveProduct"));
+// const RemoveProduct = React.lazy(() => import("./Panel/RemoveProduct/RemoveProduct"));
 // import { EditProduct } from './Panel/EditProduct/EditProduct';
-const EditProduct = React.lazy(() => import("./Panel/EditProduct/EditProduct"));
-import { ProtectedWrapper } from './ProtectedWrapper/ProtectedWrapper';
+// const EditProduct = React.lazy(() => import("./Panel/EditProduct/EditProduct"));
+// import { ProtectedWrapper } from './ProtectedWrapper/ProtectedWrapper';
 // import { Products } from './Products/Products';
-const Products = React.lazy(() => import('./Products/Products'));
+// const Products = React.lazy(() => import('./Products/Products'));
 // import { ProductCard } from './Products/ProductCard/ProductCard';
-const ProductCard = React.lazy(() => import('./Products/ProductCard/ProductCard'));
+// const ProductCard = React.lazy(() => import('./Products/ProductCard/ProductCard'));
 import { Footer } from './Footer/Footer';
 import { Navigation } from './Navigation/Navigation';
-import { HomePage } from './HomePage/HomePage';
+// import { HomePage } from './HomePage/HomePage';
 import { UserProductsContextProvider } from './Context/UserProductsContextProvider';
-import { ProductType } from './Products/ProductType/ProductType';
-import AllProducts from './Products/AllProducts/AllProducts';
-const About = React.lazy(() => import('./About/About'));
-const Order = React.lazy(() => import("./Order/Order"));
+// import { ProductType } from './Products/ProductType/ProductType';
+// import AllProducts from './Products/AllProducts/AllProducts';
+import ReactGA from'react-ga';
+import { RoutesElement } from './RoutesElement';
+
+ReactGA.initialize('G-YDEE85ZQTV');
+// const About = React.lazy(() => import('./About/About'));
+// const Order = React.lazy(() => import("./Order/Order"));
 
 
 // import { Contact } from './Contact/Contact';
-const Contact = React.lazy(() => import("./Contact/Contact"));
+// const Contact = React.lazy(() => import("./Contact/Contact"));
 
 const queryClient = new QueryClient({
   queryCache: new QueryCache(),
@@ -48,7 +52,10 @@ const queryClient = new QueryClient({
 
 
 function App() {
-
+  // const location = useLocation();
+  // useEffect(() => {
+  //   ReactGA.pageview(location.pathname + location.search);
+  // }, [location]);
 
   return (
     <>
@@ -60,7 +67,8 @@ function App() {
           <Suspense fallback={<div>Loading...</div>}>
             <BrowserRouter>
               <Navigation />
-              <Routes>
+              <RoutesElement/>
+              {/* <Routes>
                 <Route index element={<HomePage />} />
                 <Route path="/panel">
                   <Route element={<ProtectedWrapper role={"admin"} ><AdminPanel /></ProtectedWrapper>} index />
@@ -82,7 +90,7 @@ function App() {
                 <Route element={<RegisterComponent />} path="/register" />
                 <Route element={<AllProducts allProducts={[]} productType={''} />} path="/allProducts" />
                 <Route element={<div>404</div>} path="*" />
-              </Routes>
+              </Routes> */}
               <Footer />
             </BrowserRouter>
           </Suspense>

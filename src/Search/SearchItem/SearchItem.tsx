@@ -7,10 +7,14 @@ type PhotoType = {
     photo_link: string
 }
 
+type ProductType = {
+    type_name: string,
+}
 
-export const SearchItem = ({id, name, photos, price }:{id:string, name:string, photos: PhotoType[], price: number}) => {
+
+export const SearchItem = ({id, name, photos, price, product_type }:{id:string, name:string, photos: PhotoType[], price: number, product_type: ProductType| null}) => {
     return (
-        <Link to={`/products/${name}`} state={id} className={style.searchItem}>
+        <Link to={`/products/${product_type?.type_name}/${name}?id=${id}`} className={style.searchItem}>
             <div className={style.searchPhotoWrapper}>
                 <img src={photos[0].photo_link} alt="product photo" className={style.productPhoto} />
             </div>

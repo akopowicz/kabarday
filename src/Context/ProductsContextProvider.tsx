@@ -23,6 +23,9 @@ type ProductsContextProps = {
     setProductType: Dispatch<SetStateAction<string>>,
     filteredProducts: ProductType[],
     setFilteredProducts: Dispatch<SetStateAction<ProductType[]>>,
+    showBigPhoto: boolean,
+    setShowBigPhoto: Dispatch<SetStateAction<boolean>>,
+
     // loggedPerson: User | null,
     // setLoggedPerson: Dispatch<SetStateAction<User|null>>,
 }
@@ -33,9 +36,10 @@ export const ProductsContextProvider = ({ children }: { children: React.ReactNod
     const [productType, setProductType] = useState("all");
     const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
     // const [loggedPerson, setLoggedPerson] = useState<AddProductSchema|null>(null);
+const [showBigPhoto, setShowBigPhoto] = useState(false)
 
     return (
-        <ProductsContext.Provider value={{ productType, setProductType, filteredProducts, setFilteredProducts }}>
+        <ProductsContext.Provider value={{ productType, setProductType, filteredProducts, setFilteredProducts, showBigPhoto, setShowBigPhoto }}>
             {children}
         </ProductsContext.Provider>
     );

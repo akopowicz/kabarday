@@ -9,17 +9,18 @@ import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-re
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+import { BigPhoto } from "./BigPhoto/BigPhoto";
+import { useProductsContext } from "../../Context/ProductsContextProvider";
 // import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 
 export default function ProductCard() {
     const location = useLocation();
     const id = location.search.split("=")[1]
     const [caroselPhotosChange, setCaroselPhotosChange] = useState(3);
-
+    // const [clickedPhoto, setClicedPhoto] = useState("")
     // const queryParameters = new URLSearchParams(location.search)
-
-
-
+// const [] = useState(false)
+const { showBigPhoto, setShowBigPhoto } = useProductsContext()
     console.log("bla", location)
 
     const [mainPhoto, setMainPhoto] = useState('')
@@ -41,8 +42,8 @@ export default function ProductCard() {
         if (productDetails) {
             setMainPhoto(productDetails[0].photos[0].photo_link)
         }
-
     }, [productDetails])
+
 
     if (isLoading || loadingSimilar) {
         return <p>Loading...</p>;
@@ -86,7 +87,11 @@ export default function ProductCard() {
     //    }
     }
 
+    const showMainPhotoBig = () => {
+        setShowBigPhoto(true)
+    }
 
+  
     console.log(product.photos.length)
     return (
         <div className={style.productCard}>
@@ -98,7 +103,7 @@ export default function ProductCard() {
                             <div className={style.mainPhotoWrapper}>
 
                                 <img src={mainPhoto
-                                } alt="" className={style.mainPhoto} />
+                                } alt="" className={style.mainPhoto} onClick={showMainPhotoBig} />
                             </div>
                             <CarouselProvider 
                              visibleSlides={3}
@@ -182,7 +187,7 @@ export default function ProductCard() {
                     </div>
                 </div>
             </div>
-
+                     {showBigPhoto?  <BigPhoto  mainPhoto={mainPhoto} allPhotos={product.photos.filter(photo => photo.photo_link !== mainPhoto)} />: ""}      
         </div>
     )
 }

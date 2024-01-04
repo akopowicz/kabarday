@@ -32,6 +32,7 @@ import { UserProductsContextProvider } from './Context/UserProductsContextProvid
 // import AllProducts from './Products/AllProducts/AllProducts';
 import ReactGA from'react-ga';
 import { RoutesElement } from './RoutesElement';
+import { ProductsContextProvider } from './Context/ProductsContextProvider';
 
 ReactGA.initialize('G-YDEE85ZQTV');
 // const About = React.lazy(() => import('./About/About'));
@@ -64,6 +65,7 @@ function App() {
           <ReactQueryDevtools initialIsOpen={false} />
         )}
         <UserProductsContextProvider>
+          <ProductsContextProvider>
           <Suspense fallback={<div>Loading...</div>}>
             <BrowserRouter>
               <Navigation />
@@ -94,7 +96,7 @@ function App() {
               <Footer />
             </BrowserRouter>
           </Suspense>
-
+          </ProductsContextProvider>
         </UserProductsContextProvider>
       </QueryClientProvider>
 

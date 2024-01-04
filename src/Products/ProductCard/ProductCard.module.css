@@ -14,6 +14,7 @@
 
 .mainPhotoWrapper {
     width: 100%;
+    cursor:zoom-in;
 }
 
 .pathWrapper {
@@ -111,6 +112,7 @@
 
 .smallImage {
     width: 100% !important;
+    cursor: pointer;
 }
 
 .more {

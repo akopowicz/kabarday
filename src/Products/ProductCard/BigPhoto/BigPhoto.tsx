@@ -17,7 +17,7 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
   const [photoToShow, setPhotoToShow] = useState(mainPhoto)
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: { key: string; }) => {
       if(e.key === 'ArrowRight') {
         console.log(e.key)
        

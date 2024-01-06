@@ -11,6 +11,7 @@ import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { BigPhoto } from "./BigPhoto/BigPhoto";
 import { useProductsContext } from "../../Context/ProductsContextProvider";
+import { analyticsEvent } from "../../analytics";
 // import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 
 export default function ProductCard() {
@@ -171,7 +172,7 @@ const { showBigPhoto, setShowBigPhoto } = useProductsContext()
                                     <h3>Czas realizacji zamówienia:</h3>
                                     <p>Po zaksięgowaniu wpłaty za zamówienie czas realizacji wynosi od 5 do 21 dni</p>
                                 </div>
-                                <a href={`mailto:info.kabarday@gmail.com?subject=${product.name}?body=tu wpisz tekst`} className={style.order}>Zamów</a>
+                                <a href={`mailto:info.kabarday@gmail.com?subject=${product.name}?body=tu wpisz tekst`} className={style.order} onClick={()=>{analyticsEvent("cta", `order_${product.name}`)}}>Zamów</a>
                             </div>
 
                         </div>

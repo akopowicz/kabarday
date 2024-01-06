@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import style from './SimilarProducts.module.css'
+import { analyticsEvent } from "../../analytics";
 
 type Photos = {
     product_id: string,
@@ -25,8 +26,13 @@ export const SimilarProducts = ({ id, name, price, photos, product_type }: Small
         return null;
     }
 
+    const similatProductClick = () => {
+        window.scrollTo(0, 0);
+        analyticsEvent("similarProduct", `smililar_procuct_${name}`);
+    }
+
     return (
-        <Link to={`/products/${product_type.type_name}/${name}?id=${id}`} className={style.itemWrapper} onClick={()=>window.scrollTo(0, 0)}>
+        <Link to={`/products/${product_type.type_name}/${name}?id=${id}`} className={style.itemWrapper} onClick={()=>similatProductClick()}>
             <div className={style.photo_wrapper}>
                 <img className={style.mainImage} src={photos[0]?.photo_link} alt="zdjęcie produkty" />
                 <img className={style.hoverImage} src={photos[1]?.photo_link} alt="zdjęcie produktu" />

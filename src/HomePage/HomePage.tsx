@@ -14,6 +14,7 @@ import style from "./HomePage.module.css";
 import { ProductItem } from "../Products/ProductItem/ProductItem";
 import { Link } from "react-router-dom";
 import { Header } from "./Header/Header";
+import {analyticsEvent} from '../analytics'
 
 export const HomePage = () => {
 
@@ -34,6 +35,10 @@ export const HomePage = () => {
         return <p>Spróbuj ponownie</p>
     }
 
+    const allProductsCtaClick = () => {
+        window.scrollTo(0, 0);
+        analyticsEvent("cta", "secondary_cta");
+    }
 
     return (
         <div>
@@ -48,7 +53,7 @@ export const HomePage = () => {
                     })}
                 </div>
 
-                <Link to="/products" className={style.seeAllProducts} onClick={()=>window.scrollTo(0, 0)}>ZOBACZ WSZYSTKIE PRODUKTY</Link>
+                <Link to="/products" className={style.seeAllProducts} onClick={allProductsCtaClick}>ZOBACZ WSZYSTKIE PRODUKTY</Link>
             </div>
         </div>
 

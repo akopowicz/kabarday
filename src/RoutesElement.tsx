@@ -29,7 +29,13 @@ const Contact = React.lazy(() => import("./Contact/Contact"));
 export const RoutesElement = () => {
       const location = useLocation();
   useEffect(() => {
+    // analyticsEvent(location.pathname + location.search)
     // ReactGA.send({ hitType: "pageview", page: location.pathname + location.search, title: location.pathname + location.search });
+      // eslint-disable-next-line
+  //@ts-ignore
+    gtag("event", "pageview",{
+        page: location.pathname + location.search,
+      })
     
   }, [location]);
 

@@ -3,9 +3,9 @@
 export const analyticsEvent = (category: string, action: string) => {
   // eslint-disable-next-line
   //@ts-ignore
-    gtag("event", action,{
-        category: category,
-        action: action,
-        label: action,
-      });
+  gtag('event', action, {
+    'event_category': category,
+    'event_label': action,
+    'value': action
+  });
 }

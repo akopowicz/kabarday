@@ -30,11 +30,11 @@ import { Navigation } from './Navigation/Navigation';
 import { UserProductsContextProvider } from './Context/UserProductsContextProvider';
 // import { ProductType } from './Products/ProductType/ProductType';
 // import AllProducts from './Products/AllProducts/AllProducts';
-import ReactGA from "react-ga4";
+// import ReactGA from "react-ga4";
 import { RoutesElement } from './RoutesElement';
 import { ProductsContextProvider } from './Context/ProductsContextProvider';
 
-ReactGA.initialize('G-YDEE85ZQTV');
+// ReactGA.initialize('G-YDEE85ZQTV');
 // const About = React.lazy(() => import('./About/About'));
 // const Order = React.lazy(() => import("./Order/Order"));
 

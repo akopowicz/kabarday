@@ -17,7 +17,7 @@ const ProductCard = React.lazy(() => import('./Products/ProductCard/ProductCard'
 import { HomePage } from './HomePage/HomePage';
 import { ProductType } from './Products/ProductType/ProductType';
 import AllProducts from './Products/AllProducts/AllProducts';
-import ReactGA from'react-ga4';
+// import ReactGA from'react-ga4';
 
 const About = React.lazy(() => import('./About/About'));
 const Order = React.lazy(() => import("./Order/Order"));
@@ -29,7 +29,7 @@ const Contact = React.lazy(() => import("./Contact/Contact"));
 export const RoutesElement = () => {
       const location = useLocation();
   useEffect(() => {
-    ReactGA.send({ hitType: "pageview", page: location.pathname + location.search, title: location.pathname + location.search });
+    // ReactGA.send({ hitType: "pageview", page: location.pathname + location.search, title: location.pathname + location.search });
     
   }, [location]);
 

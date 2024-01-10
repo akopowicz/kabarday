@@ -17,6 +17,8 @@ const ProductCard = React.lazy(() => import('./Products/ProductCard/ProductCard'
 import { HomePage } from './HomePage/HomePage';
 import { ProductType } from './Products/ProductType/ProductType';
 import AllProducts from './Products/AllProducts/AllProducts';
+import { Policy } from './Policy/Policy';
+// import { Cookie } from './Policy/Cookie/Cookie';
 // import ReactGA from'react-ga4';
 
 const About = React.lazy(() => import('./About/About'));
@@ -60,7 +62,10 @@ export const RoutesElement = () => {
         <Route element={<Contact />} path="/kontakt" />
         <Route element={<RegisterComponent />} path="/register" />
         <Route element={<AllProducts allProducts={[]} productType={''} />} path="/allProducts" />
+       <Route element={<Policy/>} path="/polityka-prywatnosci"></Route>
+        {/* <Route element={<Cookie/>} path='/polityka-cookie'></Route> */}
         <Route element={<div>404</div>} path="*" />
+       
       </Routes>
     )
 }

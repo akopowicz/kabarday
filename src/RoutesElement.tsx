@@ -31,8 +31,6 @@ export const RoutesElement = () => {
   useEffect(() => {
     // analyticsEvent(location.pathname + location.search)
     // ReactGA.send({ hitType: "pageview", page: location.pathname + location.search, title: location.pathname + location.search });
-      // eslint-disable-next-line
-  //@ts-ignore
     gtag("event", "pageview",{
         page: location.pathname + location.search,
       })

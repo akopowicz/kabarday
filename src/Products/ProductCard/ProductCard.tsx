@@ -7,21 +7,26 @@ import { useEffect, useState } from "react";
 import { SimilarProducts } from "../SimilarProducts/SimilarProducts";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { BigPhoto } from "./BigPhoto/BigPhoto";
 import { useProductsContext } from "../../Context/ProductsContextProvider";
 import { analyticsEvent } from "../../analytics";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 // import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 
 export default function ProductCard() {
     const location = useLocation();
     const id = location.search.split("=")[1]
-    const [caroselPhotosChange, setCaroselPhotosChange] = useState(3);
+    // const [caroselPhotosChange, setCaroselPhotosChange] = useState(3);
+
+    // od Codiego
+
+
+    // const { currentSlide, slideSize } = useState(carouselRef.current.state);
     // const [clickedPhoto, setClicedPhoto] = useState("")
     // const queryParameters = new URLSearchParams(location.search)
-// const [] = useState(false)
-const { showBigPhoto, setShowBigPhoto } = useProductsContext()
+    // const [] = useState(false)
+    const { showBigPhoto, setShowBigPhoto } = useProductsContext()
     console.log("bla", location)
 
     const [mainPhoto, setMainPhoto] = useState('')
@@ -73,26 +78,32 @@ const { showBigPhoto, setShowBigPhoto } = useProductsContext()
         setMainPhoto(photoSrc)
     }
 
-    const removeMove = () => {
-        if (caroselPhotosChange > 3) {
-            setCaroselPhotosChange(prev=>prev-1)
-        }
+    // const removeMove = () => {
+    //     if (caroselPhotosChange > 3) {
+    //         setCaroselPhotosChange(prev => prev - 1)
+    //     }
 
-        console.log(caroselPhotosChange)
-    }
+    //     console.log(caroselPhotosChange)
+    // }
 
-    const addMove = () => {
-    //    if (product.photos.length-1>caroselPhotosChange) {
-        setCaroselPhotosChange(prev=>prev+1)
-        console.log(caroselPhotosChange)
-    //    }
-    }
+    // const addMove = () => {
+    //     //    if (product.photos.length-1>caroselPhotosChange) {
+    //     setCaroselPhotosChange(prev => prev + 1)
+    //     console.log(caroselPhotosChange)
+    //     //    }
+    // }
 
     const showMainPhotoBig = () => {
         setShowBigPhoto(true)
     }
 
-  
+    const scrollHandler = () => {
+        console.log("scroll bla")
+        //     const visibleSlides = Array.from({ length: slideSize }, (_, i) => currentSlide + i); 
+        //     console.log(visibleSlides)
+    }
+
+
     console.log(product.photos.length)
     return (
         <div className={style.productCard}>
@@ -106,16 +117,16 @@ const { showBigPhoto, setShowBigPhoto } = useProductsContext()
                                 <img src={mainPhoto
                                 } alt="" className={style.mainPhoto} onClick={showMainPhotoBig} />
                             </div>
-                            <CarouselProvider 
-                             visibleSlides={3}
-                                 naturalSlideWidth={100}
-                                 naturalSlideHeight={125}
-                                totalSlides={(productDetails[0].photos.length-1)} className={style.carousel}
+                            <CarouselProvider
+                                visibleSlides={3}
+                                naturalSlideWidth={100}
+                                naturalSlideHeight={125}
+                                totalSlides={(productDetails[0].photos.length - 1)} className={style.carousel}
                             >
-                                <Slider className={style.slider}>
+                                <Slider onTouchStart={() => { console.log("slider") }} className={style.slider}  >
                                     {product.photos.filter(photo => photo.photo_link !== mainPhoto).map((filterPhoto, index) => (
-                                        <Slide index={index} className={style.smallImageWrapper} key={filterPhoto.id}>
-                                            <img className={style.smallImage} onClick={() => { changeMainPhoto(filterPhoto.photo_link) }} src={filterPhoto.photo_link} alt="" />
+                                        <Slide onTouchStart={scrollHandler} index={index} className={style.smallImageWrapper} key={filterPhoto.id}>
+                                            <img onTouchStart={() => { console.log("onChange") }} className={style.smallImage} onClick={() => { changeMainPhoto(filterPhoto.photo_link) }} src={filterPhoto.photo_link} alt="" />
                                         </Slide>
 
                                     ))}
@@ -123,10 +134,13 @@ const { showBigPhoto, setShowBigPhoto } = useProductsContext()
 
 
                                 </Slider>
-                                <ButtonBack className={`${style.arrowCarusel} ${style.arrowLeft} ${caroselPhotosChange === 3? style.disabled : ''}`}>
-                                    <ArrowCircleLeftIcon className={style.arrowIcon} onClick={removeMove}/>
-                                    </ButtonBack>
-                                <ButtonNext className={`${style.arrowCarusel} ${style.arrowRight} ${product.photos.length-1 > caroselPhotosChange? "": style.disabled}`}><ArrowCircleRightIcon className={style.arrowIcon} onClick={addMove}/></ButtonNext>
+                                <ButtonBack className={`${style.carouselArrow} ${style.arrowBack}`} ><ArrowBackIcon />
+                                </ButtonBack>
+                                <ButtonNext className={`${style.carouselArrow} ${style.arrowNext}`} ><ArrowForwardIcon /></ButtonNext>
+                                {/* <ButtonBack className={`${style.arrowCarusel} ${style.arrowLeft} ${caroselPhotosChange === 3 ? style.disabled : ''}`}>
+                                    <ArrowCircleLeftIcon className={style.arrowIcon} onClick={removeMove} />
+                                </ButtonBack> */}
+                                {/* <ButtonNext className={`${style.arrowCarusel} ${style.arrowRight} ${product.photos.length - 1 > caroselPhotosChange ? "" : style.disabled}`}><ArrowCircleRightIcon className={style.arrowIcon} onClick={addMove} /></ButtonNext> */}
                             </CarouselProvider>
                             {/* <div className={style.smallPhotosWrapper}>
                                 <div className={style.smallPhotos}>
@@ -172,7 +186,7 @@ const { showBigPhoto, setShowBigPhoto } = useProductsContext()
                                     <h3>Czas realizacji zamówienia:</h3>
                                     <p>Po zaksięgowaniu wpłaty za zamówienie czas realizacji wynosi od 5 do 21 dni</p>
                                 </div>
-                                <a href={`mailto:info.kabarday@gmail.com?subject=${product.name}?body=tu wpisz tekst`} className={style.order} onClick={()=>{analyticsEvent("cta", `order_${product.name}`)}}>Zamów</a>
+                                <a href={`mailto:info.kabarday@gmail.com?subject=${product.name}?body=tu wpisz tekst`} className={style.order} onClick={() => { analyticsEvent("cta", `order_${product.name}`) }}>Zamów</a>
                             </div>
 
                         </div>
@@ -183,12 +197,12 @@ const { showBigPhoto, setShowBigPhoto } = useProductsContext()
                     <h2 className={style.h2}>Może Ci się spodobać:</h2>
                     <div className={style.moreWrapper}>
                         {similarProducts?.map(similar => (
-                            <SimilarProducts {...similar} />
+                            <SimilarProducts key={"similar"+similar.id} {...similar} />
                         ))}
                     </div>
                 </div>
             </div>
-                     {showBigPhoto?  <BigPhoto  mainPhoto={mainPhoto} allPhotos={product.photos.filter(photo => photo.photo_link !== mainPhoto)} />: ""}      
+            {showBigPhoto ? <BigPhoto mainPhoto={mainPhoto} allPhotos={product.photos.filter(photo => photo.photo_link !== mainPhoto)} /> : ""}
         </div>
     )
 }

@@ -107,10 +107,6 @@ button:focus-visible {
   overflow-y: scroll;
 } */
 
-#root {
-  /* overflow-y: hidden; */
-}
-
 img {
   display: block;
 }

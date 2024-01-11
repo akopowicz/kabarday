@@ -18,7 +18,7 @@ export default function About() {
                     Wiemy, wydłuża to proces i nie jest takie wygodne jak kliknięcie w przycisk na stronie, jednak dzięki temu możemy zapewnić, że produkt będzie jak najbardziej dostosowany do Ciebie i Twoich potrzeb.
                 </p>
                
-               <Link to="" className={style.link}>Zobacz więcej szczegółów odnośnie składania zamówień</Link>
+               <Link to="/jak-zamowic" className={style.link}>Zobacz więcej szczegółów odnośnie składania zamówień</Link>
             </div>
         </div>
     )

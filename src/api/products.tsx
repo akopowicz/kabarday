@@ -201,7 +201,8 @@ export const getProduct = async (id: string) => {
   const { data: product, error } = await supabase.from('products').select(`
   *, 
   product_type ( type_name, id ),
-  photos (product_id, id, photo_link)
+  photos (product_id, id, photo_link),
+  measurements (product_id, length, width, sleeve_length)
 `)
     .eq('id', id)
 

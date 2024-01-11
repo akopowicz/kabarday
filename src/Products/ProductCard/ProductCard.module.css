@@ -163,7 +163,11 @@
 }
 
 .descriptionText {
-    margin-bottom: 5%;
+    margin-bottom: 1rem;
+}
+
+.descriptionTextWrapper {
+    margin-bottom: 2rem;
 }
 
 .h2 {

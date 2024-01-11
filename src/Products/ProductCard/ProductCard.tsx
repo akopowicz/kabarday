@@ -170,9 +170,13 @@ export default function ProductCard() {
                                 <ul className={style.compositionDescription}>Skład:
                                     <li className={style.composition}>{product.composition}</li>
                                 </ul>
-                                <div>
+                                <div className={style.descriptionTextWrapper}>
                                     <h3 className={style.description}>Opis:</h3>
                                     <p className={style.descriptionText}>{product.description}</p>
+                                    <p>Wymiary:</p>
+                                    <p>Długość: {product.measurements[0]?.length}cm</p>
+                                    <p>Szerokość: {product.measurements[0]?.width}cm</p>
+                                    <p>Długość rękawów: {product.measurements[0]?.sleeve_length}cm</p>
                                 </div>
                                 <div>
                                     <h3 className={style.colors}>Dostępne kolory:</h3>

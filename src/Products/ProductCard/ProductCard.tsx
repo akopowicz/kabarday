@@ -190,7 +190,7 @@ export default function ProductCard() {
                                     <h3>Czas realizacji zamówienia:</h3>
                                     <p>Po zaksięgowaniu wpłaty za zamówienie czas realizacji wynosi od 5 do 21 dni</p>
                                 </div>
-                                <a href={`mailto:info.kabarday@gmail.com?subject=${product.name}?body=tu wpisz tekst`} className={style.order} onClick={() => { analyticsEvent("cta", `order_${product.name}`) }}>Zamów</a>
+                                <a href={`mailto:info.kabarday@gmail.com?subject=${product.name}`} className={style.order} onClick={() => { analyticsEvent("cta", `order_${product.name}`) }}>Zamów</a>
                             </div>
 
                         </div>

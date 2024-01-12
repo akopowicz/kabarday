@@ -213,7 +213,7 @@ export const getProduct = async (id: string) => {
 
 export const getSimilarProducts = async (id: string) => {
 
-  const { data: product, error } = await supabase.from('products').select(`
+  const { data: product, error } = await supabase.from('random_products').select(`
   *, 
   product_type ( type_name, id ),
   photos (product_id, id, photo_link)

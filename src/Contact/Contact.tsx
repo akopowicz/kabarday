@@ -9,8 +9,8 @@ export default function Contact() {
                 <a href="mailto:info.kabarday@gmail.com">info.kabarday@gmail.com</a>
 
                 <h3>Znajdziesz nas na:</h3>
-                    <a href="https://www.facebook.com/kabarday.fashion/">Facebook: <span>kabarday.fashion</span></a>
-                    <a href="https://www.instagram.com/kabarday.fashion/">Instagram: <span>kabarday.fashion</span></a>
+                    <a target="_blank" href="https://www.facebook.com/kabarday.fashion/">Facebook: <span>kabarday.fashion</span></a>
+                    <a target="_blank" href="https://www.instagram.com/kabarday.fashion/">Instagram: <span>kabarday.fashion</span></a>
             </div>
         </div>
     )

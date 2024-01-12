@@ -45,8 +45,8 @@ export const Footer = () => {
                 <div className={style.socialMediaWrapper}>
                     <h4 className={style.socialMediaHeading}>Dołącz do nas</h4>
                     <div className={style.iconsWrapper}>
-                        <a className={style.socialMediaIconLink} href="https://www.instagram.com/kabarday.fashion/"><InstagramIcon className={style.socialMediaIcon} /></a>
-                        <a className={style.socialMediaIconLink} href="https://www.facebook.com/kabarday.fashion/"><FacebookIcon className={style.socialMediaIcon} /></a>
+                        <a target="_blank" className={style.socialMediaIconLink} href="https://www.instagram.com/kabarday.fashion/"><InstagramIcon className={style.socialMediaIcon} /></a>
+                        <a target="_blank" className={style.socialMediaIconLink} href="https://www.facebook.com/kabarday.fashion/"><FacebookIcon className={style.socialMediaIcon} /></a>
                     </div>
                 </div>
             </div>

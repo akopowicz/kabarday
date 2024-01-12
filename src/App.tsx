@@ -66,7 +66,7 @@ function App() {
         )}
         <UserProductsContextProvider>
           <ProductsContextProvider>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense>
             <BrowserRouter>
               <Navigation />
               <RoutesElement/>

@@ -15,6 +15,7 @@ import { ProductItem } from "../Products/ProductItem/ProductItem";
 import { Link } from "react-router-dom";
 import { Header } from "./Header/Header";
 import {analyticsEvent} from '../analytics'
+import { SkeletonHomePage } from "../Skeleton/SkeletonHomePage/SkeletonHomePage";
 
 export const HomePage = () => {
 
@@ -24,7 +25,7 @@ export const HomePage = () => {
     })
 
     if (isLoading) {
-        return <p>Loading...</p>;
+        return <SkeletonHomePage/>
     }
 
     if (error) {

@@ -48,6 +48,7 @@ import { useQuery } from "@tanstack/react-query";
 // import { ProductItem } from "../ProductItem/ProductItem";
 import AllProducts from "../AllProducts/AllProducts";
 import { useUserProductsContext } from "../../Context/UserProductsContextProvider";
+import { SkeletonAllProducts } from "../../Skeleton/SkeletonAllProducts/SkeletonAllProducts";
 
 export const ProductType = () => {
     const location = useLocation();
@@ -67,7 +68,7 @@ export const ProductType = () => {
     }
 
     if (isLoading) {
-        return <p>Loading...</p>;
+        return <SkeletonAllProducts/>
     }
 
     if (products === undefined || products === null) {

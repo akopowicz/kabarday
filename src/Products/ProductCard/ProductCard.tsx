@@ -12,6 +12,7 @@ import { useProductsContext } from "../../Context/ProductsContextProvider";
 import { analyticsEvent } from "../../analytics";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { SkeletonProductDetails } from "../../Skeleton/SkeletonProductDetails/SkeletonProductDetails";
 // import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 
 export default function ProductCard() {
@@ -52,7 +53,7 @@ export default function ProductCard() {
 
 
     if (isLoading || loadingSimilar) {
-        return <p>Loading...</p>;
+        return <SkeletonProductDetails/>;
     }
 
     if (error || errorSimilar) {

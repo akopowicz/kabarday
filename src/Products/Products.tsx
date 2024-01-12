@@ -57,8 +57,15 @@ import { getProducts } from "../api/products"
 // import { Link } from "react-router-dom";
 // import { Sorting } from "../Sorting/Sorting";
 import { useUserProductsContext } from "../Context/UserProductsContextProvider";
-import AllProducts from "./AllProducts/AllProducts";
+// import AllProducts from "./AllProducts/AllProducts";
+// import Grid from '@mui/material/Grid';
+// import Box from '@mui/material/Box';
+// import Typography from '@mui/material/Typography';
+// import Skeleton from '@mui/material/Skeleton';
+// import { SkeletonProductCard } from "../Skeleton/SkeletonProductCard/SkeletonProductCard";
 // import { useLocation } from "react-router-dom";
+import { SkeletonAllProducts } from "../Skeleton/SkeletonAllProducts/SkeletonAllProducts";
+import AllProducts from "./AllProducts/AllProducts";
 
 export default function Products() {
     const { sortType } = useUserProductsContext();
@@ -72,8 +79,13 @@ export default function Products() {
         queryFn: () => getProducts("", "", sortType.column, sortType.ascendic, typeId),
     })
 
+    console.log(allProducts)
+
     if (isLoading) {
-        return <p>Loading...</p>;
+        return <SkeletonAllProducts />
+            
+
+       
     }
 
     if (error) {
@@ -85,10 +97,14 @@ export default function Products() {
     }
 
     console.log(allProducts)
-
-
+console.log(isLoading)
+{/* <AllProducts allProducts={allProducts} productType={typeId} /> */}
     return (
-        <AllProducts allProducts={allProducts} productType={""} />
+        // <div>
+<AllProducts allProducts={allProducts} productType={typeId} />
+
+       
+
 
     )
 }

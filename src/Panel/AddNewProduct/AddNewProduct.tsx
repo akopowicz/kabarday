@@ -17,7 +17,6 @@ const FormInput = ({ accessor, formik, type, label }: {
   return (
     <TextField
       error={Boolean(formik.touched[accessor] && formik.errors[accessor])} //oznacza pole na czerwono
-      // helperText={formik.touched[accessor] && formik.errors[accessor] ? formik.errors[accessor] : null} // wyswietla text pomocniczy pod spodem
       id={accessor}
       name={accessor}
       onChange={formik.handleChange}
@@ -33,13 +32,6 @@ export default function AddNewProduct() {
   const role = useSelector((state: RootState) => state.user.role)
   const queryClient = useQueryClient();
 
-  // const handleAdd = (values: AddProductSchema) => {
-    // mutation.mutate(values)
-    // addNewProducts(values)
-    // addNewProducts(values)
-    // console.log([values])
-  // };
-
   const formik = useFormik<AddProductSchema>({
     initialValues: {
       name: '',
@@ -53,37 +45,20 @@ export default function AddNewProduct() {
     },
     validationSchema: addProductValidationSchema,
     onSubmit: () => {
-      console.log("formik values",formik.values)
       mutation.mutate(formik.values)
-      // handleAdd(formik.values)
       formik.resetForm();
-      // console.log(formik.values)
     },
   });
 
   const mutation = useMutation({
     mutationFn: (values: AddProductSchema) => addNewProduct(values),
     onSuccess: () => {
-
-      // rewalidacja i pobranie ponownie zapytania pod kluczem orders
-      // queryClient.invalidateQueries([`product`,id]);
       queryClient.invalidateQueries({ queryKey: ['products'] });
     },
     onError: () => {
       console.log("Cos poszlo nie tak")
     }
   });
-
-  // const mutation = useMutation(async (values:AddProductSchema)=>{return await addNewProducts(values)}, {
-  //   onSuccess: () => {
-  //     // rewalidacja i pobranie ponownie zapytania pod kluczem orders
-  //     queryClient.invalidateQueries({queryKey: ['product']});
-  //   },
-  //   onError: ()=>{
-  //    console.log("Cos poszlo nie tak")
-  //   }
-  // });
-
 
   const { isLoading, error, data } = useQuery({
     queryKey: ['productType'],
@@ -100,11 +75,6 @@ export default function AddNewProduct() {
   if (data === undefined) {
     return <p>Spróbuj ponownaie</p>
   }
-
-  // const handlePhotoChange=(e)=>{
-  //   console.log("e",e)
-  // }
-
 
   const handleChange = (event: SelectChangeEvent) => {
 

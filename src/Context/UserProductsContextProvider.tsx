@@ -1,17 +1,4 @@
 import { useState, useContext, createContext, Dispatch, SetStateAction } from 'react';
-// import { AddProductSchema } from '../api/products';
-// import { User } from '../FakeRegisterComponent/FakeRegisterComponent';
-
-// type ProductType = {
-//     name: string;
-//     description: string;
-//     price: number;
-//     composition: string;
-//     stock: number;
-//     sex: string;
-//     type: string;
-//     id: string;
-// }
 
 type sortDataType = {
     column: string,
@@ -21,8 +8,6 @@ type sortDataType = {
 type UserProductsContextProps = {
     userProductType: string,
     setUserProductType: Dispatch<SetStateAction<string>>,
-    // filteredProducts: ProductType[],
-    // setFilteredProducts: Dispatch<SetStateAction<ProductType[]>>,
     userSearchProducts:string,
     setUserSearchProducts: Dispatch<SetStateAction<string>>,
     sortType: sortDataType,
@@ -41,8 +26,6 @@ export const UserProductsContextProvider = ({ children }: { children: React.Reac
         ascendic: true
     });
     const [sortTypeText, setSortTypeText] = useState("Sortowanie domyślne");
-
-    // const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
 
     return (
         <UserProductsContext.Provider value={{ userProductType, setUserProductType, userSearchProducts, setUserSearchProducts, sortType, setSortType, sortTypeText, setSortTypeText }}>

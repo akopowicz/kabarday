@@ -3,8 +3,6 @@ import { InferType, string, object } from 'yup';
 import TextField from '@mui/material/TextField';
 import supabase from '../supabase/supabase';
 import { useDispatch } from "react-redux";
-// import { LoggedPerson } from '../Panel/LoggedPerson/LoggedPerson';
-// import { RootState } from '../Redux/store';
 import { useState } from 'react';
 import { loginStatus } from '../Redux/sessionSlice';
 import { UserRole, userRole } from "../Redux/userSlice";

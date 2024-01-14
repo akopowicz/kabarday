@@ -79,10 +79,6 @@ export const Navigation = () => {
                     <li><Link className={style.navigationItem} to="/jak-zamowic" onClick={()=>{navigationAnalyticsEvents("navigation_order")}}>jak zamówić</Link></li>
                 </ul>
                 <div className={`${style.searchWrapper} ${isSearchBarShown ? style.show : ''}`}>
-                    {/* <input type="text" placeholder="Wyszukaj produkt" className={style.serachInput} />
-                    <SearchIcon className={style.searchIcon} />
-                    <CloseIcon className={style.closeSearchMobile} onClick={showSearch} />
-                    <div className={style.searchOutput}></div> */}
                     <Search showSearch={showSearch}/>
                 </div>
                 <div className={style.mobileNavigationIcons}>

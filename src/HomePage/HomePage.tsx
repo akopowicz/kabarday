@@ -1,16 +1,6 @@
-// export const HomePage = () => {
-//     return (
-//         <div>
-//             Home Page!!!!
-//         </div>
-//     )
-// }
-
 import { useQuery } from "@tanstack/react-query"
 import { getProductsForHomePage } from "../api/products"
-// import style from "..//Products.module.css";
 import style from "./HomePage.module.css";
-// import { ProductItem } from "../ProductItem/ProductItem";
 import { ProductItem } from "../Products/ProductItem/ProductItem";
 import { Link } from "react-router-dom";
 import { Header } from "./Header/Header";

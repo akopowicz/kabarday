@@ -1,5 +1,3 @@
-// import ReactGA from'react-ga4';
-
 export const analyticsEvent = (category: string, action: string) => {
 
   gtag('event', action, {

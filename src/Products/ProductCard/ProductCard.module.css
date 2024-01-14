@@ -124,7 +124,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    margin: 20% 0;
+    margin: 5rem 0 0 0;
 }
 
 .moreWrapper {
@@ -177,6 +177,13 @@
 
 .deliveryText {
     margin-bottom: 5%;
+    height: 0;
+    overflow: hidden;
+}
+
+.orderText {
+    height: 0;
+    overflow: hidden;
 }
 
 .arrowCarusel {
@@ -200,7 +207,11 @@
 
 .colorsText {
     margin-bottom: 5%;
+    height: 0px;
+    overflow: hidden;
 }
+
+
 
 .carousel {
     position: relative;
@@ -267,7 +278,7 @@
     }
 
     .more {
-        margin: 10% 0;
+        margin: 8rem 0 2rem 0;
     }
 
     .moreWrapper {
@@ -289,4 +300,15 @@
     display: none;
 }
 
+.descriptionMore {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: .5rem;
+    cursor: pointer;
+}
 
+.showText {
+    height: fit-content;
+}

@@ -13,22 +13,19 @@ import { analyticsEvent } from "../../analytics";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { SkeletonProductDetails } from "../../Skeleton/SkeletonProductDetails/SkeletonProductDetails";
-// import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export default function ProductCard() {
     const location = useLocation();
     const id = location.search.split("=")[1]
-    // const [caroselPhotosChange, setCaroselPhotosChange] = useState(3);
-
-    // od Codiego
-
-
-    // const { currentSlide, slideSize } = useState(carouselRef.current.state);
-    // const [clickedPhoto, setClicedPhoto] = useState("")
-    // const queryParameters = new URLSearchParams(location.search)
-    // const [] = useState(false)
+    const [avaliableColors, setAvaliableColors] = useState<boolean>(false)
+    const [howToOrder, setHowToOrder] = useState<boolean>(false)
+    const [order, setOrder] = useState<boolean>(false);
     const { showBigPhoto, setShowBigPhoto } = useProductsContext()
-    console.log("bla", location)
+
+    // const [newSwipe, setNewSwipe] = useState(new Date());
+    // const [timeDiff, setTimeDiff] = useState(0)
 
     const [mainPhoto, setMainPhoto] = useState('')
 
@@ -42,10 +39,7 @@ export default function ProductCard() {
         queryFn: () => getSimilarProducts(id)
     })
 
-    console.log(similarProducts)
-
     useEffect(() => {
-        console.log(productDetails)
         if (productDetails) {
             setMainPhoto(productDetails[0].photos[0].photo_link)
         }
@@ -53,7 +47,7 @@ export default function ProductCard() {
 
 
     if (isLoading || loadingSimilar) {
-        return <SkeletonProductDetails/>;
+        return <SkeletonProductDetails />;
     }
 
     if (error || errorSimilar) {
@@ -64,48 +58,36 @@ export default function ProductCard() {
         return <p>Spróbuj ponownie</p>
     }
 
-    console.log(productDetails)
-
     const product = productDetails[0]
 
-    // if (productDetails) {
-
-    //     setMainPhoto(productDetails[0].photos[0].photo_link) 
-    // }
-
-    // setMainPhoto(productDetails[0].photos[0].photo_link)
 
     const changeMainPhoto = (photoSrc: string) => {
         setMainPhoto(photoSrc)
     }
 
-    // const removeMove = () => {
-    //     if (caroselPhotosChange > 3) {
-    //         setCaroselPhotosChange(prev => prev - 1)
-    //     }
-
-    //     console.log(caroselPhotosChange)
-    // }
-
-    // const addMove = () => {
-    //     //    if (product.photos.length-1>caroselPhotosChange) {
-    //     setCaroselPhotosChange(prev => prev + 1)
-    //     console.log(caroselPhotosChange)
-    //     //    }
-    // }
-
     const showMainPhotoBig = () => {
         setShowBigPhoto(true)
     }
 
-    const scrollHandler = () => {
-        console.log("scroll bla")
-        //     const visibleSlides = Array.from({ length: slideSize }, (_, i) => currentSlide + i); 
-        //     console.log(visibleSlides)
-    }
+
+    // const startSwipe = () => {
+    //     setNewSwipe(new Date())
+    //     console.log(newSwipe);
+    // }
+
+    // const endSwipe = (filterPhoto:string) => {
+    //     setTimeDiff( new Date().getTime() - newSwipe.getTime());
+
+    //     console.log(timeDiff)
+
+    //     console.log(timeDiff)
+
+    //     if (timeDiff < 2000) {
+    //         changeMainPhoto(filterPhoto)
+    //     }
+    // }
 
 
-    console.log(product.photos.length)
     return (
         <div className={style.productCard}>
             <div className={style.productWrapper}>
@@ -124,43 +106,17 @@ export default function ProductCard() {
                                 naturalSlideHeight={125}
                                 totalSlides={(productDetails[0].photos.length - 1)} className={style.carousel}
                             >
-                                <Slider onTouchStart={() => { console.log("slider") }} className={style.slider}  >
+                                <Slider className={style.slider}  >
                                     {product.photos.filter(photo => photo.photo_link !== mainPhoto).map((filterPhoto, index) => (
-                                        <Slide onTouchStart={scrollHandler} index={index} className={style.smallImageWrapper} key={filterPhoto.id}>
-                                            <img onTouchStart={() => { console.log("onChange") }} className={style.smallImage} onClick={() => { changeMainPhoto(filterPhoto.photo_link) }} src={filterPhoto.photo_link} alt="" />
+                                        <Slide index={index} className={style.smallImageWrapper} key={filterPhoto.id}>
+                                            <img className={style.smallImage} onClick={()=>changeMainPhoto(filterPhoto.photo_link)} src={filterPhoto.photo_link} alt="" />
                                         </Slide>
-
                                     ))}
-
-
-
                                 </Slider>
                                 <ButtonBack className={`${style.carouselArrow} ${style.arrowBack}`} ><ArrowBackIcon />
                                 </ButtonBack>
                                 <ButtonNext className={`${style.carouselArrow} ${style.arrowNext}`} ><ArrowForwardIcon /></ButtonNext>
-                                {/* <ButtonBack className={`${style.arrowCarusel} ${style.arrowLeft} ${caroselPhotosChange === 3 ? style.disabled : ''}`}>
-                                    <ArrowCircleLeftIcon className={style.arrowIcon} onClick={removeMove} />
-                                </ButtonBack> */}
-                                {/* <ButtonNext className={`${style.arrowCarusel} ${style.arrowRight} ${product.photos.length - 1 > caroselPhotosChange ? "" : style.disabled}`}><ArrowCircleRightIcon className={style.arrowIcon} onClick={addMove} /></ButtonNext> */}
                             </CarouselProvider>
-                            {/* <div className={style.smallPhotosWrapper}>
-                                <div className={style.smallPhotos}>
-                                    {product.photos.filter(photo => photo.photo_link !== mainPhoto).map(filterPhoto => (
-                                        <div className={style.smallImageWrapper} key={filterPhoto.id}>
-                                            <img className={style.smallImage} onClick={() => { changeMainPhoto(filterPhoto.photo_link) }} src={filterPhoto.photo_link} alt="" />
-                                        </div>
-
-                                    ))}
-                                </div>
-
-                            </div> */}
-                            {/* <div>
-                            {product.photos.filter(photo=>photo.photo_type.includes("detail")).map(filterPhoto=>(
-                                <img key={filterPhoto.id} src={filterPhoto.photo_link} />
-                            ))}
-                       
-                       
-                        </div> */}
                         </div>
                         <div className={style.detailsWrapper}>
                             <div className={style.nameAndPrice}>
@@ -180,29 +136,41 @@ export default function ProductCard() {
                                     <p>Długość rękawów: {product.measurements[0]?.sleeve_length}cm</p>
                                 </div>
                                 <div>
-                                    <h3 className={style.colors}>Dostępne kolory:</h3>
-                                    <p className={style.colorsText}>Kolory w których występuje dana włóczka przedstawione są na zdjęciu. W zależności od parametrów wyświetlacza kolory mogą różnić się od faktycznego ich wyglądu. Dostępność kolorów może różnić się od faktycznej dostępności w danym momencie.</p>
+                                    <div className={style.descriptionMore} onClick={() => {
+                                        setAvaliableColors(!avaliableColors)
+                                    }}>
+                                        <h3 className={style.colors}>Dostępne kolory:</h3>
+                                        {avaliableColors ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon className={style.descriptionMoreArrow} />}
+                                    </div>
+                                    <p className={`${style.colorsText} ${avaliableColors ? style.showText : ""}`}>Kolory w których występuje dana włóczka przedstawione są na zdjęciu. W zależności od parametrów wyświetlacza kolory mogą różnić się od faktycznego ich wyglądu. Dostępność kolorów może różnić się od faktycznej dostępności w danym momencie.</p>
                                 </div>
-                                <div className={style.delivery}><h3>Sposób skladania zmównienia:</h3>
-                                    <p className={style.deliveryText}>W celu złożenia zamówienia napisz do nas wiadomość na adres mailowy: <a className={style.mail} href="mailto:info.kabarday@gmail.com">info.kabarday@gmail.com</a></p>
+                                <div className={style.delivery}>
+                                    <div className={style.descriptionMore} onClick={() => {
+                                        setHowToOrder(!howToOrder)
+                                    }}>
+                                        <h3>Sposób skladania zmównienia:</h3>
+                                        {howToOrder ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon className={style.descriptionMoreArrow} />}
+                                    </div>
+                                    <p className={`${style.deliveryText} ${howToOrder ? style.showText : ""}`}>W celu złożenia zamówienia napisz do nas wiadomość na adres mailowy: <a className={style.mail} href="mailto:info.kabarday@gmail.com">info.kabarday@gmail.com</a></p>
                                 </div>
-
                                 <div className={style.time}>
-                                    <h3>Czas realizacji zamówienia:</h3>
-                                    <p>Po zaksięgowaniu wpłaty za zamówienie czas realizacji wynosi od 5 do 21 dni</p>
+                                    <div className={style.descriptionMore} onClick={() => {
+                                        setOrder(!order)
+                                    }}> <h3>Czas realizacji zamówienia:</h3>
+                                        {order ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon className={style.descriptionMoreArrow} />}
+                                    </div>
+                                    <p className={`${style.orderText} ${order ? style.showText : ""}`}>Po zaksięgowaniu wpłaty za zamówienie czas realizacji wynosi od 5 do 21 dni</p>
                                 </div>
                                 <a href={`mailto:info.kabarday@gmail.com?subject=${product.name}`} className={style.order} onClick={() => { analyticsEvent("cta", `order_${product.name}`) }}>Zamów</a>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div className={style.more}>
                     <h2 className={style.h2}>Może Ci się spodobać:</h2>
                     <div className={style.moreWrapper}>
                         {similarProducts?.map(similar => (
-                            <SimilarProducts key={"similar"+similar.id} {...similar} />
+                            <SimilarProducts key={"similar" + similar.id} {...similar} />
                         ))}
                     </div>
                 </div>

@@ -2,15 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
 
-
-// interface ProductsState {
-//     products: AddProductSchema[],
-// }
-
-// const initialState: ProductsState = {
-//     products: [],
-// }
-
 interface ProductState {
     type: string;
     composition: string;
@@ -31,7 +22,6 @@ export const productsSlice = createSlice({
         setProducts: (state, action:PayloadAction<ProductState>) => {
             console.log(action.payload)
             console.log(state)
-            // return [...state, action.payload]
         },
 
     },

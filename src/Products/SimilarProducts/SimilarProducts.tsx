@@ -19,8 +19,6 @@ type SmallProductCard = {
 }
 
 export const SimilarProducts = ({ id, name, price, photos, product_type }: SmallProductCard) => {
-    // console.log(})
-    console.log(photos)
 
     if(!product_type){
         return null;
@@ -42,10 +40,8 @@ export const SimilarProducts = ({ id, name, price, photos, product_type }: Small
                 <p className={style.productName}>{name}</p>
                 <p className={style.productPrice}>{price} zł</p>
                 </div>
-               
                 <button className={style.seeMore}>Zobacz</button>
             </div>
-
         </Link>
     )
 }

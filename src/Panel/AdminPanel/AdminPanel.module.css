@@ -19,7 +19,6 @@
 .search_wrapper {
     width: 100%;
     display: flex;
-    /* background-color: aqua; */
     justify-content: space-between;
     align-items: center;
     margin: 5% 0 2% 0;
@@ -28,10 +27,7 @@
 .content_wrapper_2 {
     width: 100%;
     position: relative;
-    /* overflow-x: scroll; */
     overflow-y: auto;
-    /* min-width: fit-content; */
-    
 }
 
 .title {
@@ -49,7 +45,6 @@
     text-transform: uppercase;
     font-weight: 700;
     font-size: 16px;
-   /* margin-bottom: 5%; */
     display: inline-block;
     transition: .5s;
     letter-spacing: 1px;

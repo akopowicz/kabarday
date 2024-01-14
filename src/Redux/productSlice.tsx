@@ -14,10 +14,6 @@ export const productSlice = createSlice({
     name: "product", //nazwa reducera
     initialState,
     reducers: {
-        //akcje
-        // loginStatus: (state, action: PayloadAction<boolean>) => {
-        //     state.isLoggedIn = action.payload
-        // }
         setProductType: (state, action: PayloadAction<string>) => {
             state.productType = action.payload
         },

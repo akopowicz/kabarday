@@ -61,7 +61,6 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
       <div className={style.imageWrapper}>
         <img src={photoToShow} alt="" className={style.photo} />
       </div>
-      {/* <img src={photoToShow} alt="" className={style.BigPhoto} /> */}
       <CloseIcon className={style.closeIcon} onClick={() => setShowBigPhoto(false)} />
       < ArrowBackIosIcon className={`${style.arrowBackIcon} ${mainPhotoId === 0 ? style.displayNone : ""}`} onClick={() => prevPhoto()} />
       <ArrowForwardIosIcon className={`${style.arrowForwardIcon} ${mainPhotoId < allPhotos.length ? "" : style.displayNone}`} onClick={() => nextPhoto()} />

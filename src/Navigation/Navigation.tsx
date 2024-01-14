@@ -16,14 +16,11 @@ export const Navigation = () => {
     const showHamburger = () => {
         setIsHamburgerShown(!isHamburgerShown);
         setIsSearchBarShown(false);
-        console.log(isHamburgerShown)
     }
 
     const showSearch = () => {
         setIsHamburgerShown(false);
         setIsSearchBarShown(!isSearchBarShown);
-
-        console.log(isHamburgerShown)
     }
 
     const handleMouseEnter = () => {
@@ -43,9 +40,6 @@ export const Navigation = () => {
         showHamburger();
         analyticsEvent("navigation", action);
     }
-    
-
-    console.log(isHamburgerShown)
 
     return (
         <nav className={style.navigation}>

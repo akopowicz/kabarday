@@ -7,7 +7,6 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 export type productTypeType = {
     type_name: string,
-    // product_type_id: string
 }
 
 export type ProductType = {
@@ -44,7 +43,6 @@ export const ProductDetail = ({product}:{product:ProductType}) => {
     return (
         <tr className={style.tr}>
             <td>{product.name}</td>
-            {/* <td>{product.description}</td> */}
             <td>{product.price}</td>
             <td>{product.composition}</td>
             <td>{product.stock}</td>

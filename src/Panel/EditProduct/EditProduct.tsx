@@ -33,9 +33,6 @@ export default function EditProduct() {
     const mutation = useMutation({
         mutationFn: (values:UpdateProductFormValues) => updateProductById(values, product.id),
         onSuccess: () => {
-            
-            // rewalidacja i pobranie ponownie zapytania pod kluczem orders
-            // queryClient.invalidateQueries([`product`,id]);
             queryClient.invalidateQueries({queryKey: ['products']});
         },
         onError: () => {
@@ -44,21 +41,8 @@ export default function EditProduct() {
     });
 
     const onSubmit = (values: UpdateProductFormValues) => {
-       
-        // updateProductById(values, product.id)
         mutation.mutate(values)
     }
-
-    // if (error) {
-    //     return <p>Cannot get client data</p>
-    // }
-    // if (isLoading) {
-    //     return <p>Loading...</p>;
-    // }
-
-    // if (data === undefined || data === null) {
-    //     return <p>Spróbuj ponownaie</p>
-    // }
 
     return (
         <Formik<UpdateProductFormValues>

@@ -23,10 +23,6 @@ export default function ProductCard() {
     const [howToOrder, setHowToOrder] = useState<boolean>(false)
     const [order, setOrder] = useState<boolean>(false);
     const { showBigPhoto, setShowBigPhoto } = useProductsContext()
-
-    // const [newSwipe, setNewSwipe] = useState(new Date());
-    // const [timeDiff, setTimeDiff] = useState(0)
-
     const [mainPhoto, setMainPhoto] = useState('')
 
     const { isLoading, error, data: productDetails } = useQuery({
@@ -68,25 +64,6 @@ export default function ProductCard() {
     const showMainPhotoBig = () => {
         setShowBigPhoto(true)
     }
-
-
-    // const startSwipe = () => {
-    //     setNewSwipe(new Date())
-    //     console.log(newSwipe);
-    // }
-
-    // const endSwipe = (filterPhoto:string) => {
-    //     setTimeDiff( new Date().getTime() - newSwipe.getTime());
-
-    //     console.log(timeDiff)
-
-    //     console.log(timeDiff)
-
-    //     if (timeDiff < 2000) {
-    //         changeMainPhoto(filterPhoto)
-    //     }
-    // }
-
 
     return (
         <div className={style.productCard}>

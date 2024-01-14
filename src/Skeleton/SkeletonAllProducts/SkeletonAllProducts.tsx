@@ -15,7 +15,6 @@ export const SkeletonAllProducts = () => {
                     return <SkeletonProductCard key={`element` + index + element} />
                 })
             }
-            {/* <SkeletonProductCard/> */}
         </div>
     )
 }

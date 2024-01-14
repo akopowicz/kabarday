@@ -22,7 +22,6 @@ export const getProductsType = async () => {
     .from('product_type')
     .select()
   console.log(error)
-  console.log(productType)
 
   return productType
 };
@@ -37,7 +36,6 @@ export const addNewProduct = async (addProductData: AddProductSchema) => {
   if (data) {
     //uploadFile
     const bucketData = await uploadFile(addProductData.photo as File)
-    console.log(bucketData?.path)
     if (bucketData?.path) {
       //do bazy dodać link z id produktu
       addNewPhoto({ product_id: data[0].id, link: 'aaaa' })
@@ -63,7 +61,6 @@ export const getProducts = async (search?: string, id?: string, column?: string,
   }
 
   if (column) {
-    console.log("bla")
     if (ascendic) {
       query = query.order(column, { ascending: true })
     } else {
@@ -71,17 +68,14 @@ export const getProducts = async (search?: string, id?: string, column?: string,
     }
   }
 
-  console.log(id)
   if (search) {
     query = query.ilike("name", `%${search}%`)
   }
   if (id && id !== "all") {
-    // query = query.ilike("type_id", id)
     query = query.eq('type_id', id)
   }
   const { data: products, error } = await query;
   console.log(error)
-  console.log(products)
   return products
 }
 
@@ -93,13 +87,9 @@ export const getProductsWithType = async (type: string) => {
   photos (product_id, id, photo_link)
 `).eq('type_id', type)
 
-  // if (type) {
-  //   // query = query.ilike("type_id", id)
-  //   query = query.
-  // }
+
   const { data: products, error } = await query;
   console.log(error)
-  console.log(products)
   return products
 }
 
@@ -150,7 +140,6 @@ export const getProduct = async (id: string) => {
     .eq('id', id)
 
   console.log(error)
-  console.log(product)
   return product
 }
 
@@ -165,7 +154,6 @@ export const getSimilarProducts = async (id: string) => {
     .range(0, 3)
 
   console.log(error)
-  console.log(product)
   return product
 }
 
@@ -179,7 +167,6 @@ export const getProductsForHomePage = async () => {
     .range(0, 7)
 
   console.log(error)
-  console.log(product)
   return product
 }
 
@@ -192,15 +179,11 @@ export const getSearchProducts = async (search: string, quantity?: number) => {
   photos (product_id, id, photo_link)
 `)
 
-  console.log(search)
-
   query = query.ilike("name", `%${search}%`)
   if (quantity) {
-    // query = query.ilike("type_id", id)
     query = query.range(0, quantity)
   }
   const { data: products, error } = await query;
   console.log(error)
-  console.log(products)
   return products
 }

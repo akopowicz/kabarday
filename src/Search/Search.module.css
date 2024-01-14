@@ -4,11 +4,11 @@
 
 .closeSearch {
     display: block !important;
-        position: absolute !important;
-        top: 50%;
-        right: 20%;
-        transform: translateY(-50%);
-        fill: #727272 !important;
+    position: absolute !important;
+    top: 50%;
+    right: 20%;
+    transform: translateY(-50%);
+    fill: #727272 !important;
 }
 
 .closeSearchMobile {
@@ -84,11 +84,11 @@
     .searchOutput {
         position: absolute;
         width: 350%;
-       right: 0;
-       -webkit-box-shadow: 0px 1px 9px -5px rgba(0, 0, 0, 0.57);
-       -moz-box-shadow: 0px 1px 9px -5px rgba(0, 0, 0, 0.57);
-       box-shadow: 0px 1px 9px -5px rgba(0, 0, 0, 0.57);
-padding: 1rem;
-margin-top: 0;
+        right: 0;
+        -webkit-box-shadow: 0px 1px 9px -5px rgba(0, 0, 0, 0.57);
+        -moz-box-shadow: 0px 1px 9px -5px rgba(0, 0, 0, 0.57);
+        box-shadow: 0px 1px 9px -5px rgba(0, 0, 0, 0.57);
+        padding: 1rem;
+        margin-top: 0;
     }
 }

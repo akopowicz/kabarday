@@ -1,16 +1,12 @@
 .select {
     position: relative;
-    /* background-color: pink; */
     min-width: fit-content;
     width: 100%;
     font-size: 1rem;
     cursor: pointer;
-
-    /* padding: 1rem; */
 }
 
 .selected {
-    /* background-color: aqua; */
     display: flex;
     align-items: center;
     padding: .5rem;
@@ -33,7 +29,6 @@
 }
 
 .selectOption {
-    /* background-color: antiquewhite; */
     padding: .5rem;
     transition: .2s;
     font-size: 1rem;
@@ -41,8 +36,6 @@
     display: flex;
     align-items: center;
     white-space: nowrap;
-    
-    /* border-bottom: 1px solid #d9d9d9; */
 }
 
 .selectOption:hover {

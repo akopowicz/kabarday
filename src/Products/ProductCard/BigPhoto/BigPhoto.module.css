@@ -8,7 +8,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* overflow: scroll; */
 }
 
 .BigPhoto {
@@ -19,13 +18,7 @@
 
 .imageWrapper {
     position: relative;
-    /* height: 98%; */
     width: 100%;
-    /* overflow: scroll; */
-   /* overflow: scroll; */
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
 }
 
 .photo {
@@ -33,15 +26,11 @@
     cursor: zoom-in;
 }
 
-
-
 .closeIcon {
     position: absolute;
-
     top: 0;
     right: 0;
     font-size: 2rem !important;
-    /* font-size: 3rem !important; */
     fill: #fff !important;
     cursor: pointer;
     padding: .5rem;
@@ -71,22 +60,17 @@
 
 @media (min-width: 765px) {
     .imageWrapper {
-       
         width: unset;
         height: 98%;
-    
     }
     
     .photo {
         width: unset;
         height: 100%;
-        /* transform: scale(2); */
     }
 
     .BigPhoto {
         width: unset;
         height: auto;
     }
-
- 
 }

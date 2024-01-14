@@ -3,7 +3,6 @@ import style from './Policy.module.css';
 export const Policy = () => {
     return (
         <div className={`mainWrapper ${style.mainWrapper}`}>
-            {/* <section className="section container"> */}
                 <div className={style.content_wrapper}>
                     <h3 className={style.title}>POLITYKA PRYWATNOŚCI</h3>
                     Niniejsza Polityka stanowi podstawową informację o celach, sposobach przetwarzania oraz bezpieczeństwie Twoich
@@ -89,8 +88,6 @@ export const Policy = () => {
                                 </li>
                             </ol>
                         </li>
-
-
 
                         <li><b>Odbiorcy danych oraz zamiar przekazywania danych do Państwa spoza EOG lub organizacji
                             międzynarodowej.</b>
@@ -226,12 +223,8 @@ export const Policy = () => {
                                     Testy te pomagają w optymalizacji wyglądu, funkcjonalności i treści witryny.</li>
                             </ol>
                         </li>
-
-                        
                     </ol>
                 </div>
         </div>
-
-        // </div >
     )
 }

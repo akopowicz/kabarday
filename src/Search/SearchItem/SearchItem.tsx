@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom"
 import style from './SearchItem.module.css';
 
-// import PhotoType
-
 type PhotoType = {
     photo_link: string
 }
@@ -10,7 +8,6 @@ type PhotoType = {
 type ProductType = {
     type_name: string,
 }
-
 
 export const SearchItem = ({id, name, photos, price, product_type }:{id:string, name:string, photos: PhotoType[], price: number, product_type: ProductType| null}) => {
     return (
@@ -22,7 +19,6 @@ export const SearchItem = ({id, name, photos, price, product_type }:{id:string, 
                 <p className={style.name}>{name}</p>
                 <p className={style.price}>{price} zł</p>
             </div>
-
         </Link>
     )
 }

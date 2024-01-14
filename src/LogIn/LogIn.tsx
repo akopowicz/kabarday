@@ -64,7 +64,6 @@ export const LogIn = () => {
       .eq('id', userId)
 
     if (!error && user) {
-      console.log(user[0].role)
       dispatch(userRole(user[0].role as UserRole))
 
       dispatch(loginStatus(true))

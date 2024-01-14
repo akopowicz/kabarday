@@ -6,19 +6,15 @@ import { getSearchProducts } from '../api/products';
 import { useQuery } from '@tanstack/react-query';
 import { SearchItem } from './SearchItem/SearchItem';
 
-export const Search = ({ showSearch }:{showSearch:()=>void}) => {
+export const Search = ({ showSearch }: { showSearch: () => void }) => {
     const { userSearchProducts, setUserSearchProducts } = useUserProductsContext();
-
-    console.log(userSearchProducts.length)
-
-   
 
     const { error, data: products } = useQuery({
         queryKey: ['searchProducts', userSearchProducts],
         queryFn: () => getSearchProducts(userSearchProducts, 4)
     })
 
-  
+
     const filterProductFunction = (search: string) => {
         setUserSearchProducts(search.toLowerCase())
     }
@@ -27,15 +23,10 @@ export const Search = ({ showSearch }:{showSearch:()=>void}) => {
         setUserSearchProducts('')
     }
 
-    console.log(userSearchProducts)
-console.log(products)
 
     if (error) {
         // return <p>Cannot get products</p>
     }
-    // if (isLoading) {
-    //     return <p>Loading...</p>;
-    // }
 
     if (products === undefined) {
         // return <p>Spróbuj ponownie</p>
@@ -44,23 +35,22 @@ console.log(products)
     return (
         <div>
             <div className={style.inputWrapper}>
-                <input type="text" placeholder="Wyszukaj produkt" className={style.serachInput}  onChange={(e) => { filterProductFunction(e.target.value) }} value={userSearchProducts}/>
-                {userSearchProducts.length > 1 ? <CloseIcon className={style.closeSearch} onClick={cleanSerach} />: <SearchIcon className={style.searchIcon} />}
-                
+                <input type="text" placeholder="Wyszukaj produkt" className={style.serachInput} onChange={(e) => { filterProductFunction(e.target.value) }} value={userSearchProducts} />
+                {userSearchProducts.length > 1 ? <CloseIcon className={style.closeSearch} onClick={cleanSerach} /> : <SearchIcon className={style.searchIcon} />}
             </div>
 
             <CloseIcon className={style.closeSearchMobile} onClick={showSearch} />
-            {userSearchProducts.length> 1 ? <div className={style.searchOutput} onClick={showSearch}>
-           
+            {userSearchProducts.length > 1 ? <div className={style.searchOutput} onClick={showSearch}>
 
-                {products?.map(product=>{
+
+                {products?.map(product => {
                     // eslint-disable-next-line
                     //@ts-ignore
-                    return <SearchItem key={product.id} {...product}/>
-})}
-               
+                    return <SearchItem key={product.id} {...product} />
+                })}
+
             </div> : ""}
-            
+
         </div>
     )
 }

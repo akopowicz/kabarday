@@ -1,7 +1,6 @@
 .searchItem {
     position: relative;
     width: 100%;
-    /* background-color: aqua; */
     margin: 1rem 0;
     display: block;
     padding-bottom: .5rem;
@@ -48,12 +47,4 @@
     .searchPhotoWrapper {
         width: 20%;
     }
-    /* .searchPhotoWrapper {
-        width: 50%;
-        margin-right: unset;
-    }
-
-    .searchItem {
-        justify-content: space-between;
-    } */
 }

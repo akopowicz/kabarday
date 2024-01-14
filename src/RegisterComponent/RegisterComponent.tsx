@@ -54,12 +54,10 @@ const FormInput = ({
 };
 
 export default function RegisterComponent() {
-    // const { showPassword, setShowPassword } = useState("password")
     const [showPassword, setShowPassword] = useState(false);
     const [showRepeatPassword, setShowRepeatPassword] = useState(false)
-const handleClickShowPassword = () => setShowPassword(!showPassword);
-const handleClickShowRepeatPassword = () => setShowRepeatPassword(!showRepeatPassword);
-    // const { setRegistratedUsers } = useClientContext()
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
+    const handleClickShowRepeatPassword = () => setShowRepeatPassword(!showRepeatPassword);
     const formik = useFormik<User>({
         initialValues: {
             name: '',
@@ -88,10 +86,10 @@ const handleClickShowRepeatPassword = () => setShowRepeatPassword(!showRepeatPas
                     ])
                     .select()
                 console.log({ user, publicDbError })
-                
+
             }
 
-            
+
         },
     });
 
@@ -108,7 +106,7 @@ const handleClickShowRepeatPassword = () => setShowRepeatPassword(!showRepeatPas
             <p onClick={handleClickShowPassword}>Pokaż hasło</p>
             <FormInput formik={formik} accessor='repeatpassword' type={showRepeatPassword ? "text" : "password"} label="Powtórz hasło" />
             <p onClick={handleClickShowRepeatPassword}>Pokaż hasło</p>
-            
+
             <button type='submit'>Zarejestruj się</button>
         </form>
     );

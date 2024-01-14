@@ -1,7 +1,5 @@
 .mainWrapper {
     position: relative;
-    /* left: 50%;
-    transform: translate(-50%); */
     padding-top: 5rem;
 }
 .productsMainWrapper {
@@ -9,7 +7,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    /* flex-direction: column; */
 }
 
 .productsWrapper {
@@ -17,10 +14,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* overflow: hidden; */
     align-items: center;
     max-width: 1400px;
-
 }
 
 .pathWrapper {
@@ -28,7 +23,6 @@
     width: fit-content;
     display: flex;
     align-items: center;
-    /* font-weight: 700; */
     text-transform: uppercase;
     font-size: .7rem;
     color: #555555;   

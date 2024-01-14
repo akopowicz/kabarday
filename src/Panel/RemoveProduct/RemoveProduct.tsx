@@ -8,7 +8,6 @@ export default function RemoveProduct() {
     const productId = location.state
     const queryClient = useQueryClient();
     useEffect(() => {
-        // removeProduct(productId)
         mutation.mutate(productId)
     }, [])
 
@@ -16,8 +15,6 @@ export default function RemoveProduct() {
         mutationFn: (values:string) => removeProduct(values),
         onSuccess: () => {
     
-          // rewalidacja i pobranie ponownie zapytania pod kluczem orders
-          // queryClient.invalidateQueries([`product`,id]);
           queryClient.invalidateQueries({ queryKey: ['products'] });
         },
         onError: () => {

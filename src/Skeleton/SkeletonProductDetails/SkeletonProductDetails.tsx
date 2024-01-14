@@ -3,10 +3,6 @@ import style from './SkeletonProductDetails.module.css'
 
 export const SkeletonProductDetails = () => {
 
-
-
-
-
     return (
         <div className={style.skeletonProductCard}>
             <div className={style.skeletonProductWrapper}>
@@ -24,8 +20,6 @@ export const SkeletonProductDetails = () => {
                             </div>
                             <div className={style.skeletonCompositionDescription}></div>
                             <div className={style.skeletonComposition}></div>
-                            {/* <div className={style.skeletonDescriptionWrapper}> */}
-
                             <div className={style.skeletonDescriptionTextWrapper}>
                                 <div className={style.skeletonDescription}></div>
                                 <div className={style.skeletonDescriptionText}></div>
@@ -41,8 +35,6 @@ export const SkeletonProductDetails = () => {
                                 <div className={style.skeletonDescriptionText}></div>
                                 <div className={style.skeletonDescriptionText}></div>
                                 <div className={style.skeletonDescriptionText}></div>
-                                {/* <div className={style.colors}></div>
-                                    <div className={style.colorsText}></div> */}
                             </div>
                             <div className={style.skeletonDelivery}>
                                 <div className={style.skeletonDescription}></div>
@@ -50,15 +42,10 @@ export const SkeletonProductDetails = () => {
                                 <div className={style.skeletonDescriptionText}></div>
                             </div>
                             <div className={style.skeletonCta}></div>
-                            {/* </div> */}
-
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
         </div>
     )
 }

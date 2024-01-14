@@ -6,16 +6,12 @@
     display: flex;
     flex-shrink: 0;
     margin: 5% 0;
-    /* flex-direction: column; */
 }
-
-
 
 .photo_wrapper {
     position: relative;
     width: 50%;
     overflow: hidden;
-    /* max-height: 300px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +40,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* justify-content: space-between; */
 }
 
 .productName {

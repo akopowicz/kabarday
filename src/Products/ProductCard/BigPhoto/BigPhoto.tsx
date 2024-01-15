@@ -4,6 +4,7 @@ import style from './BigPhoto.module.css';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { ImageMagnifier } from '../ImageMagnifier/ImageMagnifier';
 
 type allPhotosType = {
   id: string,
@@ -15,8 +16,17 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
   const { setShowBigPhoto } = useProductsContext()
   const [mainPhotoId, setMainPhotoId] = useState(0);
   const [photoToShow, setPhotoToShow] = useState(mainPhoto)
+  const [width, setWidth] = useState<number>(window.innerWidth);
+
+  function handleWindowSizeChange() {
+      setWidth(window.innerWidth);
+  }
+  
+
+
 
   useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
     const handleKeyDown = (e: { key: string; }) => {
       if(e.key === 'ArrowRight') {
         console.log(e.key)
@@ -34,7 +44,7 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []); 
 
-
+  const isMobile = width <= 768;
   const nextPhoto = () => {
       setPhotoToShow(allPhotos[mainPhotoId].photo_link)
       setMainPhotoId(prev => prev + 1)
@@ -59,11 +69,14 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
   return (
     <div className={style.bigPhotoWrapper}>
       <div className={style.imageWrapper}>
-        <img src={photoToShow} alt="" className={style.photo} />
+        {isMobile? <img src={photoToShow} alt="" className={style.photo} /> : <ImageMagnifier src={photoToShow}/>}
+      {/* <ImageMagnifier src={photoToShow}/> */}
+        {/* <img src={photoToShow} alt="" className={style.photo} /> */}
       </div>
       <CloseIcon className={style.closeIcon} onClick={() => setShowBigPhoto(false)} />
       < ArrowBackIosIcon className={`${style.arrowBackIcon} ${mainPhotoId === 0 ? style.displayNone : ""}`} onClick={() => prevPhoto()} />
       <ArrowForwardIosIcon className={`${style.arrowForwardIcon} ${mainPhotoId < allPhotos.length ? "" : style.displayNone}`} onClick={() => nextPhoto()} />
+   
     </div>
   )
 }

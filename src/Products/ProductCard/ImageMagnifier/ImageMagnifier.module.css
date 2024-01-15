@@ -1,0 +1,24 @@
+
+
+.imageMagnifierWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.imageMagnifier {
+    position: relative;
+    width: 100%;
+}
+
+@media (min-width: 765px) {
+   
+.imageMagnifierWrapper {
+    position: relative;
+    height: 100%;
+}
+
+.imageMagnifier {
+    position: relative;
+    height: 100%;
+} 
+}

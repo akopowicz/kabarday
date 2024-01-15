@@ -65,6 +65,10 @@ export default function ProductCard() {
         setShowBigPhoto(true)
     }
 
+    const changePhotoFromSlider=(newPhoto:string)=>{
+        changeMainPhoto(newPhoto)
+    }
+
     return (
         <div className={style.productCard}>
             <div className={style.productWrapper}>
@@ -86,7 +90,7 @@ export default function ProductCard() {
                                 <Slider className={style.slider}  >
                                     {product.photos.filter(photo => photo.photo_link !== mainPhoto).map((filterPhoto, index) => (
                                         <Slide index={index} className={style.smallImageWrapper} key={filterPhoto.id}>
-                                            <img className={style.smallImage} onClick={()=>changeMainPhoto(filterPhoto.photo_link)} src={filterPhoto.photo_link} alt="" />
+                                            <img className={style.smallImage} onClick={()=>changePhotoFromSlider(filterPhoto.photo_link)} src={filterPhoto.photo_link} alt="" />
                                         </Slide>
                                     ))}
                                 </Slider>

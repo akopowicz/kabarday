@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useProductsContext } from '../../../Context/ProductsContextProvider';
 import style from './BigPhoto.module.css';
 import CloseIcon from '@mui/icons-material/Close';
@@ -22,35 +22,12 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
       setWidth(window.innerWidth);
   }
   
-
-
-
-  useEffect(() => {
-    window.addEventListener('resize', handleWindowSizeChange);
-    const handleKeyDown = (e: { key: string; }) => {
-      if(e.key === 'ArrowRight') {
-        console.log(e.key)
-       
-       
-       
-      } else if(e.key === 'ArrowLeft') {
-        console.log(e.key)
-       
-      }
-    }
-  
-    document.addEventListener('keydown', handleKeyDown);
-  
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, []); 
-
-  const isMobile = width <= 768;
-  const nextPhoto = () => {
+  const nextPhoto = useCallback(() => {
       setPhotoToShow(allPhotos[mainPhotoId].photo_link)
       setMainPhotoId(prev => prev + 1)
-  }
+  },[allPhotos,mainPhotoId])
 
-  const prevPhoto = () => {
+  const prevPhoto = useCallback(() => {
     if (mainPhotoId > 1 && mainPhotoId !==allPhotos.length) {
       
       setPhotoToShow(allPhotos[mainPhotoId-2].photo_link)
@@ -64,7 +41,31 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
       setMainPhotoId(prev => prev - 1)
     }
     
-  }
+  },[mainPhoto,allPhotos,mainPhotoId])
+
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+    const handleKeyDown = (e: { key: string; }) => {
+      if(e.key === 'ArrowRight') {
+        console.log(e.key)
+        nextPhoto()
+       
+       
+      } else if(e.key === 'ArrowLeft') {
+        console.log(e.key)
+        prevPhoto()
+      }
+    }
+  
+    document.addEventListener('keydown', handleKeyDown);
+  
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [nextPhoto,prevPhoto]); 
+
+  const isMobile = width <= 768;
+
+  
 
   return (
     <div className={style.bigPhotoWrapper}>

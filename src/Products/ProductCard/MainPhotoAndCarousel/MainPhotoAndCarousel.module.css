@@ -1,0 +1,103 @@
+.mainPhotoWrapper {
+    width: 100%;
+    cursor:zoom-in;
+}
+
+.carouselArrow {
+    position: absolute;
+    top: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrowBack {
+    transform: translate(-50%, -50%);
+}
+
+.arrowNext {
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
+
+
+.photosWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.mainPhoto {
+    width: 100%;
+}
+
+.smallPhotosWrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    scroll-behavior: smooth;
+    margin-top: 2%;
+}
+
+.smallPhotos {
+    display: flex;
+}
+
+.smallImageWrapper {
+    /* margin-right: 2%; */
+    flex-shrink: 0;
+}
+
+.carousel {
+    margin-top: .5rem;
+}
+
+.carousel__inner-slide {
+    position: relative !important;
+    height: fit-content !important;
+}
+
+.slider {
+    width: 100%;
+}
+
+.smallImageWrapper:last-of-type {
+    margin-right: 0%;
+}
+
+.smallImage {
+    width: 100% !important;
+    cursor: pointer;
+}
+
+.arrowCarusel {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.carousel {
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+
+    .photosWrapper {
+        width: 40%;
+    }
+
+    .mainPhotoWrapper {
+        overflow: hidden;
+    }
+
+    .smallImageWrapper {
+        overflow: hidden;
+    }
+
+}

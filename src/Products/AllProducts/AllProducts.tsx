@@ -20,6 +20,7 @@ type ProductCard = {
 }
 
 export default function AllProducts(props: { allProducts: ProductCard[], productType: string|undefined }) {
+   
     return (
         <div className={`mainWrapper ${style.mainWrapper}`}>
             <div className={style.productNavigationWrapper}>

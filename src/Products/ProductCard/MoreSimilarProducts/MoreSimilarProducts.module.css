@@ -1,0 +1,36 @@
+
+
+.more {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 5rem 0 0 0;
+}
+
+.moreWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.h2 {
+    font-size: 1.3rem;
+    margin-bottom: 2%;
+}
+
+@media (min-width: 1024px) {
+    .more {
+        margin: 8rem 0 2rem 0;
+    }
+
+    .moreWrapper {
+        justify-content: space-between;
+    }
+
+    .h2 {
+        margin-bottom: 0;
+    }
+}
+
+

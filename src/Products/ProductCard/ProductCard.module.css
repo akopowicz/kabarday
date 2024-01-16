@@ -12,48 +12,6 @@
     max-width: 1200px;
 }
 
-.mainPhotoWrapper {
-    width: 100%;
-    cursor:zoom-in;
-}
-
-.pathWrapper {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    text-transform: uppercase;
-    font-size: .6rem;
-    color: #1A1A1A;   
-}
-
-.pathLink {
-    white-space: nowrap;
-}
-
-.arrow {
-    font-size: 1rem !important;
-}
-
-.carouselArrow {
-    position: absolute;
-    top: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.arrowBack {
-    transform: translate(-50%, -50%);
-}
-
-.arrowNext {
-    left: 100%;
-    transform: translate(-50%, -50%);
-}
-
 .topWrapper {
    width: 100%;
    display: flex;
@@ -68,129 +26,11 @@
     flex-direction: column;
 }
 
-.photosWrapper {
-    position: relative;
-    width: 100%;
-}
-
-.mainPhoto {
-    width: 100%;
-}
-
-.smallPhotosWrapper {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    scroll-behavior: smooth;
-    margin-top: 2%;
-}
-
-.smallPhotos {
-    display: flex;
-}
-
-.smallImageWrapper {
-    margin-right: 2%;
-    flex-shrink: 0;
-}
-
-.carousel {
-    margin-top: .5rem;
-}
-
-.carousel__inner-slide {
-    position: relative !important;
-    height: fit-content !important;
-}
-
-.slider {
-    width: 100%;
-}
-
-.smallImageWrapper:last-of-type {
-    margin-right: 0%;
-}
-
-.smallImage {
-    width: 100% !important;
-    cursor: pointer;
-}
-
-.more {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    margin: 5rem 0 0 0;
-}
-
-.moreWrapper {
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.nameAndPrice {
-    margin: 5% 0 8% 0;
-}
-
-.productName {
-    font-size: 1.5rem;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-
-.productPrice {
-    font-size: 1.5rem;
-}
-
-.compositionDescription {
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-.composition {
-    font-weight: 400;
-    list-style-type: none
-}
-
-.compositionDescription {
-    margin-bottom: 6%;
-}
-
-.descriptionText {
-    margin-bottom: 1rem;
-}
-
-.descriptionTextWrapper {
-    margin-bottom: 2rem;
-}
-
 .h2 {
     font-size: 1.3rem;
     margin-bottom: 2%;
 }
 
-.deliveryText {
-    margin-bottom: 5%;
-    height: 0;
-    overflow: hidden;
-}
-
-.orderText {
-    height: 0;
-    overflow: hidden;
-}
-
-.arrowCarusel {
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
 
 .arrowLeft {
     left: 0;
@@ -217,29 +57,6 @@
     background-color: #1A1A1A;
     border-radius: 50%;
     fill: #ffffff !important;
-}
-
-.mail {
-    font-weight: 500;
-}
-
-.order {
-    display: inline-block;
-    background-color: black;
-    width: 100%;
-    padding: .5rem 0;
-    font-size: 1rem;
-    text-align: center;
-    margin-top: 1.5rem;
-    font-weight: 700;
-    color: #fff;
-    border: 1px solid black;
-}
-
-.order:hover {
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #000;
 }
 
 @media (min-width: 1024px) {

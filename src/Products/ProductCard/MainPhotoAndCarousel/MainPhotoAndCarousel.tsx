@@ -13,7 +13,7 @@ export const MainPhotoAndCarousel = ({mainPhoto, productDetails, product, showMa
                                 <img src={mainPhoto
                                 } alt="" className={style.mainPhoto} onClick={showMainPhotoBig} />
                             </div>
-                            <CarouselProvider
+                            <CarouselProvider step={3}
                                 visibleSlides={3}
                                 naturalSlideWidth={100}
                                 naturalSlideHeight={125}

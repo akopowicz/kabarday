@@ -1,24 +1,12 @@
 import { useState, useContext, createContext, Dispatch, SetStateAction } from 'react';
-export type productTypeType = {
-    type_name: string,
-}
+import {Database} from '../supabase/types/supabase'
 
-export type ProductType = {
-    name: string;
-    description: string | null;
-    price: number | null;
-    composition: string | null;
-    stock: number | null;
-    sex: string | null;
-    product_type: productTypeType | null;
-    id: string;
-}
 
 type ProductsContextProps = {
     productType: string,
     setProductType: Dispatch<SetStateAction<string>>,
-    filteredProducts: ProductType[],
-    setFilteredProducts: Dispatch<SetStateAction<ProductType[]>>,
+    filteredProducts: Database["public"]["Tables"]["product_type"][],
+    setFilteredProducts: Dispatch<SetStateAction<Database["public"]["Tables"]["product_type"][]>>,
     showBigPhoto: boolean,
     setShowBigPhoto: Dispatch<SetStateAction<boolean>>,
 }
@@ -26,8 +14,8 @@ type ProductsContextProps = {
 const ProductsContext = createContext<ProductsContextProps | null>(null)
 
 export const ProductsContextProvider = ({ children }: { children: React.ReactNode }) => {
-    const [productType, setProductType] = useState("all");
-    const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
+    const [productType, setProductType] = useState<string>("all");
+    const [filteredProducts, setFilteredProducts] = useState<Database["public"]["Tables"]["product_type"][]>([]);
     const [showBigPhoto, setShowBigPhoto] = useState(false)
 
     return (

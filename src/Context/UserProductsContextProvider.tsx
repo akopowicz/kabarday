@@ -2,13 +2,13 @@ import { useState, useContext, createContext, Dispatch, SetStateAction } from 'r
 
 type sortDataType = {
     column: string,
-    ascendic: true|false
+    ascendic: boolean
 }
 
 type UserProductsContextProps = {
     userProductType: string,
     setUserProductType: Dispatch<SetStateAction<string>>,
-    userSearchProducts:string,
+    userSearchProducts: string,
     setUserSearchProducts: Dispatch<SetStateAction<string>>,
     sortType: sortDataType,
     setSortType: Dispatch<SetStateAction<sortDataType>>,
@@ -35,10 +35,10 @@ export const UserProductsContextProvider = ({ children }: { children: React.Reac
 }
 
 
-export const useUserProductsContext=()=>{
-    const ctx=useContext(UserProductsContext)
+export const useUserProductsContext = () => {
+    const ctx = useContext(UserProductsContext)
 
-    if(!ctx){ // poza komponentem dziecka providera zwróci nulla
+    if (!ctx) { // poza komponentem dziecka providera zwróci nulla
         throw new Error("Missing clientContext, it's not wrapped in ClientProvider")
     }
     return ctx

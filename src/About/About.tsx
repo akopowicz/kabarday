@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import style from './About.module.css';
+import {ROUTES} from '../constants';
 
 export default function About() {
     return (
@@ -13,7 +14,7 @@ export default function About() {
                 <p>Z tego powodu składa się u nas zamówienie poprzez napisanie wiadomości.
                     Wiemy, wydłuża to proces i nie jest takie wygodne jak kliknięcie w przycisk na stronie, jednak dzięki temu możemy zapewnić, że produkt będzie jak najbardziej dostosowany do Ciebie i Twoich potrzeb.
                 </p>
-               <Link to="/jak-zamowic" className={style.link}>Zobacz więcej szczegółów odnośnie składania zamówień</Link>
+               <Link to={ROUTES.jakZamowic} className={style.link}>Zobacz więcej szczegółów odnośnie składania zamówień</Link>
             </div>
         </div>
     )

@@ -50,10 +50,10 @@ const FormInput = ({
 };
 
 export const LogIn = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch()
- 
+
   const handleClickShowPassword = () => setShowPassword(!showPassword);
 
   const setifPersonisLogged = async (userId: string) => {
@@ -72,8 +72,8 @@ export const LogIn = () => {
         navigate("/panel")
       } else if (user[0].role === "customer") {
         navigate("/customer-panel")
-      } 
-      
+      }
+
     }
 
   }
@@ -105,7 +105,7 @@ export const LogIn = () => {
 
   return (
     <div>
-       <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit}>
         <FormInput formik={formik} accessor='login' label='login' />
         <FormInput formik={formik} accessor='password' label='hasło' type={showPassword ? "text" : "password"} />
         <p onClick={handleClickShowPassword}>Pokaż hasło</p>

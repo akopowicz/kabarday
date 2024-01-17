@@ -2,6 +2,7 @@ import style from './Footer.module.css'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import { Link } from 'react-router-dom';
+import { ROUTES } from "../constants";
 
 export const Footer = () => {
     return (
@@ -11,7 +12,7 @@ export const Footer = () => {
                     <h4 className={style.navigationHeading}>ZAKUPY </h4>
                     <div className={style.line}></div>
                     <ul>
-                        <li className={style.footerNavigationItem}><Link className={style.footerLink} to='/jak-zamowic' onClick={()=>{scrollTo(0,0)}}>Jak złożyć zamówienie?</Link></li>
+                        <li className={style.footerNavigationItem}><Link className={style.footerLink} to={ROUTES.jakZamowic} onClick={()=>{scrollTo(0,0)}}>Jak złożyć zamówienie?</Link></li>
                         <li className={style.footerNavigationItem}><Link className={style.footerLink} to='' onClick={()=>{scrollTo(0,0)}}>Forma płatności</Link></li>
                         <li className={style.footerNavigationItem}><Link className={style.footerLink} to='' onClick={()=>{scrollTo(0,0)}}>Realizacja zmaówienia</Link></li>
                         <li className={style.footerNavigationItem}><Link className={style.footerLink} to='' onClick={()=>{scrollTo(0,0)}}>Koszt dostawy</Link></li>
@@ -39,7 +40,7 @@ export const Footer = () => {
                     <h4 className={style.navigationHeading}>Kontakt</h4>
                     <div className={style.line}></div>
                     <ul>
-                        <a className={`${style.footerNavigationItem} ${style.footerLink}`} href="mailto:info.kabarday@gmail.com">info.kabarday@gmail.com</a>
+                        <a className={`${style.footerNavigationItem} ${style.footerLink}`} href={`mailto:${ROUTES.email}`}>{ROUTES.email}</a>
                     </ul>
                 </div>
                 <div className={style.socialMediaWrapper}>

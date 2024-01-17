@@ -3,6 +3,7 @@ import style from "./Details.module.css";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { analyticsEvent } from "../../../analytics";
+import { ROUTES } from "../../../constants";
 
 type poductTypeType = {
     id: string,
@@ -93,7 +94,7 @@ export const Details = ({ product }: { product: productType }) => {
                         <h3>Sposób skladania zmównienia:</h3>
                         {howToOrder ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon className={style.descriptionMoreArrow} />}
                     </div>
-                    <p className={`${style.deliveryText} ${howToOrder ? style.showText : ""}`}>W celu złożenia zamówienia napisz do nas wiadomość na adres mailowy: <a className={style.mail} href="mailto:info.kabarday@gmail.com">info.kabarday@gmail.com</a></p>
+                    <p className={`${style.deliveryText} ${howToOrder ? style.showText : ""}`}>W celu złożenia zamówienia napisz do nas wiadomość na adres mailowy: <a className={style.mail} href={`mailto:${ROUTES.email}`}>{ROUTES.email}</a></p>
                 </div>
                 <div className={style.time}>
                     <div className={style.descriptionMore} onClick={() => {
@@ -103,7 +104,7 @@ export const Details = ({ product }: { product: productType }) => {
                     </div>
                     <p className={`${style.orderText} ${order ? style.showText : ""}`}>Po zaksięgowaniu wpłaty za zamówienie czas realizacji wynosi od 5 do 21 dni</p>
                 </div>
-                <a href={`mailto:info.kabarday@gmail.com?subject=${product.name}`} className={style.order} onClick={() => { analyticsEvent("cta", `order_${product.name}`) }}>Zamów</a>
+                <a href={`mailto:${ROUTES.email}?subject=${product.name}`} className={style.order} onClick={() => { analyticsEvent("cta", `order_${product.name}`) }}>Zamów</a>
             </div>
         </div>
     )

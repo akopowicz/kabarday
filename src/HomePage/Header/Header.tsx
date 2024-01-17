@@ -12,20 +12,12 @@ export const Header = () => {
     }
     useEffect(() => {
         window.addEventListener('resize', handleWindowSizeChange);
-        // return () => {
-        //     window.removeEventListener('resize', handleWindowSizeChange);
-        // }
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        }
     }, []);
 
     const isMobile = width <= 768;
-
-    // const analyticsEvent = () => {
-    //     ReactGA.event({
-    //         category: "cta",
-    //         action: "mainCta",
-    //         label: "mainCta",
-    //       });
-    // }
 
 
     return (

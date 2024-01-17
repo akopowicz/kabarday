@@ -1,4 +1,5 @@
 import style from './Policy.module.css';
+import { ROUTES } from '../constants';
 
 export const Policy = () => {
     return (
@@ -18,7 +19,7 @@ export const Policy = () => {
                                 </li>
                                 <li>Kontakt z Administratorem jest możliwy za pośrednictwem:
                                     <ul>
-                                        <li className={style.unordered}>poczty e-mail: <a className={style.link} href="mailto:info.kabarday@gmail.com">info.kabarday@gmail.com</a></li>
+                                        <li className={style.unordered}>poczty e-mail: <a className={style.link} href={`mailto:${ROUTES.email}`}>{ROUTES.email}</a></li>
                                     </ul>
                                 </li>
                             </ol>

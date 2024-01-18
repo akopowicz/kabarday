@@ -30,7 +30,7 @@ export default function Delivery() {
                 
             </div>
             <div className={style.additionalInformation}>
-            <p>*Podane ceny dotyczą wyłącznie przesyłek na terenie Polski.</p>
+            <p>Podane ceny dotyczą wyłącznie przesyłek na terenie Polski.</p>
             <p>W celu złożenia zamówienia z przesyłką za granicę proszę o poinformowaniu o tym podczas składania zamówienia.</p>
             </div>
             

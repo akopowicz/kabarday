@@ -31,6 +31,7 @@ const AllProducts = React.lazy(() => import("./Products/AllProducts/AllProducts"
 // import { Contact } from './Contact/Contact';
 const Contact = React.lazy(() => import("./Contact/Contact"));
 const Payment = React.lazy(() => import('./Payment/Payment'));
+const Realization = React.lazy(() => import('./Realization/Realization'));
 
 export const RoutesElement = () => {
       const location = useLocation();
@@ -66,6 +67,7 @@ export const RoutesElement = () => {
         <Route element={<Contact />} path="/kontakt" />
         <Route element={<Delivery />} path={ROUTES.delivery} />
         <Route element={<Payment />} path={ROUTES.payment} />
+        <Route element={<Realization />} path={ROUTES.realization} />
         <Route element={<RegisterComponent />} path="/register" />
         <Route element={<AllProducts allProducts={[]} productType={''} />} path="/allProducts" />
        <Route element={<Policy/>} path="/polityka-prywatnosci"></Route>

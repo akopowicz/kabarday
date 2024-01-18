@@ -10,5 +10,6 @@ export const ROUTES = {
     products: '/products',
     delivery: '/koszt-dostawy',
     payment: '/metody-platnosci',
+    realization: '/realizacja-zamowien',
 }
 

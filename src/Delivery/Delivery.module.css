@@ -1,0 +1,52 @@
+.orderWrapper {
+    padding: 5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-height: fit-content;
+}
+
+.title {
+    margin-bottom: 4rem;
+    font-size: 2rem;
+}
+
+.promotion {
+    font-size: 1.2rem;
+    /* text-align: left; */
+    margin-bottom: 1rem;
+}
+
+.content {
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    max-width: 800px;
+}
+
+.table {
+    width: 100%;
+}
+
+.tableHead {
+    font-weight: bold;
+    font-size: .9rem;
+}
+
+.td {
+    text-align: center;
+}
+
+.btd {
+    font-size: .9rem;
+    text-align: center;
+}
+
+.additionalInformation {
+    font-size: .8rem;
+    margin-top: 1rem;
+    text-align: left;
+    max-width: 450px;
+}

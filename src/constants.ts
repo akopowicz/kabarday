@@ -8,5 +8,7 @@ export const ROUTES = {
     hats: '/products/czapki',
     scarfs: '/products/szaliki',
     products: '/products',
+    delivery: '/koszt-dostawy',
+    payment: '/metody-platnosci',
 }
 

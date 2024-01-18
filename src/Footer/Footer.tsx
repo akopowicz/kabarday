@@ -13,9 +13,9 @@ export const Footer = () => {
                     <div className={style.line}></div>
                     <ul>
                         <li className={style.footerNavigationItem}><Link className={style.footerLink} to={ROUTES.jakZamowic} onClick={()=>{scrollTo(0,0)}}>Jak złożyć zamówienie?</Link></li>
-                        <li className={style.footerNavigationItem}><Link className={style.footerLink} to='' onClick={()=>{scrollTo(0,0)}}>Forma płatności</Link></li>
+                        <li className={style.footerNavigationItem}><Link className={style.footerLink} to={ROUTES.payment} onClick={()=>{scrollTo(0,0)}}>Metody płatności</Link></li>
                         <li className={style.footerNavigationItem}><Link className={style.footerLink} to='' onClick={()=>{scrollTo(0,0)}}>Realizacja zmaówienia</Link></li>
-                        <li className={style.footerNavigationItem}><Link className={style.footerLink} to='' onClick={()=>{scrollTo(0,0)}}>Koszt dostawy</Link></li>
+                        <li className={style.footerNavigationItem}><Link className={style.footerLink} to={ROUTES.delivery} onClick={()=>{scrollTo(0,0)}}>Koszt dostawy</Link></li>
                     </ul>
                 </div>
                 <div className={style.navigationGroup}>

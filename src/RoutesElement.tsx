@@ -16,17 +16,21 @@ const Products = React.lazy(() => import('./Products/Products'));
 const ProductCard = React.lazy(() => import('./Products/ProductCard/ProductCard'));
 import { HomePage } from './HomePage/HomePage';
 import { ProductType } from './Products/ProductType/ProductType';
-import AllProducts from './Products/AllProducts/AllProducts';
+// import AllProducts from './Products/AllProducts/AllProducts';
 import { Policy } from './Policy/Policy';
+// import { Delivery } from './Delivery/Delivery';
+// import Contact from './Contact/Contact';
+import { ROUTES } from './constants';
 // import { Cookie } from './Policy/Cookie/Cookie';
 // import ReactGA from'react-ga4';
 
 const About = React.lazy(() => import('./About/About'));
 const Order = React.lazy(() => import("./Order/Order"));
-
-
+const Delivery = React.lazy(() => import("./Delivery/Delivery"));
+const AllProducts = React.lazy(() => import("./Products/AllProducts/AllProducts"));
 // import { Contact } from './Contact/Contact';
 const Contact = React.lazy(() => import("./Contact/Contact"));
+const Payment = React.lazy(() => import('./Payment/Payment'));
 
 export const RoutesElement = () => {
       const location = useLocation();
@@ -60,10 +64,13 @@ export const RoutesElement = () => {
         <Route element={<About />} path="/o-nas" />
         <Route element={<Order />} path="/jak-zamowic" />
         <Route element={<Contact />} path="/kontakt" />
+        <Route element={<Delivery />} path={ROUTES.delivery} />
+        <Route element={<Payment />} path={ROUTES.payment} />
         <Route element={<RegisterComponent />} path="/register" />
         <Route element={<AllProducts allProducts={[]} productType={''} />} path="/allProducts" />
        <Route element={<Policy/>} path="/polityka-prywatnosci"></Route>
         {/* <Route element={<Cookie/>} path='/polityka-cookie'></Route> */}
+       
         <Route element={<div>404</div>} path="*" />
        
       </Routes>

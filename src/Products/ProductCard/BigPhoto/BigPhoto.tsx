@@ -23,11 +23,16 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
   }
   
   const nextPhoto = useCallback(() => {
+    console.log(mainPhotoId)
+    if (mainPhotoId < allPhotos.length) {
       setPhotoToShow(allPhotos[mainPhotoId].photo_link)
       setMainPhotoId(prev => prev + 1)
+    }
+     
   },[allPhotos,mainPhotoId])
 
   const prevPhoto = useCallback(() => {
+    console.log(mainPhotoId)
     if (mainPhotoId > 1 && mainPhotoId !==allPhotos.length) {
       
       setPhotoToShow(allPhotos[mainPhotoId-2].photo_link)

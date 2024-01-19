@@ -2,6 +2,7 @@ import style from "./AllProducts.module.css";
 import { ProductItem } from "../ProductItem/ProductItem";
 import { Link } from "react-router-dom";
 import { Sorting } from "../../Sorting/Sorting";
+import {ROUTES} from "../../constants";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 type Photos = {
@@ -19,15 +20,15 @@ type ProductCard = {
     product_type: ProductType | null
 }
 
-export default function AllProducts(props: { allProducts: ProductCard[], productType: string|undefined }) {
-   
+export default function AllProducts(props: { allProducts: ProductCard[], productType: string | undefined }) {
+
     return (
         <div className={`mainWrapper ${style.mainWrapper}`}>
             <div className={style.productNavigationWrapper}>
                 <div className={style.pathWrapper}>
                     <Link to='/'>Strona Główna</Link>
                     <KeyboardArrowRightIcon className={style.arrow} />
-                    <Link to="/products">Produkty</Link>
+                    <Link to={ROUTES.products}>Produkty</Link>
                     {props.productType !== undefined ? <div className={style.productType}><KeyboardArrowRightIcon className={style.arrow} /><p>{props.productType}</p></div> : null}
                 </div>
                 <Sorting />

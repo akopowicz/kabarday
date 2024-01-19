@@ -67,9 +67,9 @@ export const Navigation = () => {
                             <li><Link to={ROUTES.scarfs} onClick={()=>{navigationAnalyticsEvents("navigation_scarfs")}} state={'f6d8a314-868c-4584-adb2-82b27f59f62d'}>Szaliki</Link></li>
                         </ul>
                     </li>
-                    <li> <Link className={style.navigationItem} to="/o-nas" onClick={()=>{navigationAnalyticsEvents("navigation_about_us")}}>o nas</Link>
+                    <li> <Link className={style.navigationItem} to={ROUTES.about} onClick={()=>{navigationAnalyticsEvents("navigation_about_us")}}>o nas</Link>
                     </li>
-                    <li> <Link className={style.navigationItem} to="/kontakt" onClick={()=>{navigationAnalyticsEvents("navigation_contact")}}>kontakt</Link>
+                    <li> <Link className={style.navigationItem} to={ROUTES.contact} onClick={()=>{navigationAnalyticsEvents("navigation_contact")}}>kontakt</Link>
                     </li>
                     <li><Link className={style.navigationItem} to={ROUTES.jakZamowic} onClick={()=>{navigationAnalyticsEvents("navigation_order")}}>jak zamówić</Link></li>
                 </ul>

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Header } from "./Header/Header";
 import { analyticsEvent } from '../analytics'
 import { SkeletonHomePage } from "../Skeleton/SkeletonHomePage/SkeletonHomePage";
+import { ROUTES } from "../constants";
 import SEO from "../SEO/SEO";
 
 export const HomePage = () => {
@@ -49,7 +50,7 @@ export const HomePage = () => {
                     })}
                 </div>
 
-                <Link to="/products" className={style.seeAllProducts} onClick={allProductsCtaClick}>ZOBACZ WSZYSTKIE PRODUKTY</Link>
+                <Link to={ROUTES.products} className={style.seeAllProducts} onClick={allProductsCtaClick}>ZOBACZ WSZYSTKIE PRODUKTY</Link>
             </div>
         </div>
 

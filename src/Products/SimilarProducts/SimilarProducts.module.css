@@ -2,7 +2,6 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    background-color: pink;
     display: flex;
     flex-shrink: 0;
     margin: 5% 0;
@@ -43,13 +42,13 @@
 }
 
 .productName {
-    font-weight: 700;
-    font-size: 1.2rem;
-    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1rem;
 }
 
 .productPrice {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .seeMore {
@@ -81,6 +80,6 @@
 
     .inscriptionWrapper {
         width: 100%;
-        padding: 5% 0;
+        padding: .1rem 0;
     }
 }

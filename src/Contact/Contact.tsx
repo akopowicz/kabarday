@@ -10,8 +10,8 @@ export default function Contact() {
                 <a href={`mailto:${ROUTES.email}`}>{ROUTES.email}</a>
 
                 <h3>Znajdziesz nas na:</h3>
-                    <a target="_blank" href="https://www.facebook.com/kabarday.fashion/">Facebook: <span>kabarday.fashion</span></a>
-                    <a target="_blank" href="https://www.instagram.com/kabarday.fashion/">Instagram: <span>kabarday.fashion</span></a>
+                    <a target="_blank" href={ROUTES.facebook}>Facebook: <span>kabarday.fashion</span></a>
+                    <a target="_blank" href={ROUTES.instagram}>Instagram: <span>kabarday.fashion</span></a>
             </div>
         </div>
     )

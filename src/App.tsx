@@ -12,7 +12,7 @@ import { Navigation } from './Navigation/Navigation';
 import { UserProductsContextProvider } from './Context/UserProductsContextProvider';
 import { RoutesElement } from './RoutesElement';
 import { ProductsContextProvider } from './Context/ProductsContextProvider';
-
+import { HelmetProvider } from 'react-helmet-async';
 const queryClient = new QueryClient({
   queryCache: new QueryCache(),
   defaultOptions: {
@@ -25,6 +25,7 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <>
+     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         {process.env.NODE_ENV === "development" && (
           <ReactQueryDevtools initialIsOpen={false} />
@@ -41,6 +42,7 @@ function App() {
           </ProductsContextProvider>
         </UserProductsContextProvider>
       </QueryClientProvider>
+      </HelmetProvider>
     </>
   )
 }

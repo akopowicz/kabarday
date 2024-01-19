@@ -4,8 +4,9 @@ import style from "./HomePage.module.css";
 import { ProductItem } from "../Products/ProductItem/ProductItem";
 import { Link } from "react-router-dom";
 import { Header } from "./Header/Header";
-import {analyticsEvent} from '../analytics'
+import { analyticsEvent } from '../analytics'
 import { SkeletonHomePage } from "../Skeleton/SkeletonHomePage/SkeletonHomePage";
+import SEO from "../SEO/SEO";
 
 export const HomePage = () => {
 
@@ -15,7 +16,7 @@ export const HomePage = () => {
     })
 
     if (isLoading) {
-        return <SkeletonHomePage/>
+        return <SkeletonHomePage />
     }
 
     if (error) {
@@ -33,7 +34,13 @@ export const HomePage = () => {
 
     return (
         <div>
-            <Header/>
+            <SEO
+                title="Kabarday"
+                description="Kabarday to ręcznie robione swety z naturalnych włóczek."
+                name="Kabarday"
+                photo="/logo.png"
+            />
+            <Header />
             <div className={style.productsMainWrapper}>
                 <h1 className={style.title}>RĘCZNIE ROBIONE SWETRY Z NATURALNYCH WŁÓCZEK</h1>
                 <div className={style.productsWrapper}>

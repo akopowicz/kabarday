@@ -25,12 +25,15 @@ export const Search = ({ showSearch }: { showSearch: () => void }) => {
 
 
     if (error) {
-        // return <p>Cannot get products</p>
+
+        // return <p>Spróbuj ponownie później</p>
     }
 
     if (products === undefined) {
         // return <p>Spróbuj ponownie</p>
     }
+
+    console.log(products)
 
     return (
         <div>
@@ -42,13 +45,11 @@ export const Search = ({ showSearch }: { showSearch: () => void }) => {
             <CloseIcon className={style.closeSearchMobile} onClick={showSearch} />
             {userSearchProducts.length > 1 ? <div className={style.searchOutput} onClick={showSearch}>
 
-
-                {products?.map(product => {
+                {products && products.length > 0 ? products?.map(product => {
                     // eslint-disable-next-line
                     //@ts-ignore
                     return <SearchItem key={product.id} {...product} />
-                })}
-
+                }) : <p className={style.cantFind}>{`Nie znaleziono produktu: ${userSearchProducts}`}</p>}
             </div> : ""}
 
         </div>

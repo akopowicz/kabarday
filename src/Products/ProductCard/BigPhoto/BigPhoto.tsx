@@ -41,7 +41,10 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
     } else if (mainPhotoId === 1) {
       setPhotoToShow(mainPhoto)
       setMainPhotoId(0)
-    } else {
+    } else if (mainPhotoId === 0) {
+      setMainPhotoId(0)
+    }
+    else {
       setPhotoToShow(allPhotos[allPhotos.length-2].photo_link) 
       setMainPhotoId(prev => prev - 1)
     }

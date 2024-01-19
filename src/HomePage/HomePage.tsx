@@ -38,7 +38,7 @@ export const HomePage = () => {
                 title="Kabarday"
                 description="Kabarday to ręcznie robione swety z naturalnych włóczek."
                 name="Kabarday"
-                photo="/logo.png"
+                photo="https://ytjymmciwsnouqxdavcc.supabase.co/storage/v1/object/public/kabarday/logo.png?t=2024-01-19T15%3A52%3A54.926Z"
             />
             <Header />
             <div className={style.productsMainWrapper}>

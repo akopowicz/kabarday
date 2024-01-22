@@ -3,10 +3,13 @@ import { getProducts } from "../api/products"
 import { useUserProductsContext } from "../Context/UserProductsContextProvider";
 import { SkeletonAllProducts } from "../Skeleton/SkeletonAllProducts/SkeletonAllProducts";
 import AllProducts from "./AllProducts/AllProducts";
+import { useLocation } from "react-router-dom";
 
 export default function Products() {
     const { sortType } = useUserProductsContext();
     const typeId = "all"
+    const location=useLocation()
+    console.log("location",location.pathname.split("/")[1])
 
     const { isLoading, error, data: allProducts } = useQuery({
         queryKey: ['products', typeId, sortType.column, sortType.ascendic],

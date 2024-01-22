@@ -21,6 +21,7 @@ import { Policy } from './Policy/Policy';
 // import { Delivery } from './Delivery/Delivery';
 // import Contact from './Contact/Contact';
 import { ROUTES } from './constants';
+import { Page404 } from './404/404';
 // import { Cookie } from './Policy/Cookie/Cookie';
 // import ReactGA from'react-ga4';
 
@@ -54,7 +55,7 @@ export const RoutesElement = () => {
 
       </Route>
       <Route path={"/product"}>
-        <Route path="/product/:id/remove" element={<RemoveProduct />} />
+        <Route path={ROUTES.removeProduct(":id")} element={<RemoveProduct />} />
         <Route path="/product/:id/edit" element={<EditProduct />} />
       </Route>
       <Route path={ROUTES.products}>
@@ -73,7 +74,7 @@ export const RoutesElement = () => {
       <Route element={<Policy />} path={ROUTES.privacyPolicy}></Route>
       {/* <Route element={<Cookie/>} path='/polityka-cookie'></Route> */}
 
-      <Route element={<div>404</div>} path="*" />
+      <Route element={<Page404 />} path="*" />
 
     </Routes>
   )

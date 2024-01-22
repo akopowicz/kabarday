@@ -12,6 +12,7 @@ export const ROUTES = {
     payment: '/metody-platnosci',
     privacyPolicy: '/polityka-prywatnosci',
     products: '/products',
+    removeProduct: (id:string)=>`/products/${id}/remove`,
     policy: '/regulamin',
     realization: '/realizacja-zamowien',
     scarfs: '/products/szaliki',

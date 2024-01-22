@@ -60,7 +60,7 @@ export const Navigation = () => {
                         </div>
                         <ul className={`${style.productsCategory} ${isProductsCategoriesShown ? style.show : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <li><Link to={ROUTES.sweaters} onClick={()=>{navigationAnalyticsEvents("navigation_swetry")}} state={'481755e5-a680-4102-85f1-509a35f95404'}>Swetry</Link></li>
-                            <li><Link to={ROUTES.dresses} onClick={()=>{navigationAnalyticsEvents("navigation_dresses")}} state={'bb01368e-36cc-4b11-81b7-721b48ec8e4d'}>Sukienki</Link></li>
+                            <li><Link to={`${ROUTES.dresses}?typeId=bb01368e-36cc-4b11-81b7-721b48ec8e4d`} onClick={()=>{navigationAnalyticsEvents("navigation_dresses")}}>Sukienki</Link></li>
                             <li><Link to={ROUTES.cardigans} onClick={()=>{navigationAnalyticsEvents("navigation_cardigans")}} state={'1d35804e-5080-45a0-a91f-95bc6dfca62e'}>Kardigany</Link></li>
                             <li><Link to={ROUTES.trousers} onClick={()=>{navigationAnalyticsEvents("navigation_trousers")}} state={'f95a2603-5a49-4ecf-a279-2a5bc2d242cd'}>Spodnie</Link></li>
                             <li><Link to={ROUTES.hats} onClick={()=>{navigationAnalyticsEvents("navigation_hats")}} state={'edba5da0-90c6-4e76-82de-73fe9c2f5058'}>Czapki</Link></li>

@@ -7,9 +7,9 @@ import { SkeletonAllProducts } from "../../Skeleton/SkeletonAllProducts/Skeleton
 
 export const ProductType = () => {
     const location = useLocation();
-    const typeId = location.state
+    const typeId = location.search.split("=")[1]
     const { sortType } = useUserProductsContext();
-   
+   console.log("typeId",typeId)
     const { isLoading, error, data: products } = useQuery({
         queryKey: ['products', typeId, sortType.column, sortType.ascendic],
         queryFn: () => getProducts("", "", sortType.column, sortType.ascendic, typeId),

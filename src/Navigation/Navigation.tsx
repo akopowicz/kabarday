@@ -52,7 +52,7 @@ export const Navigation = () => {
 
                 <ul className={`${style.navigationItemsWrapper} ${isHamburgerShown ? style.show : ''}`}>
                     <li>
-                        <Link className={style.navigationItem} to={ROUTES.sweaters} onClick={()=>{navigationAnalyticsEvents("navigation_sweter")}} state={'481755e5-a680-4102-85f1-509a35f95404'}>swetry</Link>
+                        <Link className={style.navigationItem} to={`${ROUTES.sweaters}?typeId=481755e5-a680-4102-85f1-509a35f95404`} onClick={()=>{navigationAnalyticsEvents("navigation_sweter")}} state={'481755e5-a680-4102-85f1-509a35f95404'}>swetry</Link>
 
                     </li>
                     <li className={`${style.productsItem} ${style.productsItemPraducts}`}>

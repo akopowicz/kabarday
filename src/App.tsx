@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import './App.css'
 import {
   QueryClient,
@@ -13,7 +13,7 @@ import { UserProductsContextProvider } from './Context/UserProductsContextProvid
 import { RoutesElement } from './RoutesElement';
 import { ProductsContextProvider } from './Context/ProductsContextProvider';
 import { HelmetProvider } from 'react-helmet-async';
-const helmetContext = {};
+// const helmetContext = {};
 const queryClient = new QueryClient({
   queryCache: new QueryCache(),
   defaultOptions: {
@@ -26,23 +26,23 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <>
-    <HelmetProvider context={helmetContext}>
-      <QueryClientProvider client={queryClient}>
-        {process.env.NODE_ENV === "development" && (
-          <ReactQueryDevtools initialIsOpen={false} />
-        )}
-        <UserProductsContextProvider>
-          <ProductsContextProvider>
-          <Suspense>
-            <BrowserRouter>
-              <Navigation />
-              <RoutesElement/>
-              <Footer />
-            </BrowserRouter>
-          </Suspense>
-          </ProductsContextProvider>
-        </UserProductsContextProvider>
-      </QueryClientProvider>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          {process.env.NODE_ENV === "development" && (
+            <ReactQueryDevtools initialIsOpen={false} />
+          )}
+          <UserProductsContextProvider>
+            <ProductsContextProvider>
+              <Suspense>
+                <BrowserRouter>
+                  <Navigation />
+                  <RoutesElement />
+                  <Footer />
+                </BrowserRouter>
+              </Suspense>
+            </ProductsContextProvider>
+          </UserProductsContextProvider>
+        </QueryClientProvider>
       </HelmetProvider>
     </>
   )

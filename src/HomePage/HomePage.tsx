@@ -55,6 +55,11 @@ export const HomePage = () => {
             <meta property="image:alt" content="logo" />
                 <meta property="og:title" content="Kabarday" />
                 <meta property="og:description" content="Kabarday to ręcznie robione swety z naturalnych włóczek." />
+                <meta property="image" content="https://ytjymmciwsnouqxdavcc.supabase.co/storage/v1/object/public/kabarday/logo%20_link.png?t=2024-01-23T18%3A41%3A20.812Z"></meta>
+            <meta property="og:image:type" content="image/png" />
+            <meta property="og:image:width" content="540" />
+            <meta property="og:image:height" content="540" />
+            <meta property="og:image:alt" content="logo" />
                 { /* End Facebook tags */}
                 { /* Twitter tags */}
                

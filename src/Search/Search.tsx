@@ -5,9 +5,29 @@ import { useUserProductsContext } from '../Context/UserProductsContextProvider';
 import { getSearchProducts } from '../api/products';
 import { useQuery } from '@tanstack/react-query';
 import { SearchItem } from './SearchItem/SearchItem';
+import { useRef, useEffect } from 'react';
+// import { useProductsContext } from '../Context/ProductsContextProvider';
+
 
 export const Search = ({ showSearch }: { showSearch: () => void }) => {
     const { userSearchProducts, setUserSearchProducts } = useUserProductsContext();
+    const newRef = useRef<HTMLDivElement>(null);
+    // const {showSearchBar, setShowSearchBar } = useProductsContext();
+    
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleOutsideClick);
+        return () => {
+          document.removeEventListener("mousedown", handleOutsideClick);
+        };
+      });
+    
+      const handleOutsideClick = (e: MouseEvent) => {
+        const target = e.target as Node;
+        if (newRef.current && !newRef.current.contains(target)) {
+            setUserSearchProducts('')
+        }
+      };
 
     const { error, data: products } = useQuery({
         queryKey: ['searchProducts', userSearchProducts],
@@ -24,6 +44,9 @@ export const Search = ({ showSearch }: { showSearch: () => void }) => {
     }
 
 
+    
+
+
     if (error) {
 
         // return <p>Spróbuj ponownie później</p>
@@ -33,12 +56,11 @@ export const Search = ({ showSearch }: { showSearch: () => void }) => {
         // return <p>Spróbuj ponownie</p>
     }
 
-    console.log(products)
-
+   
     return (
-        <div>
-            <div className={style.inputWrapper}>
-                <input type="text" placeholder="Wyszukaj produkt" className={style.serachInput} onChange={(e) => { filterProductFunction(e.target.value) }} value={userSearchProducts} />
+        <div ref={newRef}>
+            <div className={style.inputWrapper} >
+                <input type="text"  placeholder="Wyszukaj produkt" className={style.serachInput} onChange={(e) => { filterProductFunction(e.target.value) }} value={userSearchProducts} />
                 {userSearchProducts.length > 1 ? <CloseIcon className={style.closeSearch} onClick={cleanSerach} /> : <SearchIcon className={style.searchIcon} />}
             </div>
 
@@ -48,7 +70,7 @@ export const Search = ({ showSearch }: { showSearch: () => void }) => {
                 {products && products.length > 0 ? products?.map(product => {
                     // eslint-disable-next-line
                     //@ts-ignore
-                    return <SearchItem key={product.id} {...product} />
+                    return <SearchItem cleanSerach={cleanSerach} key={product.id} {...product} />
                 }) : <p className={style.cantFind}>{`Nie znaleziono produktu: ${userSearchProducts}`}</p>}
             </div> : ""}
 

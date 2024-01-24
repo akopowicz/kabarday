@@ -7,6 +7,7 @@ import style from './Navigation.module.css';
 import { Search } from "../Search/Search";
 import { analyticsEvent } from "../analytics";
 import { ROUTES } from "../constants";
+
 // import { useProductsContext } from "../Context/ProductsContextProvider";
 
 
@@ -14,9 +15,9 @@ export const Navigation = () => {
     const [isHamburgerShown, setIsHamburgerShown] = useState(false);
     const [isSearchBarShown, setIsSearchBarShown] = useState(false);
     const [isProductsCategoriesShown, setIsProductsCategoriesShown] = useState(false);
-
+    
     // const { activeNavigation, setActiveNavigation } = useProductsContext()
-
+    console.log(isSearchBarShown)
     const showHamburger = () => {
         setIsHamburgerShown(!isHamburgerShown);
         setIsSearchBarShown(false);

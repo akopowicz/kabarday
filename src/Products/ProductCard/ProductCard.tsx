@@ -23,6 +23,8 @@ export default function ProductCard() {
         queryFn: () => getProduct(id)
     })
 
+   
+
     const { isLoading: loadingSimilar, error: errorSimilar, data: similarProducts } = useQuery({
         queryKey: ['similarProducts', id],
         queryFn: () => getSimilarProducts(id)

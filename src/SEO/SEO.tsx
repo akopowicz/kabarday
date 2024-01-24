@@ -5,7 +5,7 @@ export default function SEO({ title, description, name, photo }: { title: string
             { /* Standard metadata tags */}
             <title>{title}</title>
             <meta name='description' content={description} />
-            <meta property="image" content={photo}/>
+            <meta property="image" content={photo} />
             <meta property="image:type" content="image/png" />
             <meta property="image:width" content="240" />
             <meta property="image:height" content="240" />

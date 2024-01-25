@@ -7,7 +7,7 @@ import { Header } from "./Header/Header";
 import { analyticsEvent } from '../analytics'
 import { SkeletonHomePage } from "../Skeleton/SkeletonHomePage/SkeletonHomePage";
 import { ROUTES } from "../constants";
-import SEO from "../SEO/SEO";
+// import SEO from "../SEO/SEO";
 // import { Helmet } from "react-helmet-async";
 
 export const HomePage = () => {
@@ -36,12 +36,11 @@ export const HomePage = () => {
 
     return (
         <div>
-            <SEO
-                title="Kabarday"
-                description="Kabarday to ręcznie robione swety z naturalnych włóczek."
-                name="Kabarday"
+            {/* <SEO
+                title="Ręcznie robione swetry"
                 photo="https://ytjymmciwsnouqxdavcc.supabase.co/storage/v1/object/public/kabarday/logo%20_link.png?t=2024-01-23T18%3A41%3A20.812Z"
-            />
+            /> */}
+           
             
             <Header />
             <div className={style.productsMainWrapper}>

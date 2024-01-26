@@ -113,6 +113,15 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
     }
 
 
+    const handleKeyDown = () => {
+      if (slider) {
+        slider.focus();
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+
+
   }, []);
 
 

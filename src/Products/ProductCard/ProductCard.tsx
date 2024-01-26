@@ -11,18 +11,16 @@ import { Details } from "./Details/Details";
 import { MoreSimilarProducts } from "./MoreSimilarProducts/MoreSimilarProducts";
 import { MainPhotoAndCarousel } from "./MainPhotoAndCarousel/MainPhotoAndCarousel";
 import { PathInformation } from "./PathInformation/PathInformation";
-import { BigPhotoDesktop } from "./BigPhotoDesktop/BigPhotoDesktop";
+
 
 export default function ProductCard() {
     const location = useLocation();
     const id = location.search.split("=")[1]
     const { showBigPhoto, setShowBigPhoto } = useProductsContext()
     const [mainPhoto, setMainPhoto] = useState('')
-    const [width, setWidth] = useState<number>(window.innerWidth);
 
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth);
-    }
+
+   
 
     const { isLoading, error, data: productDetails } = useQuery({
         queryKey: ['product', id],
@@ -40,7 +38,7 @@ export default function ProductCard() {
         if (productDetails) {
             setMainPhoto(productDetails[0].photos[0].photo_link)
         }
-        window.addEventListener('resize', handleWindowSizeChange);
+        
     }, [productDetails])
 
 
@@ -59,7 +57,7 @@ export default function ProductCard() {
 
     const product = productDetails[0]
 
-    const isMobile = width <= 768;
+
     const changeMainPhoto = (photoSrc: string) => {
         setMainPhoto(photoSrc)
     }
@@ -89,7 +87,8 @@ export default function ProductCard() {
                 </div>
                 <MoreSimilarProducts similarProducts={similarProducts} />
             </div>
-            {showBigPhoto ? isMobile ? <BigPhoto mainPhoto={mainPhoto} allPhotos={product.photos.filter(photo => photo.photo_link !== mainPhoto)} /> : <BigPhotoDesktop mainPhoto={mainPhoto} allPhotos={product.photos.filter(photo => photo.photo_link !== mainPhoto)}/> : ""}
+            {/* {showBigPhoto ? isMobile ? <BigPhoto mainPhoto={mainPhoto} allPhotos={product.photos.filter(photo => photo.photo_link !== mainPhoto)} /> : <BigPhotoDesktop mainPhoto={mainPhoto} allPhotos={product.photos.filter(photo => photo.photo_link !== mainPhoto)}/> : ""} */}
+            {showBigPhoto ?<BigPhoto mainPhoto={mainPhoto} allPhotos={product.photos.filter(photo => photo.photo_link !== mainPhoto)} /> : ""}
         </div>
     )
 }

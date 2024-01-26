@@ -133,7 +133,6 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
 
   const hideBigPhoto = () => {
     setShowBigPhoto(false)
-    document.body.style.overflowY = 'auto';
   }
 
   return (

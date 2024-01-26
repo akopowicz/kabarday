@@ -122,6 +122,11 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
 
   const isMobile = width <= 768;
 
+  const hideBigPhoto = () => {
+    setShowBigPhoto(false)
+    document.body.style.overflowY = 'auto';
+  }
+
   return (
     <div className={style.bigPhotoWrapper}>
       <div className={style.imageWrapper} id='imageWrapper'>
@@ -148,7 +153,7 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
       </CarouselProvider>
       </div>
      
-      <CloseIcon sx={{ boxShadow: 3 }} className={style.closeIcon} onClick={() => setShowBigPhoto(false)} />
+      <CloseIcon sx={{ boxShadow: 3 }} className={style.closeIcon} onClick={hideBigPhoto} />
     </div>
   )
 }

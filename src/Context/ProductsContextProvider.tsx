@@ -11,6 +11,8 @@ type ProductsContextProps = {
     setShowBigPhoto: Dispatch<SetStateAction<boolean>>,
     activeNavigation: string,
     setActiveNavigation: Dispatch<SetStateAction<string>>,
+    overflowY: boolean,
+    setOverflowY: Dispatch<SetStateAction<boolean>>,
 }
 
 const ProductsContext = createContext<ProductsContextProps | null>(null)
@@ -20,9 +22,10 @@ export const ProductsContextProvider = ({ children }: { children: React.ReactNod
     const [filteredProducts, setFilteredProducts] = useState<Database["public"]["Tables"]["products"]["Row"][]>([]);
     const [showBigPhoto, setShowBigPhoto] = useState(false);
     const [activeNavigation, setActiveNavigation] = useState("home");
+    const [overflowY, setOverflowY] = useState(false);
 
     return (
-        <ProductsContext.Provider value={{ productType, setProductType, filteredProducts, setFilteredProducts, showBigPhoto, setShowBigPhoto, activeNavigation, setActiveNavigation }}>
+        <ProductsContext.Provider value={{ productType, setProductType, filteredProducts, setFilteredProducts, showBigPhoto, setShowBigPhoto, activeNavigation, setActiveNavigation, overflowY, setOverflowY }}>
             {children}
         </ProductsContext.Provider>
     );

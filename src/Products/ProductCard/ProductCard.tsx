@@ -59,6 +59,7 @@ export default function ProductCard() {
 
     const showMainPhotoBig = () => {
         setShowBigPhoto(true)
+        document.body.style.overflowY = "hidden";
     }
 
     const changePhotoFromSlider=(newPhoto:string)=>{

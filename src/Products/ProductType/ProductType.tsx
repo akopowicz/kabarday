@@ -15,6 +15,8 @@ export const ProductType = () => {
         queryFn: () => getProducts("", "", sortType.column, sortType.ascendic, typeId),
     })
 
+    console.log(location.pathname)
+
     if (error) {
         return <p>Cannot get products</p>
     }

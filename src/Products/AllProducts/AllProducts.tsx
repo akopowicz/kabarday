@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Sorting } from "../../Sorting/Sorting";
 import {ROUTES} from "../../constants";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { Quality } from "../Quality/Quality";
 
 type Photos = {
     product_id: string,
@@ -20,7 +21,7 @@ type ProductCard = {
     product_type: ProductType | null
 }
 
-export default function AllProducts(props: { allProducts: ProductCard[], productType: string | undefined }) {
+export default function AllProducts(props: { allProducts: ProductCard[], productType: string | undefined}) {
 
     return (
         <div className={`mainWrapper ${style.mainWrapper}`}>
@@ -31,8 +32,13 @@ export default function AllProducts(props: { allProducts: ProductCard[], product
                     <Link to={ROUTES.products}>Produkty</Link>
                     {props.productType !== undefined ? <div className={style.productType}><KeyboardArrowRightIcon className={style.arrow} /><p>{props.productType}</p></div> : null}
                 </div>
+                <div className={style.sortingWrapper}>
                 <Sorting />
+                <Quality/>
+                </div>
+                
             </div>
+            
             <div className={style.productsMainWrapper}>
                 <div className={style.productsWrapper}>
                     {props.allProducts.map(product => {

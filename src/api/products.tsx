@@ -48,14 +48,14 @@ export const addNewProduct = async (addProductData: AddProductSchema) => {
 
 
 //TODO: type na start i reszta opcjonalna
-export const getProducts = async (search?: string, id?: string, column?: string, ascendic?: boolean, type?: string) => {
+export const getProducts = async (search?: string, id?: string, column?: string, ascendic?: boolean, type?: string, quality?: string) => {
 
   let query = supabase.from('products').select(`
   *, 
   product_type ( type_name, id ),
   photos (product_id, id, photo_link)
 `)
-
+console.log(quality)
   if (type && type !== "all") {
     query = query.eq('type_id', type)
   }
@@ -73,6 +73,10 @@ export const getProducts = async (search?: string, id?: string, column?: string,
   }
   if (id && id !== "all") {
     query = query.eq('type_id', id)
+  }
+
+  if (quality && quality!== "all") {
+    query = query.ilike("composition", `%${quality}%`)
   }
   const { data: products, error } = await query;
   console.log(error)

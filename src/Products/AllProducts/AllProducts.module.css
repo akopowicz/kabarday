@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .productsMainWrapper {
@@ -47,6 +48,14 @@
     margin-bottom: 1rem;
 }
 
+.sortingWrapper {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
 .productType {
     display: flex;
     align-items: center;
@@ -65,6 +74,12 @@
     .productNavigationWrapper {
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    .sortingWrapper {
+        width: 50%;
+        justify-content: flex-start;
+        flex-direction: row-reverse;
     }
 }
 

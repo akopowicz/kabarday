@@ -1,0 +1,3 @@
+User-Agent: *
+Allow: /
+sitemap: https://www.kabarday.com/sitemap.xml

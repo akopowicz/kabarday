@@ -87,6 +87,11 @@
     list-style-type:decimal;
   }
 
+  .orderedListMain {
+    list-style-type:decimal;
+    font-weight: 700;
+  }
+
   .link {
     /* color:  #4FB1FE;
      */
@@ -151,6 +156,13 @@
     cursor: pointer;
   }
   
+  .bold {
+    font-weight: 700;
+  }
+
+  .adresLi {
+    line-height: .5rem;
+  }
 
   
 

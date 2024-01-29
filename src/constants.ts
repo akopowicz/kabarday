@@ -18,5 +18,7 @@ export const ROUTES = {
     scarfs: '/products/szaliki',
     sweaters: '/products/swetry',
     trousers: '/products/spodnie',
+    regulation: '/regulamin',
+    website: 'https://kabarday.com',
 }
 

@@ -136,6 +136,7 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
   }
 
   return (
+    <>
     <div className={style.bigPhotoWrapper}>
       <div className={style.imageWrapper} id='imageWrapper'>
       <CarouselProvider
@@ -163,5 +164,6 @@ export const BigPhoto = ({ mainPhoto, allPhotos }: { mainPhoto: string, allPhoto
      
       <CloseIcon sx={{ boxShadow: 3 }} className={style.closeIcon} onClick={hideBigPhoto} />
     </div>
+    </>
   )
 }

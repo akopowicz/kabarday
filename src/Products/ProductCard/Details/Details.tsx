@@ -104,7 +104,7 @@ export const Details = ({ product }: { product: productType }) => {
                     </div>
                     <p className={`${style.orderText} ${order ? style.showText : ""}`}>Po zaksięgowaniu wpłaty za zamówienie czas realizacji wynosi od 5 do 21 dni</p>
                 </div>
-                <a href={`mailto:${ROUTES.email}?subject=${product.name}`} className={style.order} onClick={() => { analyticsEvent("cta", `order_${product.name}`) }}>Zamów</a>
+                <a href={`mailto:${ROUTES.email}?subject=${product.name}`} className={style.order} onClick={() => { analyticsEvent("cta", `cta_order_${product.name}`) }}>Zamów</a>
             </div>
         </div>
     )

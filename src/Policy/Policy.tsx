@@ -1,5 +1,6 @@
 import style from './Policy.module.css';
 import { ROUTES } from '../constants';
+import { Routes } from 'react-router-dom';
 
 export const Policy = () => {
     return (
@@ -7,7 +8,7 @@ export const Policy = () => {
                 <div className={style.content_wrapper}>
                     <h3 className={style.title}>POLITYKA PRYWATNOŚCI</h3>
                     Niniejsza Polityka stanowi podstawową informację o celach, sposobach przetwarzania oraz bezpieczeństwie Twoich
-                    danych osobowych, jako użytkownika strony: <a className={style.link} href="https://kabarday.pl" target="_blank">kabarday.pl</a> (zwanej dalej Stroną). Zapoznając się z
+                    danych osobowych, jako użytkownika strony: <a className={style.link} href={ROUTES.website} target="_blank">kabarday.com</a> (zwanej dalej Stroną). Zapoznając się z
                     Polityką prywatności dowiesz się kto jest administratorem Twoich danych osobowych, jakie dane osobowe są przez
                     Stronę zbierane, w jakich celach są wykorzystywane oraz jak są chronione.
                 </div>

@@ -1,6 +1,5 @@
 import style from './Policy.module.css';
 import { ROUTES } from '../constants';
-import { Routes } from 'react-router-dom';
 
 export const Policy = () => {
     return (

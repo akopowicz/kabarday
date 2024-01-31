@@ -23,6 +23,7 @@ import { Policy } from './Policy/Policy';
 import { ROUTES } from './constants';
 import { Page404 } from './404/404';
 import { Regulations } from './Regulations/Regulations';
+import { Return } from './Return/Return';
 // import { Cookie } from './Policy/Cookie/Cookie';
 // import ReactGA from'react-ga4';
 
@@ -74,6 +75,7 @@ export const RoutesElement = () => {
       <Route element={<AllProducts allProducts={[]} productType={''} />} path="/allProducts" />
       <Route element={<Policy />} path={ROUTES.privacyPolicy}></Route>
       <Route element={<Regulations />} path={ROUTES.regulation}></Route>
+      <Route element={<Return />} path={ROUTES.return}></Route>
       {/* <Route element={<Cookie/>} path='/polityka-cookie'></Route> */}
 
       <Route element={<Page404 />} path="*" />

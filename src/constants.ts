@@ -20,5 +20,6 @@ export const ROUTES = {
     trousers: '/products/spodnie',
     regulation: '/regulamin',
     website: 'https://kabarday.com',
+    return:"/zwroty-reklamacje"
 }
 

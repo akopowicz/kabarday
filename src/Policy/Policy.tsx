@@ -67,7 +67,7 @@ export const Policy = () => {
                                         <li className={style.unordered}>jeśli prześlesz nam wiadomość e-mail to będziemy przetwarzać dane, które będą w
                                             niej zawarte. Przekazanie nam danych w e-mailu następuje dobrowolnie. W każdym czasie możesz zwrócić
                                             się do nas z prośbą o usunięcie tych danych.</li>
-                                        <li className={style.unordered}>jeśli skorzystać z formularza kontaktowego na naszej stronie to będziemy
+                                        <li className={style.unordered}>jeśli skorzystasz z formularza kontaktowego na naszej stronie to będziemy
                                             przetwarzać dane w postaci twojego adresu e-mail oraz imienia. Podanie tych danych stanowi warunek
                                             udzielenia przez nas odpowiedzi na Twoje zapytanie.</li>
                                         <li className={style.unordered}>pozostałe dane, które Administrator przetwarza to adres IP i inne dane zapisywane

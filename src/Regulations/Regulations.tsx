@@ -123,7 +123,7 @@ export const Regulations = () => {
                         <ol className={style.first_list}>
                             <li>W celu złożenia Zamówienia należy:
                                 <ul>
-                                    <li className={style.orderedList}>Napisać wiadomość mailową na podany w nimniejszym regulaminie mail kontaktowych. Mail powinien zawierać następujące informacje1;
+                                    <li className={style.orderedList}>Napisać wiadomość mailową na podany w nimniejszym regulaminie mail kontaktowych. Mail powinien zawierać następujące informacje;
                                         <ul>
                                             <li className={style.unordered}>Nazwa zamiawianego produktu,</li>
                                             <li className={style.unordered}>Kolor</li>

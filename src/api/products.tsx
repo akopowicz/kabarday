@@ -55,7 +55,6 @@ export const getProducts = async (search?: string, id?: string, column?: string,
   product_type ( type_name, id ),
   photos (product_id, id, photo_link)
 `)
-console.log(quality)
   if (type && type !== "all") {
     query = query.eq('type_id', type)
   }

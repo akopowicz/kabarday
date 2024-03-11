@@ -33,10 +33,10 @@ const FooterNavigaton = [
                 title: 'Zwroty i reklamacje',
                 link: ROUTES.return,
             },
-            {
-                title: 'Instrukcja prania',
-                link: ""
-            }
+            // {
+            //     title: 'Instrukcja prania',
+            //     link: ""
+            // }
         ]
     },
     {

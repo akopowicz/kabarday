@@ -5,7 +5,6 @@ import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-re
 import {productType} from '../../../types/types';
 
 export const MainPhotoAndCarousel = ({mainPhoto, productDetails, product, showMainPhotoBig, changePhotoFromSlider }:{mainPhoto:string, productDetails: productType[], product: productType, showMainPhotoBig: ()=>void, changePhotoFromSlider: (newPhoto:string)=>void  }) => { 
-    console.log(product)
     return (
         <div className={style.photosWrapper}>
                             <div className={style.mainPhotoWrapper}>

@@ -43,7 +43,6 @@ export const Details = ({ product }: { product: productType }) => {
     const [howToOrder, setHowToOrder] = useState<boolean>(false)
     const [order, setOrder] = useState<boolean>(false);
 
-    console.log(product.measurements)
     return (
         <div className={style.detailsWrapper}>
             <div className={style.nameAndPrice}>
@@ -64,20 +63,9 @@ export const Details = ({ product }: { product: productType }) => {
                     <p>Długość: {product.measurements[0]?.length}cm</p>
                     <p>Szerokość: {product.measurements[0]?.width}cm</p>
                     {product.measurements[0]?.sleeve_length!== null? <p>Długość rękawów: {product.measurements[0]?.sleeve_length}cm</p> : ""}
-                    {/* <p>Długość rękawów: {product.measurements[0]?.sleeve_length}cm</p> */}
 
                 </div>: ""}
                 </div>
-                {/* <div className={style.descriptionTextWrapper}>
-                    <h3 className={style.description}>Opis:</h3>
-                   
-                    <p className={style.descriptionText}>{product.description}</p>
-                    <p>Wymiary:</p>
-                    <p>Długość: {product.measurements[0]?.length}cm</p>
-                    <p>Szerokość: {product.measurements[0]?.width}cm</p>
-                    <p>Długość rękawów: {product.measurements[0]?.sleeve_length}cm</p>
-
-                </div> */}
                 <div>
                     <div className={style.descriptionMore} onClick={() => {
                         setAvaliableColors(!avaliableColors)

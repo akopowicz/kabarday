@@ -18,14 +18,10 @@ export const ProductType = () => {
     const { sortType } = useUserProductsContext();
     const { quality } = useProductsContext();
 
-
-    console.log("typeId", typeId)
     const { isLoading, error, data: products } = useQuery({
         queryKey: ['products', typeId, sortType.column, sortType.ascendic, quality],
         queryFn: () => getProducts("", "", sortType.column, sortType.ascendic, typeId, quality),
     })
-
-    console.log(location.pathname)
 
     if (error) {
         return <p>Cannot get products</p>

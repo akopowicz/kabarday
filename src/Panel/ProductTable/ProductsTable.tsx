@@ -5,7 +5,6 @@ import style from './ProductTable.module.css'
 export const ProductsTable = () => {
   const { filteredProducts } = useProductsContext()
 
-  console.log(filteredProducts)
   return (
     <table className={style.table}>
       <thead className={style.thead}>

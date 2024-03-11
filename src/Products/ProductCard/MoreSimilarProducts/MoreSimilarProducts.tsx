@@ -16,7 +16,6 @@ type MoreSimilarProductsType = {
     product_type: ProductType
 }
 export const MoreSimilarProducts = ({similarProducts}:{similarProducts: MoreSimilarProductsType[]}) => {
-    console.log(similarProducts)
     return(
         <div className={style.more}>
                     <h2 className={style.h2}>Może Ci się spodobać:</h2>
